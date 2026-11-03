@@ -10,14 +10,14 @@ import (
 	"strings"
 
 	"github.com/pterm/pterm"
-	"github.com/xel7dev/wails/v3/internal/defaults"
-	"github.com/xel7dev/wails/v3/internal/features"
-	"github.com/xel7dev/wails/v3/internal/flags"
-	"github.com/xel7dev/wails/v3/internal/git"
-	"github.com/xel7dev/wails/v3/internal/setupwizard"
-	"github.com/xel7dev/wails/v3/internal/templates"
-	"github.com/xel7dev/wails/v3/internal/term"
-	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/internal/defaults"
+	"github.com/xel7dev/wails/internal/features"
+	"github.com/xel7dev/wails/internal/flags"
+	"github.com/xel7dev/wails/internal/git"
+	"github.com/xel7dev/wails/internal/setupwizard"
+	"github.com/xel7dev/wails/internal/templates"
+	"github.com/xel7dev/wails/internal/term"
+	"github.com/xel7dev/wails/internal/wake/manifest"
 )
 
 var DisableFooter bool

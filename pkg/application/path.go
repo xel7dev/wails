@@ -1,6 +1,6 @@
 package application
 
-import "github.com/xel7dev/wails/v3/internal/userpaths"
+import "github.com/xel7dev/wails/internal/userpaths"
 
 type PathType int
 

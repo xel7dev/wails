@@ -8,10 +8,10 @@ import (
 	"syscall"
 	"unsafe"
 
-	"github.com/xel7dev/wails/v3/pkg/icons"
+	"github.com/xel7dev/wails/pkg/icons"
 
-	"github.com/xel7dev/wails/v3/pkg/events"
-	"github.com/xel7dev/wails/v3/pkg/w32"
+	"github.com/xel7dev/wails/pkg/events"
+	"github.com/xel7dev/wails/pkg/w32"
 )
 
 const (

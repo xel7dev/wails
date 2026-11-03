@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/xel7dev/wails/v3/internal/buildwarnings"
+	"github.com/xel7dev/wails/internal/buildwarnings"
 	"golang.org/x/mod/modfile"
 )
 

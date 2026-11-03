@@ -9,12 +9,12 @@ import (
 	"strings"
 
 	"github.com/google/shlex"
-	"github.com/xel7dev/wails/v3/internal/buildwarnings"
-	"github.com/xel7dev/wails/v3/internal/features"
-	"github.com/xel7dev/wails/v3/internal/flags"
-	"github.com/xel7dev/wails/v3/internal/term"
-	"github.com/xel7dev/wails/v3/internal/wake/manifest"
-	"github.com/xel7dev/wails/v3/internal/wake/pipeline"
+	"github.com/xel7dev/wails/internal/buildwarnings"
+	"github.com/xel7dev/wails/internal/features"
+	"github.com/xel7dev/wails/internal/flags"
+	"github.com/xel7dev/wails/internal/term"
+	"github.com/xel7dev/wails/internal/wake/manifest"
+	"github.com/xel7dev/wails/internal/wake/pipeline"
 )
 
 // runTaskFunc is a variable to allow mocking in tests

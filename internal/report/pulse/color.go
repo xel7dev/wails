@@ -9,7 +9,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/xel7dev/wails/v3/internal/report/pulse/ansi"
+	"github.com/xel7dev/wails/internal/report/pulse/ansi"
 )
 
 // Profile is what the terminal can render. We fall through TrueColor → 256 →

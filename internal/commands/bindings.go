@@ -7,10 +7,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/xel7dev/wails/v3/internal/flags"
-	"github.com/xel7dev/wails/v3/internal/generator"
-	"github.com/xel7dev/wails/v3/internal/generator/config"
-	"github.com/xel7dev/wails/v3/internal/term"
+	"github.com/xel7dev/wails/internal/flags"
+	"github.com/xel7dev/wails/internal/generator"
+	"github.com/xel7dev/wails/internal/generator/config"
+	"github.com/xel7dev/wails/internal/term"
 )
 
 func GenerateBindings(options *flags.GenerateBindingsOptions, patterns []string) error {
@@ -167,7 +167,7 @@ func pluralise(number int, word string) string {
 
 const (
 	// wailsModulePath is the import path of this fork's Wails module.
-	wailsModulePath = "github.com/xel7dev/wails/v3"
+	wailsModulePath = "github.com/xel7dev/wails"
 	// typedEventsModulePath is the Wails module path hard-coded by the
 	// @wailsio/runtime typed-events Vite plugin when it looks for the
 	// generated event bindings.

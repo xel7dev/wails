@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"slices"
 
-	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/internal/wake/manifest"
 )
 
 func planPrebuilt(plan Plan, config manifest.Config, request Request, multiTarget bool) (Plan, error) {

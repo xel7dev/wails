@@ -20,11 +20,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/xel7dev/wails/v3/internal/browser"
-	"github.com/xel7dev/wails/v3/internal/doctor"
-	"github.com/xel7dev/wails/v3/internal/features"
-	"github.com/xel7dev/wails/v3/internal/operatingsystem"
-	"github.com/xel7dev/wails/v3/internal/version"
+	"github.com/xel7dev/wails/internal/browser"
+	"github.com/xel7dev/wails/internal/doctor"
+	"github.com/xel7dev/wails/internal/features"
+	"github.com/xel7dev/wails/internal/operatingsystem"
+	"github.com/xel7dev/wails/internal/version"
 )
 
 //go:embed frontend/dist/*

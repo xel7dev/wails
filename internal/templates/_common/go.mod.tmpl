@@ -2,8 +2,8 @@ module {{.ModulePath}}
 
 go 1.26.0
 
-require github.com/xel7dev/wails/v3 {{.WailsVersion}}
+require github.com/xel7dev/wails {{.WailsVersion}}
 
 {{if .LocalModulePath}}
-replace github.com/xel7dev/wails/v3 => {{.LocalModulePath}}
+replace github.com/xel7dev/wails => {{.LocalModulePath}}
 {{end}}

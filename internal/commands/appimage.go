@@ -4,7 +4,7 @@ import (
 	_ "embed"
 	"errors"
 	"fmt"
-	"github.com/xel7dev/wails/v3/internal/term"
+	"github.com/xel7dev/wails/internal/term"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -12,8 +12,8 @@ import (
 	"strings"
 
 	"github.com/pterm/pterm"
-	"github.com/xel7dev/wails/v3/internal/appimage"
-	"github.com/xel7dev/wails/v3/internal/s"
+	"github.com/xel7dev/wails/internal/appimage"
+	"github.com/xel7dev/wails/internal/s"
 )
 
 //go:embed linuxdeploy-plugin-gtk.sh

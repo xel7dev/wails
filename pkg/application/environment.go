@@ -1,6 +1,6 @@
 package application
 
-import "github.com/xel7dev/wails/v3/internal/operatingsystem"
+import "github.com/xel7dev/wails/internal/operatingsystem"
 
 // EnvironmentInfo represents information about the current environment.
 //

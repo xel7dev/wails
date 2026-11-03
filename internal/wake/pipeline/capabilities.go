@@ -3,7 +3,7 @@ package pipeline
 import (
 	"fmt"
 
-	"github.com/xel7dev/wails/v3/internal/wake/buildinfo"
+	"github.com/xel7dev/wails/internal/wake/buildinfo"
 )
 
 type targetCapability = buildinfo.TargetCapability

@@ -8,8 +8,8 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/xel7dev/wails/v3/internal/operatingsystem"
-	"github.com/xel7dev/wails/v3/pkg/events"
+	"github.com/xel7dev/wails/internal/operatingsystem"
+	"github.com/xel7dev/wails/pkg/events"
 )
 
 // logPlatformInfo logs the platform information to the console

@@ -2,7 +2,7 @@
 
 package application
 
-import "github.com/xel7dev/wails/v3/pkg/events"
+import "github.com/xel7dev/wails/pkg/events"
 
 // Map platform events → common events (same pattern as macOS & others).
 // setupCommonEvents copies the source event's context, so any data attached on

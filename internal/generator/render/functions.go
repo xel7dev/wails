@@ -8,7 +8,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/xel7dev/wails/v3/internal/generator/collect"
+	"github.com/xel7dev/wails/internal/generator/collect"
 )
 
 // tmplFunctions holds a map of utility functions

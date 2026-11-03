@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/xel7dev/wails/v3/internal/readonlyfs"
+	"github.com/xel7dev/wails/internal/readonlyfs"
 )
 
 // CreateNative builds a type-2 AppImage without executing target binaries or

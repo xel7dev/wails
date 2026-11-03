@@ -2,7 +2,7 @@
 
 package application
 
-import "github.com/xel7dev/wails/v3/pkg/events"
+import "github.com/xel7dev/wails/pkg/events"
 
 var commonApplicationEventMap = map[events.ApplicationEventType]events.ApplicationEventType{
 	events.Linux.ApplicationStartup: events.Common.ApplicationStarted,

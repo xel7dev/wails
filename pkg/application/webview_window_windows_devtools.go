@@ -2,7 +2,7 @@
 
 package application
 
-import "github.com/xel7dev/wails/v3/internal/webview2/pkg/edge"
+import "github.com/xel7dev/wails/internal/webview2/pkg/edge"
 
 func (w *windowsWebviewWindow) openDevTools() {
 	w.chromium.OpenDevToolsWindow()

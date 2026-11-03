@@ -3,7 +3,7 @@ package generator
 import (
 	"path/filepath"
 
-	"github.com/xel7dev/wails/v3/internal/generator/collect"
+	"github.com/xel7dev/wails/internal/generator/collect"
 )
 
 func (generator *Generator) generateEvents(events *collect.EventMap) {

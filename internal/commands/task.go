@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/xel7dev/wails/v3/internal/buildwarnings"
-	"github.com/xel7dev/wails/v3/internal/term"
+	"github.com/xel7dev/wails/internal/buildwarnings"
+	"github.com/xel7dev/wails/internal/term"
 
 	"github.com/wailsapp/task/v3"
 	"github.com/wailsapp/task/v3/taskfile/ast"

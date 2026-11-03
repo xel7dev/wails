@@ -7,7 +7,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/xel7dev/wails/v3/internal/generator/collect"
+	"github.com/xel7dev/wails/internal/generator/collect"
 )
 
 // EventNamesDir is the directory, relative to the bindings root,

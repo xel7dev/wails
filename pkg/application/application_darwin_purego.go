@@ -10,7 +10,7 @@ import (
 	"unsafe"
 
 	"github.com/ebitengine/purego/objc"
-	"github.com/xel7dev/wails/v3/pkg/events"
+	"github.com/xel7dev/wails/pkg/events"
 )
 
 // The shared application delegate instance and the terminate-behaviour flag

@@ -10,7 +10,7 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/xel7dev/wails/v3/internal/stagefile"
+	"github.com/xel7dev/wails/internal/stagefile"
 )
 
 func (options Options) prepareNativeDirectory(ctx context.Context, stage string) (string, error) {

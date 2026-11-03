@@ -3,9 +3,9 @@ package commands
 import (
 	"context"
 
-	"github.com/xel7dev/wails/v3/internal/packagesign"
-	"github.com/xel7dev/wails/v3/internal/signingconfig"
-	"github.com/xel7dev/wails/v3/internal/wake/pipeline"
+	"github.com/xel7dev/wails/internal/packagesign"
+	"github.com/xel7dev/wails/internal/signingconfig"
+	"github.com/xel7dev/wails/internal/wake/pipeline"
 )
 
 func (h *manifestHandler) signArch(ctx context.Context, spec pipeline.SignSpec) (pipeline.RunResult, error) {

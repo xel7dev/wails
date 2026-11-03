@@ -8,7 +8,7 @@ import (
 
 	"github.com/charmbracelet/huh"
 	"github.com/pterm/pterm"
-	"github.com/xel7dev/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/internal/flags"
 )
 
 // Entitlement represents a macOS entitlement

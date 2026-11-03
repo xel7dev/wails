@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"unsafe"
 
-	"github.com/xel7dev/wails/v3/pkg/events"
+	"github.com/xel7dev/wails/pkg/events"
 )
 
 // BrowserWindow represents a browser client connection in server mode.

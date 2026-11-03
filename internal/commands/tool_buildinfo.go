@@ -2,7 +2,7 @@ package commands
 
 import (
 	"fmt"
-	"github.com/xel7dev/wails/v3/internal/buildinfo"
+	"github.com/xel7dev/wails/internal/buildinfo"
 )
 
 type BuildInfoOptions struct{}

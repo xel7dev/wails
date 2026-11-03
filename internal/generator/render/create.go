@@ -6,7 +6,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/xel7dev/wails/v3/internal/generator/collect"
+	"github.com/xel7dev/wails/internal/generator/collect"
 )
 
 // SkipCreate returns true if the given array of types needs no creation code.

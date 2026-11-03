@@ -18,7 +18,7 @@ import "C"
 import (
 	"unsafe"
 
-	"github.com/xel7dev/wails/v3/internal/assetserver"
+	"github.com/xel7dev/wails/internal/assetserver"
 )
 
 // iosWebviewWindow implements the webviewWindowImpl interface for iOS

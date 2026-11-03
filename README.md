@@ -1,15 +1,21 @@
-# Wails v3.0.0
+# Wails v3
 
-Wails v3.0.0 is the stable release for desktop applications on Windows, macOS and Linux.
+Build desktop applications with Go and web frontends.
+
+## Install
 
 ```sh
-go install github.com/xel7dev/wails/v3/cmd/wails@master
+go install github.com/xel7dev/wails@master
 ```
 
-Android and iOS support remains experimental and is outside the stable desktop compatibility contract.
+Requires Go 1.26 or newer.
 
-## Getting Started
+## Use
 
-Installation, migration, platform support, and feature documentation are in
-[`docs/`](docs/) and published at [v3.wails.io](https://v3.wails.io/).
+```sh
+wails init -n myapp
+cd myapp
+wails build
+```
 
+Run `wails doctor` to check your environment.

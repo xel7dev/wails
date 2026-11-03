@@ -9,10 +9,10 @@ import (
 	"path/filepath"
 	"sort"
 
-	"github.com/xel7dev/wails/v3/internal/report"
-	"github.com/xel7dev/wails/v3/internal/wake/buildinfo"
-	"github.com/xel7dev/wails/v3/internal/wake/cache"
-	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/internal/report"
+	"github.com/xel7dev/wails/internal/wake/buildinfo"
+	"github.com/xel7dev/wails/internal/wake/cache"
+	"github.com/xel7dev/wails/internal/wake/manifest"
 )
 
 type NodeKey string

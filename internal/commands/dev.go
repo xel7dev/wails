@@ -6,7 +6,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/xel7dev/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/internal/flags"
 )
 
 const defaultVitePort = 9245

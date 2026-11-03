@@ -34,7 +34,7 @@ import (
 	"github.com/ebitengine/purego"
 	"github.com/ebitengine/purego/objc"
 
-	"github.com/xel7dev/wails/v3/pkg/application"
+	"github.com/xel7dev/wails/pkg/application"
 )
 
 type darwinNotifier struct {

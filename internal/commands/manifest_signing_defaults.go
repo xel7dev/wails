@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/xel7dev/wails/v3/internal/keychain"
-	"github.com/xel7dev/wails/v3/internal/signingconfig"
-	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/internal/keychain"
+	"github.com/xel7dev/wails/internal/signingconfig"
+	"github.com/xel7dev/wails/internal/wake/manifest"
 )
 
 func manifestSigningPassword(config manifest.SigningPlatform, platform string, environment []string) (string, error) {

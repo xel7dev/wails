@@ -14,7 +14,7 @@ import (
 	"sort"
 	"text/template"
 
-	"github.com/xel7dev/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/internal/flags"
 	"golang.org/x/image/draw"
 	"gopkg.in/yaml.v3"
 )

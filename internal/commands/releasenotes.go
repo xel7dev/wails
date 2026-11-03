@@ -1,10 +1,10 @@
 package commands
 
 import (
-	"github.com/xel7dev/wails/v3/internal/github"
-	"github.com/xel7dev/wails/v3/internal/releasenotes"
-	"github.com/xel7dev/wails/v3/internal/term"
-	"github.com/xel7dev/wails/v3/internal/version"
+	"github.com/xel7dev/wails/internal/github"
+	"github.com/xel7dev/wails/internal/releasenotes"
+	"github.com/xel7dev/wails/internal/term"
+	"github.com/xel7dev/wails/internal/version"
 )
 
 type ReleaseNotesOptions struct {

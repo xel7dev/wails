@@ -14,17 +14,17 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/xel7dev/wails/v3/internal/assetserver"
-	"github.com/xel7dev/wails/v3/internal/assetserver/webview"
-	"github.com/xel7dev/wails/v3/internal/capabilities"
-	"github.com/xel7dev/wails/v3/internal/debounce"
-	"github.com/xel7dev/wails/v3/internal/runtime"
-	"github.com/xel7dev/wails/v3/internal/sliceutil"
-	"github.com/xel7dev/wails/v3/internal/webview2/webviewloader"
+	"github.com/xel7dev/wails/internal/assetserver"
+	"github.com/xel7dev/wails/internal/assetserver/webview"
+	"github.com/xel7dev/wails/internal/capabilities"
+	"github.com/xel7dev/wails/internal/debounce"
+	"github.com/xel7dev/wails/internal/runtime"
+	"github.com/xel7dev/wails/internal/sliceutil"
+	"github.com/xel7dev/wails/internal/webview2/webviewloader"
 
-	"github.com/xel7dev/wails/v3/internal/webview2/pkg/edge"
-	"github.com/xel7dev/wails/v3/pkg/events"
-	"github.com/xel7dev/wails/v3/pkg/w32"
+	"github.com/xel7dev/wails/internal/webview2/pkg/edge"
+	"github.com/xel7dev/wails/pkg/events"
+	"github.com/xel7dev/wails/pkg/w32"
 )
 
 var edgeMap = map[string]uintptr{

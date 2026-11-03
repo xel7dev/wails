@@ -11,8 +11,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/xel7dev/wails/v3/internal/report"
-	"github.com/xel7dev/wails/v3/internal/wake/cache"
+	"github.com/xel7dev/wails/internal/report"
+	"github.com/xel7dev/wails/internal/wake/cache"
 	"golang.org/x/sync/semaphore"
 )
 

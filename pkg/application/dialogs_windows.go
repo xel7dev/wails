@@ -9,8 +9,8 @@ import (
 	"syscall"
 	"unsafe"
 
-	"github.com/xel7dev/wails/v3/internal/go-common-file-dialog/cfd"
-	"github.com/xel7dev/wails/v3/pkg/w32"
+	"github.com/xel7dev/wails/internal/go-common-file-dialog/cfd"
+	"github.com/xel7dev/wails/pkg/w32"
 	"golang.org/x/sys/windows"
 )
 

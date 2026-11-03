@@ -15,9 +15,9 @@ import (
 	"github.com/godbus/dbus/v5"
 	"github.com/godbus/dbus/v5/introspect"
 	"github.com/godbus/dbus/v5/prop"
-	"github.com/xel7dev/wails/v3/internal/dbus/menu"
-	"github.com/xel7dev/wails/v3/internal/dbus/notifier"
-	"github.com/xel7dev/wails/v3/pkg/icons"
+	"github.com/xel7dev/wails/internal/dbus/menu"
+	"github.com/xel7dev/wails/internal/dbus/notifier"
+	"github.com/xel7dev/wails/pkg/icons"
 )
 
 const (

@@ -8,7 +8,7 @@ import (
 
 	"encoding/json"
 	"fmt"
-	"github.com/xel7dev/wails/v3/pkg/application"
+	"github.com/xel7dev/wails/pkg/application"
 )
 
 type Config struct {
@@ -50,7 +50,7 @@ func NewWithConfig(config *Config) *KVStoreService {
 
 // ServiceName returns the name of the plugin.
 func (kvs *KVStoreService) ServiceName() string {
-	return "github.com/xel7dev/wails/v3/plugins/kvstore"
+	return "github.com/xel7dev/wails/plugins/kvstore"
 }
 
 // ServiceStartup loads the store from disk if it is associated with a file.

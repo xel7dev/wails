@@ -14,8 +14,8 @@ import (
 
 	"github.com/charmbracelet/huh"
 	"github.com/pterm/pterm"
-	"github.com/xel7dev/wails/v3/internal/term"
-	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/internal/term"
+	"github.com/xel7dev/wails/internal/wake/manifest"
 )
 
 // AndroidRunOptions controls development APK deployment. A profile selects

@@ -7,7 +7,7 @@ import (
 	"slices"
 	"sync"
 
-	"github.com/xel7dev/wails/v3/internal/generator/config"
+	"github.com/xel7dev/wails/internal/generator/config"
 )
 
 // ErrNoContextPackage indicates that

@@ -3,7 +3,7 @@ package application
 import (
 	"unsafe"
 
-	"github.com/xel7dev/wails/v3/pkg/events"
+	"github.com/xel7dev/wails/pkg/events"
 )
 
 type Window interface {

@@ -8,7 +8,7 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/xel7dev/wails/v3/internal/lo"
+	"github.com/xel7dev/wails/internal/lo"
 )
 
 type macPackageManager int

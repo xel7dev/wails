@@ -9,7 +9,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/xel7dev/wails/v3/internal/codesignature"
+	"github.com/xel7dev/wails/internal/codesignature"
 	"howett.net/plist"
 )
 

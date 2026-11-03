@@ -6,8 +6,8 @@ import (
 	"math"
 	"unsafe"
 
-	"github.com/xel7dev/wails/v3/internal/webview2/internal/w32"
-	"github.com/xel7dev/wails/v3/internal/webview2/pkg/doublecall"
+	"github.com/xel7dev/wails/internal/webview2/internal/w32"
+	"github.com/xel7dev/wails/internal/webview2/pkg/doublecall"
 	"golang.org/x/sys/windows"
 )
 

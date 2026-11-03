@@ -6,8 +6,8 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/xel7dev/wails/v3/internal/lo"
-	"github.com/xel7dev/wails/v3/internal/webview2/webviewloader"
+	"github.com/xel7dev/wails/internal/lo"
+	"github.com/xel7dev/wails/internal/webview2/webviewloader"
 )
 
 func getInfo() (map[string]string, bool) {

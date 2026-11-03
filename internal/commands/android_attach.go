@@ -12,7 +12,7 @@ import (
 	"time"
 
 	"github.com/pterm/pterm"
-	"github.com/xel7dev/wails/v3/internal/term"
+	"github.com/xel7dev/wails/internal/term"
 )
 
 type androidAttachOperations struct {

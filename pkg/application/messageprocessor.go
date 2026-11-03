@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"sync"
 
-	"github.com/xel7dev/wails/v3/pkg/errs"
+	"github.com/xel7dev/wails/pkg/errs"
 )
 
 // TODO maybe we could use a new struct that has the targetWindow as an attribute so we could get rid of passing the targetWindow

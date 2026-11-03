@@ -4,10 +4,10 @@ import (
 	"context"
 	"path/filepath"
 
-	"github.com/xel7dev/wails/v3/internal/flags"
-	"github.com/xel7dev/wails/v3/internal/keychain"
-	"github.com/xel7dev/wails/v3/internal/packagesign"
-	"github.com/xel7dev/wails/v3/internal/wake/pipeline"
+	"github.com/xel7dev/wails/internal/flags"
+	"github.com/xel7dev/wails/internal/keychain"
+	"github.com/xel7dev/wails/internal/packagesign"
+	"github.com/xel7dev/wails/internal/wake/pipeline"
 )
 
 func signExportedPackage(options *flags.Sign, format, key string) error {

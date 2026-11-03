@@ -16,9 +16,9 @@ import (
 	_ "unsafe"
 
 	wintoast "git.sr.ht/~jackmordaunt/go-toast/v2/wintoast"
-	"github.com/xel7dev/wails/v3/internal/uuid"
-	"github.com/xel7dev/wails/v3/pkg/application"
-	"github.com/xel7dev/wails/v3/pkg/w32"
+	"github.com/xel7dev/wails/internal/uuid"
+	"github.com/xel7dev/wails/pkg/application"
+	"github.com/xel7dev/wails/pkg/w32"
 	"golang.org/x/sys/windows/registry"
 )
 

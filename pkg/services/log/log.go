@@ -6,7 +6,7 @@ import (
 	"log/slog"
 	"sync/atomic"
 
-	"github.com/xel7dev/wails/v3/pkg/application"
+	"github.com/xel7dev/wails/pkg/application"
 )
 
 // A Level is the importance or severity of a log event.
@@ -56,7 +56,7 @@ func NewWithConfig(config *Config) *LogService {
 // ServiceName returns the name of the plugin.
 // You should use the go module format e.g. github.com/myuser/myplugin
 func (l *LogService) ServiceName() string {
-	return "github.com/xel7dev/wails/v3/plugins/log"
+	return "github.com/xel7dev/wails/plugins/log"
 }
 
 // Configure reconfigures the logger dynamically.

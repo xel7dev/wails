@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/godbus/dbus/v5"
-	"github.com/xel7dev/wails/v3/pkg/events"
+	"github.com/xel7dev/wails/pkg/events"
 )
 
 const (

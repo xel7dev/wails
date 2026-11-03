@@ -8,7 +8,7 @@ import (
 	"syscall"
 	"unsafe"
 
-	"github.com/xel7dev/wails/v3/internal/webview2/internal/w32"
+	"github.com/xel7dev/wails/internal/webview2/internal/w32"
 	"golang.org/x/sys/windows"
 )
 

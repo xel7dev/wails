@@ -6,7 +6,7 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/xel7dev/wails/v3/pkg/application"
+	"github.com/xel7dev/wails/pkg/application"
 )
 
 var appChan chan *application.App = make(chan *application.App, 1)

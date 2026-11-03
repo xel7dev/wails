@@ -6,7 +6,7 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"github.com/xel7dev/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/internal/flags"
 )
 
 // IsDirective returns true if the given comment

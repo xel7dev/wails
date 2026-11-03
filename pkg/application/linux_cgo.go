@@ -9,8 +9,8 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/xel7dev/wails/v3/internal/assetserver/webview"
-	"github.com/xel7dev/wails/v3/pkg/events"
+	"github.com/xel7dev/wails/internal/assetserver/webview"
+	"github.com/xel7dev/wails/pkg/events"
 )
 
 /*

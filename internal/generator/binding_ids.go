@@ -12,7 +12,7 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/xel7dev/wails/v3/internal/generator/collect"
+	"github.com/xel7dev/wails/internal/generator/collect"
 )
 
 const bindingIDMetadataFile = "wails_obfuscated.gen.go"
@@ -204,7 +204,7 @@ func writeMetadataImports(buf *bytes.Buffer, aliases map[string]string) {
 	slices.SortFunc(imports, func(a, b aliasImport) int { return strings.Compare(a.alias, b.alias) })
 
 	fmt.Fprintf(buf, "import (\n")
-	fmt.Fprintf(buf, "\t\"github.com/xel7dev/wails/v3/pkg/application\"\n\n")
+	fmt.Fprintf(buf, "\t\"github.com/xel7dev/wails/pkg/application\"\n\n")
 	for _, imp := range imports {
 		fmt.Fprintf(buf, "\t%s %q\n", imp.alias, imp.path)
 	}

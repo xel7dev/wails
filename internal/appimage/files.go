@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"syscall"
 
-	"github.com/xel7dev/wails/v3/internal/stagefile"
+	"github.com/xel7dev/wails/internal/stagefile"
 )
 
 type contextWriter struct {

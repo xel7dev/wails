@@ -3,7 +3,7 @@ package commands
 import (
 	"os"
 
-	"github.com/xel7dev/wails/v3/internal/generator"
+	"github.com/xel7dev/wails/internal/generator"
 )
 
 type GenerateConstantsOptions struct {

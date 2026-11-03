@@ -3,7 +3,7 @@ package application
 import (
 	"runtime"
 
-	"github.com/xel7dev/wails/v3/pkg/errs"
+	"github.com/xel7dev/wails/pkg/errs"
 )
 
 const (

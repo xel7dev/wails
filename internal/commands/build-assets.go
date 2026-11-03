@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/xel7dev/wails/v3/internal/buildmeta"
-	"github.com/xel7dev/wails/v3/internal/gosod"
+	"github.com/xel7dev/wails/internal/buildmeta"
+	"github.com/xel7dev/wails/internal/gosod"
 	"gopkg.in/yaml.v3"
 	"howett.net/plist"
 )

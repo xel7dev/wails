@@ -7,7 +7,7 @@ import (
 	"context"
 	"encoding/binary"
 	"errors"
-	"github.com/xel7dev/wails/v3/internal/windowspackage"
+	"github.com/xel7dev/wails/internal/windowspackage"
 	"io"
 	"os"
 	"sort"

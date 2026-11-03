@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/internal/wake/manifest"
 )
 
 // IsGlobalPath requires the field's current value to match its recorded origin.

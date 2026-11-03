@@ -11,8 +11,8 @@ import (
 	"image/png"
 	"os"
 
-	"github.com/xel7dev/wails/v3/pkg/application"
-	"github.com/xel7dev/wails/v3/pkg/w32"
+	"github.com/xel7dev/wails/pkg/application"
+	"github.com/xel7dev/wails/pkg/w32"
 	"golang.org/x/image/font"
 	"golang.org/x/image/font/opentype"
 	"golang.org/x/image/math/fixed"

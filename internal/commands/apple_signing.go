@@ -10,9 +10,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/xel7dev/wails/v3/internal/applesign"
-	"github.com/xel7dev/wails/v3/internal/codesignature"
-	"github.com/xel7dev/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/internal/applesign"
+	"github.com/xel7dev/wails/internal/codesignature"
+	"github.com/xel7dev/wails/internal/flags"
 )
 
 func portableAppleSigning(options *flags.Sign) bool {

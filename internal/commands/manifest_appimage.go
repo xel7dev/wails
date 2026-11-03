@@ -3,9 +3,9 @@ package commands
 import (
 	"path/filepath"
 
-	"github.com/xel7dev/wails/v3/internal/appimage"
-	"github.com/xel7dev/wails/v3/internal/wake/manifest"
-	"github.com/xel7dev/wails/v3/internal/wake/pipeline"
+	"github.com/xel7dev/wails/internal/appimage"
+	"github.com/xel7dev/wails/internal/wake/manifest"
+	"github.com/xel7dev/wails/internal/wake/pipeline"
 )
 
 func (h *manifestHandler) appImageOptions(spec pipeline.PackageSpec) (appimage.Options, error) {

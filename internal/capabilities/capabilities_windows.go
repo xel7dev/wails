@@ -2,7 +2,7 @@
 
 package capabilities
 
-import "github.com/xel7dev/wails/v3/internal/webview2/webviewloader"
+import "github.com/xel7dev/wails/internal/webview2/webviewloader"
 
 type version string
 

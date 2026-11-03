@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/xel7dev/wails/v3/internal/wake/pipeline"
+	"github.com/xel7dev/wails/internal/wake/pipeline"
 )
 
 func executablePackage(value string) string {

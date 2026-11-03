@@ -1,7 +1,7 @@
 package commands
 
 import (
-	"github.com/xel7dev/wails/v3/internal/version"
+	"github.com/xel7dev/wails/internal/version"
 )
 
 type VersionOptions struct{}

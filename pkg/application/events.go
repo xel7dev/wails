@@ -8,8 +8,8 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/xel7dev/wails/v3/internal/mailbox"
-	"github.com/xel7dev/wails/v3/pkg/events"
+	"github.com/xel7dev/wails/internal/mailbox"
+	"github.com/xel7dev/wails/pkg/events"
 )
 
 type ApplicationEvent struct {

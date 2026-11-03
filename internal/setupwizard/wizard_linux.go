@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/xel7dev/wails/v3/internal/doctor/packagemanager"
-	"github.com/xel7dev/wails/v3/internal/operatingsystem"
+	"github.com/xel7dev/wails/internal/doctor/packagemanager"
+	"github.com/xel7dev/wails/internal/operatingsystem"
 )
 
 func (w *Wizard) checkAllDependencies() []DependencyStatus {

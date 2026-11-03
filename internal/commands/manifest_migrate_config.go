@@ -11,8 +11,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/xel7dev/wails/v3/internal/templates"
-	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/internal/templates"
+	"github.com/xel7dev/wails/internal/wake/manifest"
 	"gopkg.in/yaml.v3"
 )
 

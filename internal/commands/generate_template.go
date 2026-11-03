@@ -1,7 +1,7 @@
 package commands
 
 import (
-	"github.com/xel7dev/wails/v3/internal/templates"
+	"github.com/xel7dev/wails/internal/templates"
 )
 
 func GenerateTemplate(options *templates.BaseTemplate) error {

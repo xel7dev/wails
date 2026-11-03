@@ -5,7 +5,7 @@ package cfd
 
 import (
 	"github.com/go-ole/go-ole"
-	"github.com/xel7dev/wails/v3/internal/uuid"
+	"github.com/xel7dev/wails/internal/uuid"
 	"syscall"
 	"unsafe"
 )

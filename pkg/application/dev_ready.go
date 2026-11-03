@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"os"
 
-	"github.com/xel7dev/wails/v3/internal/devruntime"
+	"github.com/xel7dev/wails/internal/devruntime"
 )
 
 func notifyDevRuntimeReady() { devruntime.Notify() }

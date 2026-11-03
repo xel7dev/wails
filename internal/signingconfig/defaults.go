@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/xel7dev/wails/v3/internal/defaults"
-	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/internal/defaults"
+	"github.com/xel7dev/wails/internal/wake/manifest"
 )
 
 // ApplyDefaults returns a runtime copy. Only signed selected-profile targets or

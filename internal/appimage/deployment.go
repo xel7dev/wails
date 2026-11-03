@@ -13,7 +13,7 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/xel7dev/wails/v3/internal/stagefile"
+	"github.com/xel7dev/wails/internal/stagefile"
 )
 
 // runtimeDeployment resolves Linux names against the supplied runtime tree. It

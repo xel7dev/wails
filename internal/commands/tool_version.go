@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/xel7dev/wails/v3/internal/github"
+	"github.com/xel7dev/wails/internal/github"
 )
 
 type ToolVersionOptions struct {

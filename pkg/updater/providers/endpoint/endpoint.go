@@ -26,8 +26,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/xel7dev/wails/v3/pkg/updater"
-	"github.com/xel7dev/wails/v3/pkg/updater/internal/semver"
+	"github.com/xel7dev/wails/pkg/updater"
+	"github.com/xel7dev/wails/pkg/updater/internal/semver"
 )
 
 // schemaVersionMax is the newest manifest schemaVersion this provider

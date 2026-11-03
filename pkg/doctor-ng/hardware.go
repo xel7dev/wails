@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/xel7dev/wails/v3/internal/hostinfo"
+	"github.com/xel7dev/wails/internal/hostinfo"
 )
 
 func collectHardwareInfo() HardwareInfo {

@@ -9,7 +9,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/xel7dev/wails/v3/internal/assetserver/webview"
+	"github.com/xel7dev/wails/internal/assetserver/webview"
 )
 
 type requestContextResponseWriter struct {

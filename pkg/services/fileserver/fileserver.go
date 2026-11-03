@@ -29,7 +29,7 @@ func NewWithConfig(config *Config) *FileserverService {
 // ServiceName returns the name of the plugin.
 // You should use the go module format e.g. github.com/myuser/myplugin
 func (s *FileserverService) ServiceName() string {
-	return "github.com/xel7dev/wails/v3/services/fileserver"
+	return "github.com/xel7dev/wails/services/fileserver"
 }
 
 // Configure reconfigures the fileserver.

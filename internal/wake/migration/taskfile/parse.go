@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/xel7dev/wails/v3/internal/wake/migration/taskfile/ast"
+	"github.com/xel7dev/wails/internal/wake/migration/taskfile/ast"
 	"gopkg.in/yaml.v3"
 )
 

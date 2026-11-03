@@ -6,9 +6,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/xel7dev/wails/v3/internal/flags"
-	"github.com/xel7dev/wails/v3/internal/signingconfig"
-	"github.com/xel7dev/wails/v3/internal/wake/pipeline"
+	"github.com/xel7dev/wails/internal/flags"
+	"github.com/xel7dev/wails/internal/signingconfig"
+	"github.com/xel7dev/wails/internal/wake/pipeline"
 )
 
 func (h *manifestHandler) appleSignFlags(signing pipeline.SignSpec, input string) (*flags.Sign, error) {

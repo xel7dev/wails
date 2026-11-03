@@ -14,7 +14,7 @@ import (
 	"unsafe"
 
 	"github.com/ebitengine/purego"
-	"github.com/xel7dev/wails/v3/pkg/events"
+	"github.com/xel7dev/wails/pkg/events"
 )
 
 // Constants (values from the GTK4/GDK/GLib/WebKitGTK-6.0 headers; there is no

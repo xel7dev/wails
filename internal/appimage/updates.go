@@ -12,7 +12,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/xel7dev/wails/v3/internal/stagefile"
+	"github.com/xel7dev/wails/internal/stagefile"
 )
 
 func (options Options) resultName() string {

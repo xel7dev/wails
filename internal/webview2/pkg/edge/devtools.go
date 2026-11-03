@@ -6,7 +6,7 @@ import (
 	"syscall"
 	"unsafe"
 
-	"github.com/xel7dev/wails/v3/internal/webview2/pkg/combridge"
+	"github.com/xel7dev/wails/internal/webview2/pkg/combridge"
 	"golang.org/x/sys/windows"
 )
 

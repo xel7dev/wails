@@ -11,8 +11,8 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/xel7dev/wails/v3/internal/features"
-	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/internal/features"
+	"github.com/xel7dev/wails/internal/wake/manifest"
 )
 
 // InitTemplate is a selectable project template, sourced from the templates

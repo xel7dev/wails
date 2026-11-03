@@ -10,10 +10,10 @@ import (
 	"unsafe"
 
 	"github.com/ebitengine/purego/objc"
-	"github.com/xel7dev/wails/v3/internal/assetserver"
-	"github.com/xel7dev/wails/v3/internal/assetserver/webview"
-	"github.com/xel7dev/wails/v3/internal/runtime"
-	"github.com/xel7dev/wails/v3/pkg/events"
+	"github.com/xel7dev/wails/internal/assetserver"
+	"github.com/xel7dev/wails/internal/assetserver/webview"
+	"github.com/xel7dev/wails/internal/runtime"
+	"github.com/xel7dev/wails/pkg/events"
 )
 
 // macosWindowNative is the purego backend's per-window native state, which the

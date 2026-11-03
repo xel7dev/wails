@@ -12,7 +12,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/xel7dev/wails/v3/internal/devruntime"
+	"github.com/xel7dev/wails/internal/devruntime"
 )
 
 // Readiness is unique to one candidate launch; an old application cannot mark

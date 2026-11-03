@@ -4,7 +4,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/xel7dev/wails/v3/internal/report/pulse/ansi"
+	"github.com/xel7dev/wails/internal/report/pulse/ansi"
 )
 
 // liveRegion is a re-paintable bottom-of-terminal pane that sits *below* the

@@ -5,7 +5,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/xel7dev/wails/v3/internal/report"
+	"github.com/xel7dev/wails/internal/report"
 )
 
 // underWake reports whether this process was spawned by a wake build. When true,

@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/xel7dev/wails/v3/internal/assetserver/webview"
+	"github.com/xel7dev/wails/internal/assetserver/webview"
 )
 
 //go:embed request_keepalive_windows.js

@@ -10,9 +10,9 @@ import (
 	"sync/atomic"
 	"unsafe"
 
-	"github.com/xel7dev/wails/v3/internal/assetserver"
-	"github.com/xel7dev/wails/v3/internal/optional"
-	"github.com/xel7dev/wails/v3/pkg/events"
+	"github.com/xel7dev/wails/internal/assetserver"
+	"github.com/xel7dev/wails/internal/optional"
+	"github.com/xel7dev/wails/pkg/events"
 )
 
 // Enabled means the feature should be enabled

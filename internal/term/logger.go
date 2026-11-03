@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/pterm/pterm"
-	"github.com/xel7dev/wails/v3/internal/generator/config"
+	"github.com/xel7dev/wails/internal/generator/config"
 )
 
 // DefaultPtermLogger returns a Logger implementation that writes

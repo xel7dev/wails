@@ -141,21 +141,21 @@ func RuntimeVersionFor(wailsVersion string) string {
 	return v
 }
 
-// wailsModuleVersion returns the module version the CLI was built from when
-// the go command knows about it. Binaries installed with
-// `go install ...@version` carry the exact module version in their build
-// info, which generated projects can resolve; local development builds use
-// the dev version and a replace directive instead.
+// wailsModuleVersion returns a module version that can be required by
+// generated projects. Binaries installed with `go install ...@version` carry
+// the exact module version in their build info; local development builds are
+// stamped with a dirty pseudo-version, which is trimmed here because the
+// replace directive in the generated go.mod resolves to the local checkout.
 func wailsModuleVersion() string {
-	if version.IsDev() {
-		return version.String()
-	}
 	if info, ok := rdebug.ReadBuildInfo(); ok {
-		if v := info.Main.Version; v != "" && v != "(devel)" {
+		v := strings.TrimSuffix(strings.TrimSpace(info.Main.Version), "+dirty")
+		if v != "" && v != "(devel)" {
 			return v
 		}
 	}
-	return version.String()
+	// The module path has no major-version suffix, so the embedded product
+	// version (v3.x) cannot be used in a require directive.
+	return "v0.0.0"
 }
 
 type FileAssociation struct {

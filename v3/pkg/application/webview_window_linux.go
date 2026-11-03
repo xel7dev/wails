@@ -8,11 +8,11 @@ import (
 
 	"unsafe"
 
-	"github.com/wailsapp/wails/v3/internal/assetserver"
-	"github.com/wailsapp/wails/v3/internal/capabilities"
-	"github.com/wailsapp/wails/v3/internal/debounce"
-	"github.com/wailsapp/wails/v3/internal/runtime"
-	"github.com/wailsapp/wails/v3/pkg/events"
+	"github.com/xel7dev/wails/v3/internal/assetserver"
+	"github.com/xel7dev/wails/v3/internal/capabilities"
+	"github.com/xel7dev/wails/v3/internal/debounce"
+	"github.com/xel7dev/wails/v3/internal/runtime"
+	"github.com/xel7dev/wails/v3/pkg/events"
 )
 
 func init() {

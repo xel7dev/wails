@@ -2,7 +2,7 @@
 
 package application
 
-import "github.com/wailsapp/wails/v3/internal/signal"
+import "github.com/xel7dev/wails/v3/internal/signal"
 
 // platformSignalHandler holds the signal handler for desktop platforms
 type platformSignalHandler struct {

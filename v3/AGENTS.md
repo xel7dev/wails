@@ -8,7 +8,7 @@ Read the [repository-wide agent instructions](../AGENTS.md) first. This file sco
 
 ## How to work here
 
-- Keep v3 implementation and release changes in this tree. Do not assume a matching v2 change is required.
+- Keep v3 implementation and release changes in this tree.
 - Read `README.md`, `TESTING.md`, and the relevant platform or subsystem documentation before substantial changes.
 - Use the `Taskfile.yaml` tasks for the touched subsystem and consult CI workflows for platform-specific expectations.
 - Changes under `internal/runtime/desktop/@wailsio/runtime/src/` require both runtime outputs to be rebuilt: `task runtime:build:assets` and `task runtime:build:package`. The webview asset bundle and npm package are consumed independently; commit both generated outputs when sources change.
@@ -31,6 +31,5 @@ Read the [repository-wide agent instructions](../AGENTS.md) first. This file sco
 
 ## Out of scope
 
-- Wails v2 code or release decisions; use `v2/`.
-- The main M-Press site source in `docs/` or Docusaurus source in `website/`, except when the task explicitly includes documentation or website changes.
+- The main M-Press site source in `docs/`, except when the task explicitly includes documentation changes.
 - Unrelated changes to the root repository, shared automation, or assets.

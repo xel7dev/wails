@@ -6,8 +6,6 @@ Read the [repository-wide agent instructions](../AGENTS.md) first. This file sco
 
 `docs/mpress/` is the supported source for the Wails v3 documentation site. English source pages live in `content/`; translations live in locale directories; shared static files and styles live alongside them. Generated site output is written to `docs/mpress/site/`.
 
-The separate Docusaurus project in `website/` contains the v2 documentation and versioned historical content. Do not move or duplicate the M-Press v3 documentation there.
-
 ## How to work here
 
 - Read [`mpress/CONTRIBUTING.md`](mpress/CONTRIBUTING.md) before substantial documentation changes.
@@ -25,5 +23,4 @@ The separate Docusaurus project in `website/` contains the v2 documentation and 
 ## Out of scope
 
 - Framework implementation changes; make those in `v3/` and update docs as needed.
-- Docusaurus v2 or historical documentation, which belongs in `website/`.
 - Editing generated site output, deployment infrastructure, or release artifacts by hand.

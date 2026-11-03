@@ -240,7 +240,7 @@ There is **no** generic "application shutdown" event constant — register shutd
 **Example:**
 
 ```go
-import "github.com/wailsapp/wails/v3/pkg/events"
+import "github.com/xel7dev/wails/v3/pkg/events"
 
 // Handle application startup
 app.Event.OnApplicationEvent(events.Common.ApplicationStarted, func(e *application.ApplicationEvent) {
@@ -289,7 +289,7 @@ Window event constants live in the `events` package: `events.Common.*` for cross
 **Example:**
 
 ```go
-import "github.com/wailsapp/wails/v3/pkg/events"
+import "github.com/xel7dev/wails/v3/pkg/events"
 
 // Handle window focus
 window.OnWindowEvent(events.Common.WindowFocus, func(e *application.WindowEvent) {
@@ -546,8 +546,8 @@ import (
     "sync"
     "time"
 
-    "github.com/wailsapp/wails/v3/pkg/application"
-    "github.com/wailsapp/wails/v3/pkg/events"
+    "github.com/xel7dev/wails/v3/pkg/application"
+    "github.com/xel7dev/wails/v3/pkg/events"
 )
 
 type EventDemoService struct {
@@ -688,7 +688,7 @@ Wails provides two types of system events:
 **How They Work:**
 
 ```go
-import "github.com/wailsapp/wails/v3/pkg/events"
+import "github.com/xel7dev/wails/v3/pkg/events"
 
 // ✅ RECOMMENDED: Use Common Events for cross-platform code
 window.OnWindowEvent(events.Common.WindowClosing, func(e *application.WindowEvent) {
@@ -734,7 +734,7 @@ This mapping happens automatically in the background, so when you listen for `ev
 **Usage:**
 
 ```go
-import "github.com/wailsapp/wails/v3/pkg/events"
+import "github.com/xel7dev/wails/v3/pkg/events"
 
 app.Event.OnApplicationEvent(events.Common.ApplicationStarted, func(e *application.ApplicationEvent) {
     app.Logger.Info("Application ready!")
@@ -774,7 +774,7 @@ app.Event.OnApplicationEvent(events.Common.ThemeChanged, func(e *application.App
 **Usage:**
 
 ```go
-import "github.com/wailsapp/wails/v3/pkg/events"
+import "github.com/xel7dev/wails/v3/pkg/events"
 
 // Listen for window events
 window.OnWindowEvent(events.Common.WindowFocus, func(e *application.WindowEvent) {

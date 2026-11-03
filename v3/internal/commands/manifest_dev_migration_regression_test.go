@@ -3,7 +3,7 @@ package commands
 import (
 	"context"
 	"errors"
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
 	"os"
 	"path/filepath"
 	"strings"

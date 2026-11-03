@@ -9,7 +9,7 @@ import (
 	"go/types"
 	"iter"
 
-	"github.com/wailsapp/wails/v3/internal/typeconstraints"
+	"github.com/xel7dev/wails/v3/internal/typeconstraints"
 )
 
 // Cached interface types.

@@ -8,7 +8,7 @@ import (
 	"testing"
 	"unsafe"
 
-	"github.com/wailsapp/wails/v3/pkg/w32"
+	"github.com/xel7dev/wails/v3/pkg/w32"
 )
 
 // These cover three defects in the shipping Windows backend's setMenu, found

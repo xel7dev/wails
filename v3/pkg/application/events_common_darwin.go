@@ -2,7 +2,7 @@
 
 package application
 
-import "github.com/wailsapp/wails/v3/pkg/events"
+import "github.com/xel7dev/wails/v3/pkg/events"
 
 var commonApplicationEventMap = map[events.ApplicationEventType]events.ApplicationEventType{
 	events.Mac.ApplicationDidFinishLaunching: events.Common.ApplicationStarted,

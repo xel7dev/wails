@@ -13,9 +13,9 @@ import (
 	"github.com/ProtonMail/go-crypto/openpgp/packet"
 	"github.com/charmbracelet/huh"
 	"github.com/pterm/pterm"
-	"github.com/wailsapp/wails/v3/internal/flags"
-	"github.com/wailsapp/wails/v3/internal/keychain"
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/v3/internal/keychain"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
 )
 
 type signingSetupSave func(platform string, signing manifest.SigningPlatform, taskfileVars map[string]string) error

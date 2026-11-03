@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wailsapp/wails/v3/internal/flags"
-	"github.com/wailsapp/wails/v3/internal/generator/config"
+	"github.com/xel7dev/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/v3/internal/generator/config"
 )
 
 func TestGeneratedJavaScriptCanBeImportedWithGenericModels(t *testing.T) {
@@ -67,7 +67,7 @@ func testGeneratedJavaScript(t *testing.T, node, name, assertions string) {
 	}
 
 	generator := NewGenerator(options, config.DirCreator(outputDir), config.NullLogger)
-	packagePath := "github.com/wailsapp/wails/v3/internal/generator/testcases/" + name
+	packagePath := "github.com/xel7dev/wails/v3/internal/generator/testcases/" + name
 	_, err := generator.Generate(packagePath)
 	if err != nil {
 		t.Fatal(err)

@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/internal/debug"
+	"github.com/xel7dev/wails/v3/internal/debug"
 )
 
 type updateDiscoveryTransport func(*http.Request) (*http.Response, error)

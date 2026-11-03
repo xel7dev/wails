@@ -10,8 +10,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/wailsapp/wails/v3/internal/packagesign"
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/packagesign"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
 	"golang.org/x/mod/modfile"
 )
 

@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"github.com/wailsapp/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/v3/internal/flags"
 )
 
 func TestExperimentalTemplateInstallsWithLegacyTaskfilesWhenDisabled(t *testing.T) {

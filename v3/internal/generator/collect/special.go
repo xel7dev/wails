@@ -5,7 +5,7 @@ import (
 	"strings"
 	"sync/atomic"
 
-	"github.com/wailsapp/wails/v3/internal/generator/config"
+	"github.com/xel7dev/wails/v3/internal/generator/config"
 )
 
 // SpecialTypeCache caches types that are handled as special cases in the generation process.

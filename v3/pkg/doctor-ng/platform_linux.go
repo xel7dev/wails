@@ -6,8 +6,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/wailsapp/wails/v3/internal/operatingsystem"
-	"github.com/wailsapp/wails/v3/pkg/doctor-ng/packagemanager"
+	"github.com/xel7dev/wails/v3/internal/operatingsystem"
+	"github.com/xel7dev/wails/v3/pkg/doctor-ng/packagemanager"
 )
 
 func collectPlatformExtras() map[string]string {

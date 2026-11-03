@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/leaanthony/dmg/dmg"
-	"github.com/wailsapp/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/v3/internal/flags"
 )
 
 func TestAddDMGFiles(t *testing.T) {

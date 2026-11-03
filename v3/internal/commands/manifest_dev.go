@@ -19,12 +19,12 @@ import (
 	"time"
 
 	"github.com/rjeczalik/notify"
-	"github.com/wailsapp/wails/v3/internal/dev"
-	"github.com/wailsapp/wails/v3/internal/report"
-	"github.com/wailsapp/wails/v3/internal/sourceignore"
-	"github.com/wailsapp/wails/v3/internal/wake/cache"
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
-	"github.com/wailsapp/wails/v3/internal/wake/pipeline"
+	"github.com/xel7dev/wails/v3/internal/dev"
+	"github.com/xel7dev/wails/v3/internal/report"
+	"github.com/xel7dev/wails/v3/internal/sourceignore"
+	"github.com/xel7dev/wails/v3/internal/wake/cache"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/wake/pipeline"
 )
 
 type manifestProcess struct {

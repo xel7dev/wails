@@ -5,8 +5,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/internal/wake/cache"
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/wake/cache"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
 )
 
 func TestVoidPackageTracksLifecycleScriptContents(t *testing.T) {

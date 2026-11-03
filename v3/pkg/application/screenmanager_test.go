@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"github.com/wailsapp/wails/v3/pkg/application"
+	"github.com/xel7dev/wails/v3/pkg/application"
 )
 
 type ScreenDef struct {

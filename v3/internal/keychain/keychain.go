@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/wailsapp/wails/v3/internal/credentialstore"
+	"github.com/xel7dev/wails/v3/internal/credentialstore"
 )
 
 const (

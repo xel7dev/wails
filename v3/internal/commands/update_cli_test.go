@@ -10,7 +10,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/internal/github"
+	"github.com/xel7dev/wails/v3/internal/github"
 )
 
 func TestUpdateCLIInstall(t *testing.T) {
@@ -54,7 +54,7 @@ func TestUpdateCLIInstall(t *testing.T) {
 			if err != nil {
 				t.Fatal(err)
 			}
-			want := "install github.com/wailsapp/wails/v3/cmd/wails3@" + tc.target + "\n"
+			want := "install github.com/xel7dev/wails/v3/cmd/wails3@" + tc.target + "\n"
 			if string(data) != want {
 				t.Errorf("installer invocations=%q, want exactly %q", strings.TrimSpace(string(data)), strings.TrimSpace(want))
 			}

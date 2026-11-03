@@ -7,7 +7,7 @@ sourcePath: "reference/update-manifest.md"
 
 The Wails Update Manifest protocol is a small, open JSON contract between a Wails application and an update source. Anything that can serve a JSON file over HTTPS can serve Wails updates: an S3 bucket, GitHub Pages, a CDN, or a dynamic update server that gates releases on a license.
 
-The client side ships in the framework as the `endpoint` provider (`github.com/wailsapp/wails/v3/pkg/updater/providers/endpoint`). This page is the wire format reference for anyone implementing the server side.
+The client side ships in the framework as the `endpoint` provider (`github.com/xel7dev/wails/v3/pkg/updater/providers/endpoint`). This page is the wire format reference for anyone implementing the server side.
 
 ## Design goals
 

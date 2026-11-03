@@ -5,7 +5,7 @@ package application
 import (
 	"fmt"
 
-	"github.com/wailsapp/wails/v3/pkg/w32"
+	"github.com/xel7dev/wails/v3/pkg/w32"
 )
 
 // windowsGlobalShortcuts implements globalShortcutImpl using the Win32

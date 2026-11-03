@@ -5,7 +5,7 @@ package dock
 import (
 	"context"
 
-	"github.com/wailsapp/wails/v3/pkg/application"
+	"github.com/xel7dev/wails/v3/pkg/application"
 )
 
 // GetBadge returns the badge label on the application icon.

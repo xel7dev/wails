@@ -7,7 +7,7 @@ import (
 	"syscall"
 	"unsafe"
 
-	"github.com/wailsapp/wails/v3/internal/webview2/pkg/doublecall"
+	"github.com/xel7dev/wails/v3/internal/webview2/pkg/doublecall"
 	"golang.org/x/sys/windows"
 )
 

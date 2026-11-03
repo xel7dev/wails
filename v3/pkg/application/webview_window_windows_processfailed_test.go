@@ -13,7 +13,7 @@ import (
 	"testing"
 	"unsafe"
 
-	"github.com/wailsapp/wails/v3/internal/webview2/pkg/edge"
+	"github.com/xel7dev/wails/v3/internal/webview2/pkg/edge"
 	"golang.org/x/sys/windows"
 )
 

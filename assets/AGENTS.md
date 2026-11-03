@@ -18,5 +18,5 @@ Read the [repository-wide agent instructions](../AGENTS.md) first. This file sco
 
 ## Out of scope
 
-- Website-specific assets, which belong under `website/` or `docs/mpress/` as appropriate.
+- Documentation-specific assets, which belong under `docs/mpress/`.
 - Runtime binaries, generated output, and assets for a single unrelated project.

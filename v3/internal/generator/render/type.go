@@ -6,7 +6,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/wailsapp/wails/v3/internal/generator/collect"
+	"github.com/xel7dev/wails/v3/internal/generator/collect"
 )
 
 // aliasOrNamed is a common interface for *types.Alias and *types.Named.

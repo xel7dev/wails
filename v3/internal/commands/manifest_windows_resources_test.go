@@ -10,8 +10,8 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/tc-hib/winres"
 	"github.com/tc-hib/winres/version"
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
-	"github.com/wailsapp/wails/v3/internal/wake/pipeline"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/wake/pipeline"
 )
 
 func TestManifestWindowsResourcesLinkFromGeneratedPackage(t *testing.T) {

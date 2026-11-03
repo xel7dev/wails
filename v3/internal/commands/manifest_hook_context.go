@@ -8,8 +8,8 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
-	"github.com/wailsapp/wails/v3/internal/wake/pipeline"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/wake/pipeline"
 )
 
 const hookContextFileEnvironment = "WAILS_HOOK_CONTEXT_FILE"

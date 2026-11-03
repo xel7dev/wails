@@ -7,7 +7,7 @@ GITHUB_USERNAME="your-username"
 
 # Get the latest 10 open issues that aren't assigned and aren't labeled as "awaiting feedback"
 echo "Fetching recent unprocessed issues..."
-gh issue list --repo wailsapp/wails --limit 10 --json number,title,labels,assignees --jq '.[] | select(.assignees | length == 0) | select(any(.labels[]; .name != "awaiting feedback"))' > new_issues.json
+gh issue list --repo xel7dev/wails --limit 10 --json number,title,labels,assignees --jq '.[] | select(.assignees | length == 0) | select(any(.labels[]; .name != "awaiting feedback"))' > new_issues.json
 
 # Process each issue
 echo -e "\n===== Issues Needing Triage =====\n"
@@ -26,7 +26,6 @@ cat new_issues.json | jq -c '.[]' | while read -r issue; do
     while true; do
         echo "Options:"
         echo "  [v] View issue in browser"
-        echo "  [2] Add v2-only label"
         echo "  [3] Add v3-alpha label"
         echo "  [b] Add bug label"
         echo "  [e] Add enhancement label"
@@ -41,45 +40,41 @@ cat new_issues.json | jq -c '.[]' | while read -r issue; do
         
         case $action in
             v)
-                gh issue view $number --repo wailsapp/wails --web
-                ;;
-            2)
-                echo "Adding v2-only label..."
-                gh issue edit $number --repo wailsapp/wails --add-label "v2-only"
+                gh issue view $number --repo xel7dev/wails --web
                 ;;
             3)
                 echo "Adding v3-alpha label..."
-                gh issue edit $number --repo wailsapp/wails --add-label "v3-alpha"
+                gh issue edit $number --repo xel7dev/wails --add-label "v3-alpha"
                 ;;
             b)
                 echo "Adding bug label..."
-                gh issue edit $number --repo wailsapp/wails --add-label "Bug"
+                gh issue edit $number --repo xel7dev/wails --add-label "Bug"
                 ;;
             e)
                 echo "Adding enhancement label..."
-                gh issue edit $number --repo wailsapp/wails --add-label "Enhancement"
+                gh issue edit $number --repo xel7dev/wails --add-label "Enhancement"
                 ;;
             d)
                 echo "Adding documentation label..."
-                gh issue edit $number --repo wailsapp/wails --add-label "Documentation"
+                gh issue edit $number --repo xel7dev/wails --add-label "Documentation"
                 ;;
             w)
                 echo "Adding webview2 label..."
-                gh issue edit $number --repo wailsapp/wails --add-label "webview2"
+                gh issue edit $number --repo xel7dev/wails --add-label "webview2"
                 ;;
             f)
                 echo "Requesting more info..."
-                gh issue comment $number --repo wailsapp/wails --body "Thank you for reporting this issue. Could you please provide additional information to help us investigate?\n\n- [Specific details needed]\n\nThis will help us address your issue more effectively."
-                gh issue edit $number --repo wailsapp/wails --add-label "awaiting feedback"
+                gh issue comment $number --repo xel7dev/wails --body "Thank you for reporting this issue. Could you please provide additional information to help us investigate?\n\n- [Specific details needed]\n\nThis will help us address your issue more effectively."
+                gh issue edit $number --repo xel7dev/wails --add-label "awaiting feedback"
                 ;;
             c)
                 read -p "Reason for closing (duplicate/invalid/etc): " reason
-                gh issue comment $number --repo wailsapp/wails --body "Closing this issue: $reason"
-                gh issue close $number --repo wailsapp/wails
+                gh issue comment $number --repo xel7dev/wails --body "Closing this issue: $reason"
+                gh issue close $number --repo xel7dev/wails
                 ;;
             a)
                 echo "Assigning to yourself..."
-                gh issue edit $number --repo wailsapp/wails --add-assignee "$GITHUB_USERNAME"
+                gh issue edit $number --repo xel7dev/wails --add-assignee "$GITHUB_USERNAME"
                 ;;
             s)
                 echo "Skipping to next issue..."

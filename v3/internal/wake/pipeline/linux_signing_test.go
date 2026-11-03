@@ -3,7 +3,7 @@ package pipeline
 import (
 	"testing"
 
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
 )
 
 func TestExportedLinuxSigningKeysDoNotRequireHostTools(t *testing.T) {

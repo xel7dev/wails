@@ -14,11 +14,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/wailsapp/wails/v3/internal/packagesign"
-	"github.com/wailsapp/wails/v3/internal/signingconfig"
-	"github.com/wailsapp/wails/v3/internal/wake/buildinfo"
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
-	"github.com/wailsapp/wails/v3/internal/wake/pipeline"
+	"github.com/xel7dev/wails/v3/internal/packagesign"
+	"github.com/xel7dev/wails/v3/internal/signingconfig"
+	"github.com/xel7dev/wails/v3/internal/wake/buildinfo"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/wake/pipeline"
 )
 
 func (w *Wizard) handleWakeRequirements(rw http.ResponseWriter, r *http.Request) {

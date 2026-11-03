@@ -1,6 +1,6 @@
 package config
 
-import "github.com/wailsapp/wails/v3/pkg/application"
+import "github.com/xel7dev/wails/v3/pkg/application"
 
 type Service7 struct{}
 type Service8 struct{}

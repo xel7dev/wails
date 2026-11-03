@@ -87,8 +87,8 @@ jobs:
         working-directory: test-cross-compile/crosstest
         run: |
           # Change the replace directive to use absolute path that matches Docker mount
-          go mod edit -dropreplace github.com/wailsapp/wails/v3
-          go mod edit -replace github.com/wailsapp/wails/v3=${{ github.workspace }}/v3
+          go mod edit -dropreplace github.com/xel7dev/wails/v3
+          go mod edit -replace github.com/xel7dev/wails/v3=${{ github.workspace }}/v3
 
       - name: Cross-compile for ${{ matrix.target_os }}/${{ matrix.target_arch }}
         working-directory: test-cross-compile/crosstest

@@ -3,8 +3,8 @@ package events_only
 import (
 	"fmt"
 
-	nobindingshere "github.com/wailsapp/wails/v3/internal/generator/testcases/no_bindings_here"
-	"github.com/wailsapp/wails/v3/pkg/application"
+	nobindingshere "github.com/xel7dev/wails/v3/internal/generator/testcases/no_bindings_here"
+	"github.com/xel7dev/wails/v3/pkg/application"
 )
 
 // SomeClass renders as a TS class.

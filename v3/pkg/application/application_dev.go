@@ -8,9 +8,9 @@ import (
 	"os"
 	"time"
 
-	"github.com/wailsapp/wails/v3/internal/assetserver"
-	"github.com/wailsapp/wails/v3/internal/devruntime"
-	"github.com/wailsapp/wails/v3/pkg/events"
+	"github.com/xel7dev/wails/v3/internal/assetserver"
+	"github.com/xel7dev/wails/v3/internal/devruntime"
+	"github.com/xel7dev/wails/v3/pkg/events"
 )
 
 var devMode = false

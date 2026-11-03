@@ -39,7 +39,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/wailsapp/wails/v3/pkg/application"
+	"github.com/xel7dev/wails/v3/pkg/application"
 )
 
 // scheduleDelay returns the time.Duration until delivery for a Schedule.
@@ -223,7 +223,7 @@ type NotificationResult struct {
 
 // ServiceName returns the name of the service.
 func (ns *NotificationService) ServiceName() string {
-	return "github.com/wailsapp/wails/v3/services/notifications"
+	return "github.com/xel7dev/wails/v3/services/notifications"
 }
 
 // OnNotificationResponse registers a callback function that will be called when

@@ -3,10 +3,10 @@
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
-import type {} from "../github.com/wailsapp/wails/v3/internal/eventdata.js";
+import type {} from "../github.com/xel7dev/wails/v3/internal/eventdata.js";
 
 // Make sure event data creation code is registered with the runtime.
-import "../github.com/wailsapp/wails/v3/internal/eventcreate.js";
+import "../github.com/xel7dev/wails/v3/internal/eventcreate.js";
 
 /**
  * Name of the custom event "events_only:class".

@@ -14,8 +14,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/internal/codesignature"
-	"github.com/wailsapp/wails/v3/internal/universalbinary"
+	"github.com/xel7dev/wails/v3/internal/codesignature"
+	"github.com/xel7dev/wails/v3/internal/universalbinary"
 )
 
 func fixture(t testing.TB, name string) []byte {

@@ -15,13 +15,13 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/wailsapp/wails/v3/internal/assetserver"
-	"github.com/wailsapp/wails/v3/internal/assetserver/webview"
-	"github.com/wailsapp/wails/v3/internal/capabilities"
-	"github.com/wailsapp/wails/v3/pkg/updater"
+	"github.com/xel7dev/wails/v3/internal/assetserver"
+	"github.com/xel7dev/wails/v3/internal/assetserver/webview"
+	"github.com/xel7dev/wails/v3/internal/capabilities"
+	"github.com/xel7dev/wails/v3/pkg/updater"
 
 	// A clear error, not hundreds, when no native backend is selected.
-	_ "github.com/wailsapp/wails/v3/internal/buildguard"
+	_ "github.com/xel7dev/wails/v3/internal/buildguard"
 )
 
 //go:embed assets/*

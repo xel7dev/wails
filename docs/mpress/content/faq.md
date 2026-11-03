@@ -187,7 +187,7 @@ The usual fixes, in order:
 
 1. `go mod tidy`
 2. `cd frontend && npm install` (a missing `node_modules` is the most common cause)
-3. Update the CLI: `go install github.com/wailsapp/wails/v3/cmd/wails3@v3.0.0`
+3. Update the CLI: `go install github.com/xel7dev/wails/v3/cmd/wails3@master`
 4. On Linux, check `wails3 doctor` for missing GTK/WebKit packages
 
 ### My bindings are missing or stale
@@ -206,19 +206,11 @@ Event names must match exactly between `app.Event.Emit("name", ...)` in Go and `
 
 Please [open an issue](https://github.com/wailsapp/wails/issues) and include your `wails3 doctor` output. The [feedback guide](/feedback/) explains what makes a report easy to act on.
 
-## Migrating from v2
+## Migrating existing projects
 
 ### Should I migrate from v2 to v3?
 
 v3 brings multi-window support, a cleaner services-based API, a built-in updater, a much more flexible build system, and better performance. New projects should start on v3. For existing projects, the [Migration Guide](/migration/v2-to-v3/) walks through the differences.
-
-### Will v2 be maintained?
-
-Yes. Wails v2 continues to receive critical updates. New projects should use Wails v3.0.0.
-
-### Can I run v2 and v3 side by side?
-
-Yes. The CLIs are separate binaries (`wails` and `wails3`) and the modules have different import paths, so projects on different major versions coexist happily on one machine.
 
 ## Community
 

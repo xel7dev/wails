@@ -6,10 +6,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/wailsapp/wails/v3/internal/flags"
-	"github.com/wailsapp/wails/v3/internal/generator"
-	"github.com/wailsapp/wails/v3/internal/generator/config"
-	"github.com/wailsapp/wails/v3/internal/term"
+	"github.com/xel7dev/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/v3/internal/generator"
+	"github.com/xel7dev/wails/v3/internal/generator/config"
+	"github.com/xel7dev/wails/v3/internal/term"
 )
 
 func GenerateBindings(options *flags.GenerateBindingsOptions, patterns []string) error {

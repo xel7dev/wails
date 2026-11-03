@@ -4,8 +4,8 @@ import (
 	"log"
 	"slices"
 
-	"github.com/wailsapp/wails/v3/internal/generator/testcases/complex_expressions/config"
-	"github.com/wailsapp/wails/v3/pkg/application"
+	"github.com/xel7dev/wails/v3/internal/generator/testcases/complex_expressions/config"
+	"github.com/xel7dev/wails/v3/pkg/application"
 )
 
 type Service1 struct{}

@@ -23,8 +23,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/wailsapp/wails/v3/pkg/updater"
-	"github.com/wailsapp/wails/v3/pkg/updater/internal/semver"
+	"github.com/xel7dev/wails/v3/pkg/updater"
+	"github.com/xel7dev/wails/v3/pkg/updater/internal/semver"
 )
 
 // Config configures the AppCast provider.

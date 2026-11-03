@@ -3,7 +3,7 @@ package pipeline
 import (
 	"fmt"
 
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
 )
 
 func validateDarwinSigningHost(spec SignSpec, host HostCapabilities) error {

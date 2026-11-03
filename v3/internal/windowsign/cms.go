@@ -4,7 +4,7 @@ import (
 	"context"
 	"crypto/x509/pkix"
 	"encoding/asn1"
-	"github.com/wailsapp/wails/v3/internal/codesignature"
+	"github.com/xel7dev/wails/v3/internal/codesignature"
 )
 
 type Identity = codesignature.Identity

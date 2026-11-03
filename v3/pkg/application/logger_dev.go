@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/wailsapp/wails/v3/internal/tint"
+	"github.com/xel7dev/wails/v3/internal/tint"
 	"golang.org/x/term"
 )
 

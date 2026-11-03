@@ -12,10 +12,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/internal/flags"
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
-	"github.com/wailsapp/wails/v3/internal/wake/pipeline"
-	"github.com/wailsapp/wails/v3/internal/windowspackage"
+	"github.com/xel7dev/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/wake/pipeline"
+	"github.com/xel7dev/wails/v3/internal/windowspackage"
 )
 
 func commandSigningFixture(t *testing.T) (string, string) {

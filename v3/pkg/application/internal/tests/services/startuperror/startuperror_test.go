@@ -6,10 +6,10 @@ import (
 	"sync/atomic"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/pkg/application"
-	apptest "github.com/wailsapp/wails/v3/pkg/application/internal/tests"
-	svctest "github.com/wailsapp/wails/v3/pkg/application/internal/tests/services"
-	"github.com/wailsapp/wails/v3/pkg/events"
+	"github.com/xel7dev/wails/v3/pkg/application"
+	apptest "github.com/xel7dev/wails/v3/pkg/application/internal/tests"
+	svctest "github.com/xel7dev/wails/v3/pkg/application/internal/tests/services"
+	"github.com/xel7dev/wails/v3/pkg/events"
 )
 
 func TestMain(m *testing.M) {

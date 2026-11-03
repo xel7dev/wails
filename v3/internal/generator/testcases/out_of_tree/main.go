@@ -3,9 +3,9 @@ package main
 import (
 	"log"
 
-	nobindingshere "github.com/wailsapp/wails/v3/internal/generator/testcases/no_bindings_here"
-	"github.com/wailsapp/wails/v3/internal/generator/testcases/no_bindings_here/other"
-	"github.com/wailsapp/wails/v3/pkg/application"
+	nobindingshere "github.com/xel7dev/wails/v3/internal/generator/testcases/no_bindings_here"
+	"github.com/xel7dev/wails/v3/internal/generator/testcases/no_bindings_here/other"
+	"github.com/xel7dev/wails/v3/pkg/application"
 )
 
 // GreetService is great

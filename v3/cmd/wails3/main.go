@@ -4,18 +4,18 @@ import (
 	"os"
 	"runtime/debug"
 
-	"github.com/wailsapp/wails/v3/internal/browser"
-	"github.com/wailsapp/wails/v3/internal/features"
+	"github.com/xel7dev/wails/v3/internal/browser"
+	"github.com/xel7dev/wails/v3/internal/features"
 
 	"github.com/pterm/pterm"
-	"github.com/wailsapp/wails/v3/internal/lo"
+	"github.com/xel7dev/wails/v3/internal/lo"
 
 	"github.com/leaanthony/clir"
-	"github.com/wailsapp/wails/v3/internal/commands"
-	"github.com/wailsapp/wails/v3/internal/flags"
-	"github.com/wailsapp/wails/v3/internal/report"
-	"github.com/wailsapp/wails/v3/internal/term"
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/commands"
+	"github.com/xel7dev/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/v3/internal/report"
+	"github.com/xel7dev/wails/v3/internal/term"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
 )
 
 func init() {

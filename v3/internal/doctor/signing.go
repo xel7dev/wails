@@ -7,7 +7,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/wailsapp/wails/v3/internal/defaults"
+	"github.com/xel7dev/wails/v3/internal/defaults"
 )
 
 type SigningStatus struct {

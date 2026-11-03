@@ -6,7 +6,7 @@ $GITHUB_USERNAME = "your-username"
 
 # Get the latest 10 open issues that aren't assigned and aren't labeled as "awaiting feedback"
 Write-Host "Fetching recent unprocessed issues..."
-gh issue list --repo wailsapp/wails --limit 10 --json number,title,labels,assignees | Out-File -Encoding utf8 -FilePath "issues_temp.json"
+gh issue list --repo xel7dev/wails --limit 10 --json number,title,labels,assignees | Out-File -Encoding utf8 -FilePath "issues_temp.json"
 $issues = Get-Content -Raw -Path "issues_temp.json" | ConvertFrom-Json
 $newIssues = $issues | Where-Object { 
     $_.assignees.Count -eq 0 -and 
@@ -28,7 +28,6 @@ foreach ($issue in $newIssues) {
     while ($continue) {
         Write-Host "Options:"
         Write-Host "  [v] View issue in browser"
-        Write-Host "  [2] Add v2-only label"
         Write-Host "  [3] Add v3-alpha label"
         Write-Host "  [b] Add bug label"
         Write-Host "  [e] Add enhancement label"
@@ -43,45 +42,41 @@ foreach ($issue in $newIssues) {
         
         switch ($action) {
             "v" {
-                gh issue view $number --repo wailsapp/wails --web
-            }
-            "2" {
-                Write-Host "Adding v2-only label..."
-                gh issue edit $number --repo wailsapp/wails --add-label "v2-only"
+                gh issue view $number --repo xel7dev/wails --web
             }
             "3" {
                 Write-Host "Adding v3-alpha label..."
-                gh issue edit $number --repo wailsapp/wails --add-label "v3-alpha"
+                gh issue edit $number --repo xel7dev/wails --add-label "v3-alpha"
             }
             "b" {
                 Write-Host "Adding bug label..."
-                gh issue edit $number --repo wailsapp/wails --add-label "Bug"
+                gh issue edit $number --repo xel7dev/wails --add-label "Bug"
             }
             "e" {
                 Write-Host "Adding enhancement label..."
-                gh issue edit $number --repo wailsapp/wails --add-label "Enhancement"
+                gh issue edit $number --repo xel7dev/wails --add-label "Enhancement"
             }
             "d" {
                 Write-Host "Adding documentation label..."
-                gh issue edit $number --repo wailsapp/wails --add-label "Documentation"
+                gh issue edit $number --repo xel7dev/wails --add-label "Documentation"
             }
             "w" {
                 Write-Host "Adding webview2 label..."
-                gh issue edit $number --repo wailsapp/wails --add-label "webview2"
+                gh issue edit $number --repo xel7dev/wails --add-label "webview2"
             }
             "f" {
                 Write-Host "Requesting more info..."
-                gh issue comment $number --repo wailsapp/wails --body "Thank you for reporting this issue. Could you please provide additional information to help us investigate?`n`n- [Specific details needed]`n`nThis will help us address your issue more effectively."
-                gh issue edit $number --repo wailsapp/wails --add-label "awaiting feedback"
+                gh issue comment $number --repo xel7dev/wails --body "Thank you for reporting this issue. Could you please provide additional information to help us investigate?`n`n- [Specific details needed]`n`nThis will help us address your issue more effectively."
+                gh issue edit $number --repo xel7dev/wails --add-label "awaiting feedback"
             }
             "c" {
                 $reason = Read-Host "Reason for closing (duplicate/invalid/etc)"
-                gh issue comment $number --repo wailsapp/wails --body "Closing this issue: $reason"
-                gh issue close $number --repo wailsapp/wails
+                gh issue comment $number --repo xel7dev/wails --body "Closing this issue: $reason"
+                gh issue close $number --repo xel7dev/wails
             }
             "a" {
                 Write-Host "Assigning to yourself..."
-                gh issue edit $number --repo wailsapp/wails --add-assignee "$GITHUB_USERNAME"
+                gh issue edit $number --repo xel7dev/wails --add-assignee "$GITHUB_USERNAME"
             }
             "s" {
                 Write-Host "Skipping to next issue..."

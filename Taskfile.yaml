@@ -3,14 +3,6 @@
 version: "3"
 
 includes:
-  website:
-    taskfile: website
-    dir: website
-
-  v2:
-    taskfile: v2
-    dir: v2
-    optional: true
   v3:
     taskfile: v3
     dir: v3
@@ -45,8 +37,4 @@ tasks:
   format-all-md:
     cmds:
       - task: format:md
-      - task: website:format:md
-      - task: v2:format:md
-      # - task: v2:website:format
       - task: v3:format:md
-      # - task: v3:website:format:md

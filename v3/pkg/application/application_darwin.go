@@ -250,8 +250,8 @@ import (
 
 	"encoding/json"
 
-	"github.com/wailsapp/wails/v3/internal/assetserver/webview"
-	"github.com/wailsapp/wails/v3/pkg/events"
+	"github.com/xel7dev/wails/v3/internal/assetserver/webview"
+	"github.com/xel7dev/wails/v3/pkg/events"
 )
 
 func (m *macosApp) isDarkMode() bool {

@@ -10,7 +10,7 @@ import (
 	"github.com/pterm/pterm"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/wailsapp/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/v3/internal/flags"
 )
 
 func TestBuildManifestRoutingContractAndFailures(t *testing.T) {

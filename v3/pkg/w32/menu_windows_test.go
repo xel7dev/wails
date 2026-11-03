@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"github.com/wailsapp/wails/v3/pkg/w32"
+	"github.com/xel7dev/wails/v3/pkg/w32"
 )
 
 // Regression tests for the Windows systray SetMenu crash family.

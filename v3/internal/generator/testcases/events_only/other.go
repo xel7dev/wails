@@ -1,8 +1,8 @@
 package events_only
 
 import (
-	"github.com/wailsapp/wails/v3/internal/generator/testcases/no_bindings_here/more"
-	"github.com/wailsapp/wails/v3/pkg/application"
+	"github.com/xel7dev/wails/v3/internal/generator/testcases/no_bindings_here/more"
+	"github.com/xel7dev/wails/v3/pkg/application"
 )
 
 const eventPrefix = "events_only" + `:`

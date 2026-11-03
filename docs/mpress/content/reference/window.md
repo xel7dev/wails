@@ -429,7 +429,7 @@ func (w *WebviewWindow) OnWindowEvent(
 **Example:**
 
 ```go
-import "github.com/wailsapp/wails/v3/pkg/events"
+import "github.com/xel7dev/wails/v3/pkg/events"
 
 // Listen for window focus
 window.OnWindowEvent(events.Common.WindowFocus, func(e *application.WindowEvent) {
@@ -473,7 +473,7 @@ func (w *WebviewWindow) RegisterHook(
 **Example - Prevent window close:**
 
 ```go
-import "github.com/wailsapp/wails/v3/pkg/events"
+import "github.com/xel7dev/wails/v3/pkg/events"
 
 window.RegisterHook(events.Common.WindowClosing, func(e *application.WindowEvent) {
     confirm := app.Dialog.Question().
@@ -729,8 +729,8 @@ window.SetMenu(menu)
 package main
 
 import (
-    "github.com/wailsapp/wails/v3/pkg/application"
-    "github.com/wailsapp/wails/v3/pkg/events"
+    "github.com/xel7dev/wails/v3/pkg/application"
+    "github.com/xel7dev/wails/v3/pkg/events"
 )
 
 func main() {

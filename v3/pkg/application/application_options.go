@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/wailsapp/wails/v3/internal/assetserver"
+	"github.com/xel7dev/wails/v3/internal/assetserver"
 )
 
 // Options contains the options for the application

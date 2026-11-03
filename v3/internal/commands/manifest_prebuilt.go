@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/wailsapp/wails/v3/internal/wake/pipeline"
+	"github.com/xel7dev/wails/v3/internal/wake/pipeline"
 )
 
 func (h *manifestHandler) prebuiltSource(spec pipeline.PrebuiltSpec) (string, error) {

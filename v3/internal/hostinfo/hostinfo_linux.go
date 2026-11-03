@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/wailsapp/wails/v3/internal/pcinames"
+	"github.com/xel7dev/wails/v3/internal/pcinames"
 )
 
 func Processors() ([]Processor, error) {

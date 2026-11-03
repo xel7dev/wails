@@ -4,7 +4,7 @@ package doctor
 
 import (
 	"bytes"
-	"github.com/wailsapp/wails/v3/internal/lo"
+	"github.com/xel7dev/wails/v3/internal/lo"
 	"os/exec"
 	"strings"
 	"syscall"

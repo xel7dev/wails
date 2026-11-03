@@ -5,7 +5,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
 )
 
 // ProjectMetadataState is the setup wizard's editable project metadata.

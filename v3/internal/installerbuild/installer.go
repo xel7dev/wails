@@ -10,7 +10,7 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/wailsapp/wails/v3/internal/buildmeta"
+	"github.com/xel7dev/wails/v3/internal/buildmeta"
 )
 
 type File struct {

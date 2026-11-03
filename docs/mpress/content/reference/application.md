@@ -12,7 +12,7 @@ The `Application` is the core of your Wails app. It manages windows, services, e
 ## Creating an Application
 
 ```go
-import "github.com/wailsapp/wails/v3/pkg/application"
+import "github.com/xel7dev/wails/v3/pkg/application"
 
 app := application.New(application.Options{
     Name:        "My App",
@@ -259,7 +259,7 @@ func (em *EventManager) OnApplicationEvent(
 **Example:**
 
 ```go
-import "github.com/wailsapp/wails/v3/pkg/events"
+import "github.com/xel7dev/wails/v3/pkg/events"
 
 // Listen for app-started
 app.Event.OnApplicationEvent(events.Common.ApplicationStarted, func(e *application.ApplicationEvent) {
@@ -474,7 +474,7 @@ app := application.New(application.Options{
 package main
 
 import (
-    "github.com/wailsapp/wails/v3/pkg/application"
+    "github.com/xel7dev/wails/v3/pkg/application"
 )
 
 func main() {

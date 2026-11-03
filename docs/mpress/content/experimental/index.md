@@ -67,8 +67,8 @@ Windows already builds without cgo and is unaffected.
 Use a CLI and framework version that both include this experiment. Updating only the CLI does not add the backend to an older framework dependency in your application's `go.mod`. To try the development version, run these commands from your application directory:
 
 ```sh
-go install github.com/wailsapp/wails/v3/cmd/wails3@master
-go get github.com/wailsapp/wails/v3@master
+go install github.com/xel7dev/wails/v3/cmd/wails3@master
+go get github.com/xel7dev/wails/v3@master
 ```
 
 Both commands track the moving `master` branch. For reproducible builds, use the same tested commit for the CLI and framework. Follow the [installation guide](/getting-started/installation/) for the Go toolchain and CLI setup.

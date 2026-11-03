@@ -8,10 +8,10 @@ import (
 	"path/filepath"
 
 	"github.com/pterm/pterm"
-	"github.com/wailsapp/wails/v3/internal/debug"
-	"github.com/wailsapp/wails/v3/internal/github"
-	"github.com/wailsapp/wails/v3/internal/term"
-	"github.com/wailsapp/wails/v3/internal/version"
+	"github.com/xel7dev/wails/v3/internal/debug"
+	"github.com/xel7dev/wails/v3/internal/github"
+	"github.com/xel7dev/wails/v3/internal/term"
+	"github.com/xel7dev/wails/v3/internal/version"
 )
 
 type UpdateCLIOptions struct {
@@ -167,7 +167,7 @@ func updateToVersion(targetVersion *github.SemanticVersion, force bool, currentV
 		return fmt.Errorf("cannot find home directory: %w", err)
 	}
 
-	cmd := exec.Command("go", "install", "github.com/wailsapp/wails/v3/cmd/wails3@"+desiredVersion)
+	cmd := exec.Command("go", "install", "github.com/xel7dev/wails/v3/cmd/wails3@"+desiredVersion)
 	cmd.Dir = homeDir
 	sout, err := cmd.CombinedOutput()
 	if err != nil {
@@ -177,7 +177,7 @@ func updateToVersion(targetVersion *github.SemanticVersion, force bool, currentV
 	}
 	pterm.Println("Done.")
 	pterm.Println("\nMake sure you update your project go.mod file to use " + desiredVersion + ":")
-	pterm.Println("  require github.com/wailsapp/wails/v3 " + desiredVersion)
+	pterm.Println("  require github.com/xel7dev/wails/v3 " + desiredVersion)
 	pterm.Println("\nTo view the release notes, please run `wails3 releasenotes`")
 
 	return nil

@@ -9,7 +9,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/wailsapp/wails/v3/pkg/application"
+	"github.com/xel7dev/wails/v3/pkg/application"
 )
 
 const indexHTML = `<!doctype html><html><head><meta charset="utf-8"><title>nested worker repro</title>

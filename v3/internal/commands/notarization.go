@@ -10,10 +10,10 @@ import (
 	"time"
 
 	"github.com/pterm/pterm"
-	"github.com/wailsapp/wails/v3/internal/bundlearchive"
-	"github.com/wailsapp/wails/v3/internal/flags"
-	"github.com/wailsapp/wails/v3/internal/notaryservice"
-	"github.com/wailsapp/wails/v3/internal/notaryticket"
+	"github.com/xel7dev/wails/v3/internal/bundlearchive"
+	"github.com/xel7dev/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/v3/internal/notaryservice"
+	"github.com/xel7dev/wails/v3/internal/notaryticket"
 )
 
 type notaryClient interface {

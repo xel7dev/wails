@@ -13,10 +13,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/wailsapp/wails/v3/internal/dev"
-	"github.com/wailsapp/wails/v3/internal/wake/cache"
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
-	"github.com/wailsapp/wails/v3/internal/wake/pipeline"
+	"github.com/xel7dev/wails/v3/internal/dev"
+	"github.com/xel7dev/wails/v3/internal/wake/cache"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/wake/pipeline"
 )
 
 // mobileDevProcess owns the installed application and its log attachment.

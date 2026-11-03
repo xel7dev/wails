@@ -9,8 +9,8 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/wailsapp/wails/v3/internal/operatingsystem"
-	"github.com/wailsapp/wails/v3/pkg/events"
+	"github.com/xel7dev/wails/v3/internal/operatingsystem"
+	"github.com/xel7dev/wails/v3/pkg/events"
 )
 
 func (a *linuxApp) getApplicationMenu() *Menu {

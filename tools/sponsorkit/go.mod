@@ -1,3 +1,3 @@
-module github.com/wailsapp/wails/tools/sponsorkit
+module github.com/xel7dev/wails/tools/sponsorkit
 
 go 1.25.0

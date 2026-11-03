@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/pkg/updater"
+	"github.com/xel7dev/wails/v3/pkg/updater"
 )
 
 func TestCheckAndInstall_BuiltinWindow_OpensClosesOnSuccess(t *testing.T) {

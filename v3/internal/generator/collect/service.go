@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"sync"
 
-	"github.com/wailsapp/wails/v3/internal/hash"
+	"github.com/xel7dev/wails/v3/internal/hash"
 	"golang.org/x/tools/go/types/typeutil"
 )
 

@@ -6,10 +6,10 @@ import (
 	"runtime/debug"
 	"strings"
 
-	"github.com/wailsapp/wails/v3/internal/git"
-	"github.com/wailsapp/wails/v3/internal/lo"
-	"github.com/wailsapp/wails/v3/internal/operatingsystem"
-	"github.com/wailsapp/wails/v3/internal/version"
+	"github.com/xel7dev/wails/v3/internal/git"
+	"github.com/xel7dev/wails/v3/internal/lo"
+	"github.com/xel7dev/wails/v3/internal/operatingsystem"
+	"github.com/xel7dev/wails/v3/internal/version"
 )
 
 type Doctor struct {
@@ -79,7 +79,7 @@ func (d *Doctor) collectBuildInfo() error {
 
 	wailsVersion := strings.TrimSpace(version.String())
 	wailsPackage, found := lo.Find(buildInfo.Deps, func(dep *debug.Module) bool {
-		return dep.Path == "github.com/wailsapp/wails/v3"
+		return dep.Path == "github.com/xel7dev/wails/v3"
 	})
 
 	if found && wailsPackage != nil && wailsPackage.Replace != nil {

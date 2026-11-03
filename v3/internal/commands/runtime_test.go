@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/internal/assetserver/bundledassets"
+	"github.com/xel7dev/wails/v3/internal/assetserver/bundledassets"
 )
 
 func TestGenerateRuntimeWithoutSourceTree(t *testing.T) {

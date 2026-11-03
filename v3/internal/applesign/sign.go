@@ -14,7 +14,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/wailsapp/wails/v3/internal/universalbinary"
+	"github.com/xel7dev/wails/v3/internal/universalbinary"
 )
 
 type Options struct {

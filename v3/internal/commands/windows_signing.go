@@ -12,9 +12,9 @@ import (
 	"strings"
 
 	"github.com/pterm/pterm"
-	"github.com/wailsapp/wails/v3/internal/codesignature"
-	"github.com/wailsapp/wails/v3/internal/flags"
-	"github.com/wailsapp/wails/v3/internal/windowsign"
+	"github.com/xel7dev/wails/v3/internal/codesignature"
+	"github.com/xel7dev/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/v3/internal/windowsign"
 )
 
 func signWindowsWithPassword(ctx context.Context, options *flags.Sign, password string) error {

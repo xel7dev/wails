@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/internal/assetserver/bundledassets"
+	"github.com/xel7dev/wails/v3/internal/assetserver/bundledassets"
 )
 
 func TestBundledRuntimeHEAD(t *testing.T) {

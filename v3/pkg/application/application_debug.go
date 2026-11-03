@@ -3,9 +3,9 @@
 package application
 
 import (
-	"github.com/wailsapp/wails/v3/internal/git"
-	"github.com/wailsapp/wails/v3/internal/lo"
-	"github.com/wailsapp/wails/v3/internal/version"
+	"github.com/xel7dev/wails/v3/internal/git"
+	"github.com/xel7dev/wails/v3/internal/lo"
+	"github.com/xel7dev/wails/v3/internal/version"
 	"path/filepath"
 	"runtime/debug"
 )
@@ -46,7 +46,7 @@ func (a *App) logStartup() {
 	}
 
 	wailsPackage, _ := lo.Find(BuildInfo.Deps, func(dep *debug.Module) bool {
-		return dep.Path == "github.com/wailsapp/wails/v3"
+		return dep.Path == "github.com/xel7dev/wails/v3"
 	})
 
 	wailsVersion := version.String()

@@ -55,7 +55,7 @@ stable `v3.0.0` CLI does not add the Wake project creation screens described her
 following commands pin the preview from [PR #6531](https://github.com/wailsapp/wails/pull/6531):
 
 ```sh
-go install github.com/wailsapp/wails/v3/cmd/wails3@b1daf95f3
+go install github.com/xel7dev/wails/v3/cmd/wails3@master
 wails3 version
 ```
 
@@ -204,7 +204,7 @@ return to the terminal. Wait for project creation to finish, then run:
 
 ```sh
 cd wake-demo
-go get github.com/wailsapp/wails/v3@b1daf95f3
+go get github.com/xel7dev/wails/v3@master
 ```
 
 You should now have `main.go`, a Go module, a `frontend` directory and a native

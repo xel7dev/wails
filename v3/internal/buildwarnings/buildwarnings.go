@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/wailsapp/wails/v3/internal/term"
+	"github.com/xel7dev/wails/v3/internal/term"
 )
 
 // EnvVar is the environment variable that holds the path to the warnings file.

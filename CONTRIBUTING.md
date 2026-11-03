@@ -1,13 +1,6 @@
 # Contributing to Wails
 
-Thanks for your interest in contributing! Wails has two active tracks. Pick the one that matches the change you want to make.
-
-## v2 (stable)
-
-- Source: the `v2/` directory on the `master` branch.
-- Docs: [v2.wails.io](https://v2.wails.io/).
-- Detailed contributor guide: [v2.wails.io/community-guide](https://v2.wails.io/community-guide).
-- Changelog: update `website/src/pages/changelog.mdx` under the `[Unreleased]` heading.
+Thanks for your interest in contributing! This repository contains the Wails v3 codebase.
 
 ## v3
 
@@ -22,7 +15,7 @@ Thanks for your interest in contributing! Wails has two active tracks. Pick the 
 ## Pull request checklist
 
 - One feature or fix per PR.
-- For v2, update its changelog. For v3, describe the change in the PR and leave the generated changelog files to automation.
+- Describe the change in the PR and leave generated changelog files to automation.
 - Follow the existing coding style in the area you're touching.
 - Add tests where it makes sense.
 

@@ -21,8 +21,8 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/pkg/updater"
-	"github.com/wailsapp/wails/v3/pkg/updater/providers/endpoint"
+	"github.com/xel7dev/wails/v3/pkg/updater"
+	"github.com/xel7dev/wails/v3/pkg/updater/providers/endpoint"
 )
 
 func genTestKey(t *testing.T) (string, ed25519.PublicKey) {

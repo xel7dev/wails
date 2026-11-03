@@ -9,7 +9,7 @@ import (
 
 	"github.com/coder/websocket"
 	"github.com/coder/websocket/wsjson"
-	"github.com/wailsapp/wails/v3/internal/mailbox"
+	"github.com/xel7dev/wails/v3/internal/mailbox"
 )
 
 // globalBroadcaster holds a reference to the WebSocket broadcaster for server mode.

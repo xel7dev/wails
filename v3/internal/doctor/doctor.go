@@ -14,16 +14,16 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/wailsapp/wails/v3/internal/term"
+	"github.com/xel7dev/wails/v3/internal/term"
 
-	"github.com/wailsapp/wails/v3/internal/buildinfo"
+	"github.com/xel7dev/wails/v3/internal/buildinfo"
 
 	"github.com/pterm/pterm"
-	"github.com/wailsapp/wails/v3/internal/git"
-	"github.com/wailsapp/wails/v3/internal/hostinfo"
-	"github.com/wailsapp/wails/v3/internal/lo"
-	"github.com/wailsapp/wails/v3/internal/operatingsystem"
-	"github.com/wailsapp/wails/v3/internal/version"
+	"github.com/xel7dev/wails/v3/internal/git"
+	"github.com/xel7dev/wails/v3/internal/hostinfo"
+	"github.com/xel7dev/wails/v3/internal/lo"
+	"github.com/xel7dev/wails/v3/internal/operatingsystem"
+	"github.com/xel7dev/wails/v3/internal/version"
 )
 
 type DoctorReport struct {
@@ -106,7 +106,7 @@ func collectReport(quiet bool) (*DoctorReport, error) {
 	}
 
 	wailsPackage, _ := lo.Find(BuildInfo.Deps, func(dep *debug.Module) bool {
-		return dep.Path == "github.com/wailsapp/wails/v3"
+		return dep.Path == "github.com/xel7dev/wails/v3"
 	})
 
 	wailsVersion := strings.TrimSpace(version.String())

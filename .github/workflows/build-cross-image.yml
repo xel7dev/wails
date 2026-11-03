@@ -205,7 +205,7 @@ jobs:
           cd test-wails-app
 
           # Update replace directive to use absolute path (wails3 init adds relative path)
-          sed -i 's|replace github.com/wailsapp/wails/v3 => .*|replace github.com/wailsapp/wails/v3 => ${{ github.workspace }}/v3|' go.mod
+          sed -i 's|replace github.com/xel7dev/wails/v3 => .*|replace github.com/xel7dev/wails/v3 => ${{ github.workspace }}/v3|' go.mod
 
       - name: Cross-compile ${{ matrix.os }}/${{ matrix.arch }} via task
         run: |

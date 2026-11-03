@@ -13,12 +13,12 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/wailsapp/wails/v3/internal/flags"
-	"github.com/wailsapp/wails/v3/internal/generator/config"
-	"github.com/wailsapp/wails/v3/internal/generator/render"
+	"github.com/xel7dev/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/v3/internal/generator/config"
+	"github.com/xel7dev/wails/v3/internal/generator/render"
 )
 
-const testcases = "github.com/wailsapp/wails/v3/internal/generator/testcases/..."
+const testcases = "github.com/xel7dev/wails/v3/internal/generator/testcases/..."
 
 type testParams struct {
 	name      string

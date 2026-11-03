@@ -12,8 +12,8 @@ import (
 
 	"github.com/rjeczalik/notify"
 	"github.com/stretchr/testify/require"
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
-	"github.com/wailsapp/wails/v3/internal/wake/pipeline"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/wake/pipeline"
 )
 
 type argumentProcess struct {

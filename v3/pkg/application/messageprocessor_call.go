@@ -6,7 +6,7 @@ import (
 
 	"encoding/json"
 
-	"github.com/wailsapp/wails/v3/pkg/errs"
+	"github.com/xel7dev/wails/v3/pkg/errs"
 )
 
 type contextKey string

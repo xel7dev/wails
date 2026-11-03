@@ -14,12 +14,12 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/wailsapp/wails/v3/internal/webview2/webviewloader"
+	"github.com/xel7dev/wails/v3/internal/webview2/webviewloader"
 
-	"github.com/wailsapp/wails/v3/internal/operatingsystem"
+	"github.com/xel7dev/wails/v3/internal/operatingsystem"
 
-	"github.com/wailsapp/wails/v3/pkg/events"
-	"github.com/wailsapp/wails/v3/pkg/w32"
+	"github.com/xel7dev/wails/v3/pkg/events"
+	"github.com/xel7dev/wails/v3/pkg/w32"
 )
 
 var (

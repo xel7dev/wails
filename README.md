@@ -1,25 +1,24 @@
+<h1 align="center">Wails</h1>
+
 <p align="center" style="text-align: center">
   <img src="./assets/images/logo-universal.png" width="55%"><br/>
 </p>
 
 <p align="center">
-  Build desktop applications using Go & Web Technologies.
+  使用 Go 和 Web 技术构建桌面应用程序。
   <br/>
   <br/>
-  <a href="https://github.com/wailsapp/wails/blob/master/LICENSE">
-    <img alt="GitHub" src="https://img.shields.io/github/license/wailsapp/wails"/>
+  <a href="https://github.com/xel7dev/wails/blob/master/LICENSE">
+    <img alt="GitHub" src="https://img.shields.io/github/license/xel7dev/wails"/>
   </a>
-  <a href="https://goreportcard.com/report/github.com/wailsapp/wails">
-    <img src="https://goreportcard.com/badge/github.com/wailsapp/wails" />
+  <a href="https://goreportcard.com/report/github.com/xel7dev/wails/v3">
+    <img src="https://goreportcard.com/badge/github.com/xel7dev/wails/v3" />
   </a>
-  <a href="https://pkg.go.dev/github.com/wailsapp/wails">
-    <img src="https://pkg.go.dev/badge/github.com/wailsapp/wails.svg" alt="Go Reference"/>
+  <a href="https://pkg.go.dev/github.com/xel7dev/wails/v3">
+    <img src="https://pkg.go.dev/badge/github.com/xel7dev/wails/v3.svg" alt="Go Reference"/>
   </a>
-  <a href="https://github.com/wailsapp/wails/issues">
+  <a href="https://github.com/xel7dev/wails/issues">
     <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="CodeFactor" />
-  </a>
-  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fwailsapp%2Fwails?ref=badge_shield" alt="FOSSA Status">
-    <img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fwailsapp%2Fwails.svg?type=shield" />
   </a>
   <a href="https://github.com/avelino/awesome-go" rel="nofollow">
     <img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" alt="Awesome" />
@@ -28,127 +27,96 @@
     <img alt="Discord" src="https://img.shields.io/discord/1042734330029547630?logo=discord"/>
   </a>
   <br/>
-  <a href="https://github.com/wailsapp/wails/actions/workflows/build-and-test.yml" rel="nofollow">
-    <img src="https://img.shields.io/github/actions/workflow/status/wailsapp/wails/build-and-test.yml?branch=master&logo=Github" alt="Build" />
+  <a href="https://github.com/xel7dev/wails/actions/workflows/build-and-test-v3.yml" rel="nofollow">
+    <img src="https://img.shields.io/github/actions/workflow/status/xel7dev/wails/build-and-test-v3.yml?branch=master&logo=Github" alt="Build" />
   </a>
-  <a href="https://github.com/wailsapp/wails/tags" rel="nofollow">
+  <a href="https://github.com/xel7dev/wails/tags" rel="nofollow">
     <img alt="Wails v3.0.0" src="https://img.shields.io/badge/version-v3.0.0-blue"/>
   </a>
 </p>
 
-<div align="center">
-<strong>
-<samp>
+## Wails v3.0.0
 
-[English](README.md) · [简体中文](README.zh-Hans.md) · [日本語](README.ja.md) ·
-[한국어](README.ko.md) · [Español](README.es.md) · [Português](README.pt-br.md) ·
-[Русский](README.ru.md) · [Francais](README.fr.md) · [Uzbek](README.uz.md) · [Deutsch](README.de.md) ·
-[Türkçe](README.tr.md) · [Bahasa Indonesia](README.id.md)
+Wails v3.0.0 是面向 Windows、macOS 和 Linux 桌面应用程序的稳定版本。 Android 和 iOS 支持仍处于实验阶段，不在稳定桌面版的兼容性保证范围内。
 
-</samp>
-</strong>
-</div>
+```sh
+go install github.com/xel7dev/wails/v3/cmd/wails3@master
+```
 
-## Table of Contents
+[wails.io](https://wails.io/)
 
-- [Table of Contents](#table-of-contents)
-- [Introduction](#introduction)
-- [Features](#features)
-  - [Roadmap](#roadmap)
-- [Getting Started](#getting-started)
-- [Sponsors](#sponsors)
-- [FAQ](#faq)
-- [Stargazers over time](#stargazers-over-time)
-- [Contributors](#contributors)
-- [License](#license)
-- [Inspiration](#inspiration)
+## 内容目录
 
-## Introduction
+- [内容目录](#内容目录)
+- [项目介绍](#项目介绍)
+- [功能](#功能)
+  - [路线图](#路线图)
+- [快速入门](#快速入门)
+- [赞助商](#赞助商)
+- [常见问题](#常见问题)
+- [贡献者](#贡献者)
+- [许可证](#许可证)
+- [灵感](#灵感)
 
-The traditional method of providing web interfaces to Go programs is via a built-in web server. Wails offers a different
-approach: it provides the ability to wrap both Go code and a web frontend into a single binary. Tools are provided to
-make this easy for you by handling project creation, compilation and bundling. All you have to do is get creative!
+## 项目介绍
 
-## Features
+为 Go 程序提供 Web 界面的传统方法是通过内置 Web 服务器。Wails 提供了一种不同的方法：它提供了将 Go 代码和 Web
+前端一起打包成单个二进制文件的能力。通过提供的工具，可以很轻松的完成项目的创建、编译和打包。你所要做的就是发挥创造力！
 
-- Use standard Go for the backend
-- Use any frontend technology you are already familiar with to build your UI
-- Quickly create rich frontends for your Go programs using pre-built templates
-- Easily call Go methods from Javascript
-- Auto-generated Typescript definitions for your Go structs and methods
-- Native Dialogs & Menus
-- Native Dark / Light mode support
-- Supports modern translucency and "frosted window" effects
-- Unified eventing system between Go and Javascript
-- Powerful cli tool to quickly generate and build your projects
-- Multiplatform
-- Uses native rendering engines - _no embedded browser_!
+## 功能
 
-### Roadmap
+- 后端使用标准 Go
+- 使用您已经熟悉的任何前端技术来构建您的 UI
+- 使用内置模板为您的 Go 程序快速创建丰富的前端
+- 从 Javascript 轻松调用 Go 方法
+- 为您的 Go 结构体和方法自动生成 Typescript 声明
+- 原生对话框和菜单
+- 支持现代半透明和“磨砂窗”效果
+- Go 和 Javascript 之间统一的事件系统
+- 强大的命令行工具，可快速生成和构建您的项目
+- 跨平台
+- 使用原生渲染引擎 - _没有嵌入浏览器_！
 
-The project roadmap may be found [here](https://github.com/wailsapp/wails/discussions/1484). New functionality and public behaviour changes use a [WEP (Wails Enhancement Proposal)](v3/wep/README.md), submitted as a draft pull request rather than a feature-request issue.
+### 路线图
 
-## Getting Started
+项目路线图可在 [此处](https://github.com/wailsapp/wails/discussions/1484) 找到。在提出增强请求之前请查阅此内容。
 
-Wails has two active versions:
+## 快速入门
 
-| Version | Status | Install | Docs |
-|---|---|---|---|
-| v2 | Stable | `go install github.com/wailsapp/wails/v2/cmd/wails@latest` | [v2.wails.io](https://v2.wails.io/) |
-| v3.0.0 | Stable | `go install github.com/wailsapp/wails/v3/cmd/wails3@v3.0.0` | [wails.io](https://wails.io/) |
+使用说明在 [官网](https://wails.io/zh-cn/quick-start/installation/)。
 
-Full installation instructions are available for [v2](https://v2.wails.io/docs/gettingstarted/installation) and [v3](https://wails.io).
+## 赞助商
 
-## Sponsors
+这个项目由以下这些人或者公司支持：
 
-This project is supported by these kind people / companies:
-<img src="website/static/img/sponsors.svg" style="width:100%;max-width:800px;"/>
+<img src="docs/mpress/static/img/sponsors.svg" style="width:100%;max-width:800px;"/>
 
-## Powered By
+## 常见问题
 
-[![JetBrains logo.](https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg)](https://jb.gg/OpenSource)
+- 它是 Electron 的替代品吗?
 
-Thanks to [CodeRabbit](https://www.coderabbit.ai/oss) for supporting Wails with AI code reviews.
+  取决于您的要求。它旨在使 Go 程序员可以轻松制作轻量级桌面应用程序或在其现有应用程序中添加前端。尽管 Wails 当前不提供对诸如菜单之类的原生元素的钩子，但将来可能会改变。
 
-## FAQ
+- 这个项目针对的是哪些人?
 
-- Is this an alternative to Electron?
+  希望将 HTML / JS / CSS 前端与其应用程序捆绑在一起的程序员，而不是借助创建服务并打开浏览器进行查看的方式。
 
-  Depends on your requirements. It's designed to make it easy for Go programmers to make lightweight desktop
-  applications or add a frontend to their existing applications. Wails does offer native elements such as menus
-  and dialogs, so it could be considered a lightweight electron alternative.
+- 名字怎么来的?
 
-- Who is this project aimed at?
+  当我看到 WebView 时，我想"我真正想要的是围绕构建 WebView 应用程序工作，有点像 Rails 对于 Ruby"。因此，最初它是一个文字游戏（Webview on
+  Rails）。碰巧也是我来自的 [国家](https://en.wikipedia.org/wiki/Wales) 的英文名字的同音。所以就是它了。
 
-  Go programmers who want to bundle an HTML/JS/CSS frontend with their applications, without resorting to creating a
-  server and opening a browser to view it.
+## 贡献者
 
-- What's with the name?
+贡献者列表对于 README 文件来说太大了！所有为这个项目做出贡献的了不起的人在[这里](https://wails.io/credits/)都有自己的页面。
 
-  When I saw WebView, I thought "What I really want is tooling around building a WebView app, a bit like Rails is to
-  Ruby". So initially it was a play on words (Webview on Rails). It just so happened to also be a homophone of the
-  English name for the [Country](https://en.wikipedia.org/wiki/Wales) I am from. So it stuck.
+## 许可证
 
-## Stargazers over time
+Wails 使用 [MIT 许可证](LICENSE)。
 
-<a href="https://github.com/wailsapp/wails/stargazers">
-  <img alt="Wails star history chart" src="website/static/img/star-history.svg" width="800" />
-</a>
+## 灵感
 
-## Contributors
-
-To improve the v3 documentation, follow [Write documentation with M-Press](docs/mpress/content/contributing/documentation.md) for downloads, installation, preview and submitting a PR.
-
-The contributors list is getting too big for the readme! All the amazing people who have contributed to this
-project have their own page [here](https://wails.io/credits/).
-
-## License
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fwailsapp%2Fwails.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fwailsapp%2Fwails?ref=badge_large)
-
-## Inspiration
-
-This project was mainly coded to the following albums:
+项目灵感主要来自以下专辑：
 
 - [Manic Street Preachers - Resistance Is Futile](https://open.spotify.com/album/1R2rsEUqXjIvAbzM0yHrxA)
 - [Manic Street Preachers - This Is My Truth, Tell Me Yours](https://open.spotify.com/album/4VzCL9kjhgGQeKCiojK1YN)

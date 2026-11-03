@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
-	"github.com/wailsapp/wails/v3/internal/wake/pipeline"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/wake/pipeline"
 )
 
 func configureRunTarget(options *RunOptions, goos, arch string, settings manifest.Run, build *manifestRunOptions) error {

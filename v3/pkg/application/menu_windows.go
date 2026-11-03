@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"syscall"
 
-	"github.com/wailsapp/wails/v3/pkg/w32"
+	"github.com/xel7dev/wails/v3/pkg/w32"
 )
 
 type windowsMenu struct {

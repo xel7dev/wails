@@ -4,7 +4,7 @@ import (
 	"slices"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/v3/internal/flags"
 )
 
 func TestPackageTagsReachManifestAndLegacyBuilds(t *testing.T) {

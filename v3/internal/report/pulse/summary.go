@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/charmbracelet/x/ansi"
-	"github.com/wailsapp/wails/v3/internal/report"
+	"github.com/xel7dev/wails/v3/internal/report"
 )
 
 // osGetwd is a tiny indirection so highlightBody's cwd-resolution can be

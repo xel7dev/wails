@@ -24,7 +24,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wailsapp/wails/v3/pkg/updater"
+	"github.com/xel7dev/wails/v3/pkg/updater"
 )
 
 func removeAllOS(p string) error { return os.RemoveAll(p) }

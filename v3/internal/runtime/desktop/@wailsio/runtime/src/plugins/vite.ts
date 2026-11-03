@@ -28,7 +28,7 @@ export default function WailsTypedEvents(bindingsRoot: string): Plugin {
     return {
         name: "wails-typed-events",
         async buildStart() {
-            const bindingsPath = `${bindingsRoot}/github.com/wailsapp/wails/v3/internal/eventcreate`;
+            const bindingsPath = `${bindingsRoot}/github.com/xel7dev/wails/v3/internal/eventcreate`;
             let resolution = await this.resolve(bindingsPath);
             if (!resolution || resolution.external) {
                 this.error(`Event bindings module not found at import specifier '${bindingsPath}'. Please verify that the wails tool is up to date and the binding generator runs successfully. If you moved the bindings to a custom location, ensure you supplied the correct root path as the first argument to \`wailsTypedEventsPlugin\``);

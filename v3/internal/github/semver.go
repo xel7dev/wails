@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/wailsapp/wails/v3/internal/semver"
+	"github.com/xel7dev/wails/v3/internal/semver"
 )
 
 const majorVersion = 3

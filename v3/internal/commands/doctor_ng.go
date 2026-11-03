@@ -1,7 +1,7 @@
 package commands
 
 import (
-	"github.com/wailsapp/wails/v3/pkg/doctor-ng/tui"
+	"github.com/xel7dev/wails/v3/pkg/doctor-ng/tui"
 )
 
 type DoctorNgOptions struct {

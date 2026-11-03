@@ -25,8 +25,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/wailsapp/wails/v3/internal/dirscan"
-	"github.com/wailsapp/wails/v3/internal/sourceignore"
+	"github.com/xel7dev/wails/v3/internal/dirscan"
+	"github.com/xel7dev/wails/v3/internal/sourceignore"
 )
 
 const (

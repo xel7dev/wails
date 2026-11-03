@@ -3,9 +3,9 @@ package main
 import (
 	"log"
 
-	"github.com/wailsapp/wails/v3/internal/generator/testcases/variable_single_from_other_function/services"
+	"github.com/xel7dev/wails/v3/internal/generator/testcases/variable_single_from_other_function/services"
 
-	"github.com/wailsapp/wails/v3/pkg/application"
+	"github.com/xel7dev/wails/v3/pkg/application"
 )
 
 // GreetService is great

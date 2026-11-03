@@ -1,7 +1,7 @@
 package application
 
 import (
-	"github.com/wailsapp/wails/v3/pkg/updater"
+	"github.com/xel7dev/wails/v3/pkg/updater"
 )
 
 // updaterHost adapts the application's EventManager and window factory to

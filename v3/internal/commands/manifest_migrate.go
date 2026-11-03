@@ -19,11 +19,11 @@ import (
 	"sync"
 	"text/template"
 
-	"github.com/wailsapp/wails/v3/internal/version"
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
-	"github.com/wailsapp/wails/v3/internal/wake/migration"
-	"github.com/wailsapp/wails/v3/internal/wake/migration/taskfile"
-	wakeast "github.com/wailsapp/wails/v3/internal/wake/migration/taskfile/ast"
+	"github.com/xel7dev/wails/v3/internal/version"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/wake/migration"
+	"github.com/xel7dev/wails/v3/internal/wake/migration/taskfile"
+	wakeast "github.com/xel7dev/wails/v3/internal/wake/migration/taskfile/ast"
 )
 
 type MigrateOptions struct {

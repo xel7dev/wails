@@ -3,7 +3,7 @@
 package application
 
 import (
-	"github.com/wailsapp/wails/v3/pkg/errs"
+	"github.com/xel7dev/wails/v3/pkg/errs"
 )
 
 // Empty method name maps for logging on non-mobile platforms

@@ -13,8 +13,8 @@ import (
 	"sync/atomic"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/pkg/updater"
-	"github.com/wailsapp/wails/v3/pkg/updater/providers/github"
+	"github.com/xel7dev/wails/v3/pkg/updater"
+	"github.com/xel7dev/wails/v3/pkg/updater/providers/github"
 )
 
 const sampleReleaseJSON = `{

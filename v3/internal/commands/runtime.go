@@ -4,7 +4,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/wailsapp/wails/v3/internal/assetserver/bundledassets"
+	"github.com/xel7dev/wails/v3/internal/assetserver/bundledassets"
 )
 
 type RuntimeOptions struct {

@@ -162,7 +162,7 @@ questions, and feedback as v3 moves toward general availability.
 Once the release is published, install the latest v3 CLI with:
 
 ```sh
-go install github.com/wailsapp/wails/v3/cmd/wails3@latest
+go install github.com/xel7dev/wails/v3/cmd/wails3@master
 ```
 
 Before creating a project, run the guided setup wizard. It checks your local

@@ -10,7 +10,7 @@ v3 is a ground-up rework of Wails. Applications, windows, services, events and p
 ## Install
 
 ```bash
-go install github.com/wailsapp/wails/v3/cmd/wails3@v3.0.0
+go install github.com/xel7dev/wails/v3/cmd/wails3@master
 wails3 setup    # guided setup: checks your system and installs what Wails needs
 wails3 init     # create a new project
 ```
@@ -78,8 +78,6 @@ v3 is a new major version, so moving to it is a real port rather than a version 
 - regenerated frontend bindings.
 
 The [migration guide](https://wails.io/migration/v2-to-v3/) covers each one with before-and-after examples.
-
-**Wails v2 isn't going away.** It continues to receive critical updates, and its documentation is now at [v2.wails.io](https://v2.wails.io/). The two CLIs (`wails` and `wails3`) are separate binaries with different module paths, so you can install both.
 
 ## Security
 

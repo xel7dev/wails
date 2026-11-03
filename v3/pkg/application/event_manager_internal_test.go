@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wailsapp/wails/v3/pkg/events"
+	"github.com/xel7dev/wails/v3/pkg/events"
 )
 
 func newEventManagerTestApp() *App {

@@ -5,8 +5,8 @@ import (
 	"io"
 	"os"
 
-	"github.com/wailsapp/wails/v3/internal/version"
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/version"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
 )
 
 type EjectOptions struct {

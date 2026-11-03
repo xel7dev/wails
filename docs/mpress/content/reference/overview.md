@@ -119,7 +119,7 @@ const message: string = await Greet("World")
 ## Package Structure
 
 ```
-github.com/wailsapp/wails/v3/pkg/
+github.com/xel7dev/wails/v3/pkg/
 ├── application/          # Core application package
 │   ├── application.go    # App type
 │   ├── webview_window.go # Window management
@@ -142,8 +142,8 @@ github.com/wailsapp/wails/v3/pkg/
 
 ```go
 import (
-    "github.com/wailsapp/wails/v3/pkg/application"
-    "github.com/wailsapp/wails/v3/pkg/events"
+    "github.com/xel7dev/wails/v3/pkg/application"
+    "github.com/xel7dev/wails/v3/pkg/events"
 )
 ```
 

@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wailsapp/wails/v3/pkg/updater"
+	"github.com/xel7dev/wails/v3/pkg/updater"
 )
 
 // TestRestartHelperProcess re-executes the real helper entry point after

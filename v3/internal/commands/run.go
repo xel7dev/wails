@@ -16,9 +16,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/wailsapp/wails/v3/internal/features"
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
-	"github.com/wailsapp/wails/v3/internal/wake/pipeline"
+	"github.com/xel7dev/wails/v3/internal/features"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/wake/pipeline"
 )
 
 type RunOptions struct {

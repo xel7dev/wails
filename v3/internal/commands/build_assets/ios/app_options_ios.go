@@ -2,7 +2,7 @@
 
 package main
 
-import "github.com/wailsapp/wails/v3/pkg/application"
+import "github.com/xel7dev/wails/v3/pkg/application"
 
 // modifyOptionsForIOS adjusts the application options for iOS
 func modifyOptionsForIOS(opts *application.Options) {

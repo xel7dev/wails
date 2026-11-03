@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/wailsapp/wails/v3/internal/wake/buildinfo"
+	"github.com/xel7dev/wails/v3/internal/wake/buildinfo"
 )
 
 // manifestDocument is intentionally a closed schema. Keep the YAML surface small:

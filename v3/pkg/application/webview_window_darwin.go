@@ -1165,10 +1165,10 @@ import (
 	"sync/atomic"
 	"unsafe"
 
-	"github.com/wailsapp/wails/v3/internal/assetserver"
-	"github.com/wailsapp/wails/v3/internal/runtime"
+	"github.com/xel7dev/wails/v3/internal/assetserver"
+	"github.com/xel7dev/wails/v3/internal/runtime"
 
-	"github.com/wailsapp/wails/v3/pkg/events"
+	"github.com/xel7dev/wails/v3/pkg/events"
 )
 
 // macosWindowNative is empty: the cgo backend keeps a window's native state

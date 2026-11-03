@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"runtime/debug"
 
-	wdebug "github.com/wailsapp/wails/v3/internal/debug"
-	"github.com/wailsapp/wails/v3/internal/lo"
+	wdebug "github.com/xel7dev/wails/v3/internal/debug"
+	"github.com/xel7dev/wails/v3/internal/lo"
 )
 
 type Info struct {
@@ -20,7 +20,7 @@ type Info struct {
 	// including release artefacts produced by CI. A user running a
 	// tagged `wails3.exe` on Windows would therefore see Development=true
 	// even though the Wails source tree is nowhere on their machine.
-	// The downstream effect was a malformed `replace github.com/wailsapp/wails/v3
+	// The downstream effect was a malformed `replace github.com/xel7dev/wails/v3
 	// => /v3` directive in scaffolded projects, breaking `wails3 init`
 	// outright.
 	//

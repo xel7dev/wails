@@ -5,8 +5,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/internal/flags"
-	"github.com/wailsapp/wails/v3/internal/generator/collect"
+	"github.com/xel7dev/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/v3/internal/generator/collect"
 )
 
 // TestEventNamesEscapeComments guards comment terminators in discoverable names.

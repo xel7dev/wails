@@ -14,8 +14,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/wailsapp/wails/v3/internal/iconfile"
-	"github.com/wailsapp/wails/v3/internal/operatingsystem"
+	"github.com/xel7dev/wails/v3/internal/iconfile"
+	"github.com/xel7dev/wails/v3/internal/operatingsystem"
 	"howett.net/plist"
 )
 

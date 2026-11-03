@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"debug/macho"
 	"encoding/binary"
-	"github.com/wailsapp/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/v3/internal/flags"
 	"os"
 	"path/filepath"
 	"testing"

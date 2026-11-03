@@ -5,7 +5,7 @@
 // Usage:
 //
 //	SPONSORKIT_GITHUB_TOKEN=... go run . -login leaanthony -out sponsors.svg
-//	SPONSORKIT_GITHUB_TOKEN=... go run . -mode contributors -repo wailsapp/wails -out contributors.svg
+//	SPONSORKIT_GITHUB_TOKEN=... go run . -mode contributors -repo xel7dev/wails -out contributors.svg
 //
 // For sponsors, the token needs to belong to (or have sponsor visibility
 // for) the sponsored account so that tier amounts are included; without
@@ -25,7 +25,7 @@ import (
 func main() {
 	mode := flag.String("mode", "sponsors", `what to render: "sponsors" or "contributors"`)
 	login := flag.String("login", "leaanthony", "GitHub login whose sponsors to fetch")
-	repo := flag.String("repo", "wailsapp/wails", "owner/name repository whose contributors to fetch")
+	repo := flag.String("repo", "xel7dev/wails", "owner/name repository whose contributors to fetch")
 	metric := flag.String("metric", "prs", `how contributors are ranked: "prs" (merged pull requests) or "commits"`)
 	changelogs := flag.String("changelogs", "", "comma-separated changelog paths scanned for @login credits (contributors mode)")
 	out := flag.String("out", "sponsors.svg", "output SVG path")
@@ -149,7 +149,7 @@ func generateContributors(client *http.Client, token, repo string, changelogs []
 	return RenderContributors(contributors, ContributorRenderOptions{
 		Width:         width,
 		SidePad:       40,
-		ContributeURL: "https://github.com/wailsapp/wails/blob/master/CONTRIBUTING.md",
+		ContributeURL: "https://github.com/xel7dev/wails/blob/master/CONTRIBUTING.md",
 		AvatarURIs:    uris,
 	}), nil
 }

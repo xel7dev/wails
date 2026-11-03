@@ -3,7 +3,7 @@ package buildinfo
 import (
 	"testing"
 
-	wdebug "github.com/wailsapp/wails/v3/internal/debug"
+	wdebug "github.com/xel7dev/wails/v3/internal/debug"
 )
 
 func TestGet(t *testing.T) {

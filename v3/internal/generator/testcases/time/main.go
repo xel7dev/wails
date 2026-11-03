@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/wailsapp/wails/v3/pkg/application"
+	"github.com/xel7dev/wails/v3/pkg/application"
 )
 
 type Service struct{}

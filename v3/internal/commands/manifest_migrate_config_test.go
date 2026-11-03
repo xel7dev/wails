@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/internal/templates"
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/templates"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
 )
 
 func writeMigrationConfigFixture(t *testing.T, root, path string, data []byte) {

@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/coder/websocket"
-	"github.com/wailsapp/wails/v3/internal/mailbox"
+	"github.com/xel7dev/wails/v3/internal/mailbox"
 )
 
 func TestWebSocketBroadcasterRejectsCrossOriginByDefault(t *testing.T) {

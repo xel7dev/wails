@@ -3,7 +3,7 @@ package application_test
 import (
 	"testing"
 
-	"github.com/wailsapp/wails/v3/pkg/application"
+	"github.com/xel7dev/wails/v3/pkg/application"
 )
 
 func TestMenu_FindByLabel(t *testing.T) {

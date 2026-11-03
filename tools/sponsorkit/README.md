@@ -3,10 +3,8 @@
 A dependency-free Go replacement for the Node [sponsorkit](https://github.com/antfu-collective/sponsorkit)
 package. It fetches live GitHub data and renders two self-contained SVGs:
 
-- `website/static/img/sponsors.svg` — the sponsors image embedded in the project
-  READMEs and both docs sites.
-- `website/static/img/contributors.svg` — the contributors mosaic embedded on the
-  credits pages of both docs sites.
+- `docs/mpress/static/img/sponsors.svg` — the sponsors image embedded in the project README and docs site.
+- `docs/mpress/static/img/contributors.svg` — the contributors mosaic embedded on the credits page.
 
 ## Sponsors mode (default)
 
@@ -22,7 +20,7 @@ package. It fetches live GitHub data and renders two self-contained SVGs:
 5. Gold+ sponsors get a hover "power-up" (lift, glare sweep across the avatar, glow
    bloom, a fast light ring, an emanating pulse and a name underline). Hover and the
    per-sponsor links only work where the SVG loads as a document, which is why the
-   website embeds it with `object` rather than `img`; inside `img` embeds the hover
+   docs site embeds it with `object` rather than `img`; inside `img` embeds the hover
    layers stay hidden.
 
 ## Contributors mode (`-mode contributors`)
@@ -32,7 +30,7 @@ package. It fetches live GitHub data and renders two self-contained SVGs:
    unit of work however it landed, so squash-merged and merge-committed work
    rank alike (`-metric commits` switches back to raw default-branch commit
    counts, which reward granular unsquashed histories).
-2. Scans the v2 and v3 changelogs for `@login` credits. Squash-merged or
+2. Scans the v3 changelog for `@login` credits. Squash-merged or
    hand-applied patches are often credited only there, so changelog-only
    contributors still appear; markdown profile links (`[@x](https://github.com/y)`)
    trust the URL rather than the link text, and every changelog-only login is
@@ -55,10 +53,10 @@ package. It fetches live GitHub data and renders two self-contained SVGs:
 
 ```sh
 cd tools/sponsorkit
-SPONSORKIT_GITHUB_TOKEN=<token> GOWORK=off go run . -out ../../website/static/img/sponsors.svg
+SPONSORKIT_GITHUB_TOKEN=<token> GOWORK=off go run . -out ../../docs/mpress/static/img/sponsors.svg
 SPONSORKIT_GITHUB_TOKEN=<token> GOWORK=off go run . -mode contributors -metric prs \
-  -changelogs ../../docs/mpress/content/changelog.md,../../website/src/pages/changelog.mdx \
-  -out ../../website/static/img/contributors.svg
+  -changelogs ../../docs/mpress/content/changelog.md \
+  -out ../../docs/mpress/static/img/contributors.svg
 ```
 
 Flags:
@@ -67,7 +65,7 @@ Flags:
 |---------------|------------------|--------------------------------------------------|
 | `-mode`       | `sponsors`       | `sponsors` or `contributors`                     |
 | `-login`      | `leaanthony`     | GitHub account whose sponsors to render          |
-| `-repo`       | `wailsapp/wails` | Repository whose contributors to render          |
+| `-repo`       | `xel7dev/wails` | Repository whose contributors to render          |
 | `-metric`     | `prs`            | Contributor ranking: `prs` or `commits`          |
 | `-changelogs` | (empty)          | Comma-separated changelogs scanned for `@login` credits |
 | `-out`        | `sponsors.svg`   | Output path                                      |
@@ -89,16 +87,13 @@ change.
 
 ## Where the images are used
 
-The single source of truth is `website/static/img/` (deployed to
+The single source of truth is `docs/mpress/static/img/` (deployed to
 `https://wails.io/img/`). The images are referenced from:
 
-- `README.md` and all `README.*.md` translations — `img` with the repo-relative
+- `README.md` — `img` with the repo-relative
   path to `sponsors.svg` (GitHub sanitises README HTML, so `object` embeds and
   therefore hover and in-image links are not possible there).
-- v2 docs (`website/src/pages/credits.mdx` and the 11
-  `website/i18n/*/docusaurus-plugin-content-pages/credits.mdx` copies) — `object`
-  embeds of `/img/sponsors.svg` and `/img/contributors.svg`.
-- v3 docs (`docs/mpress/content/credits.md` and the 9 locale copies) — `object`
+- v3 docs (`docs/mpress/content/credits.md` and the locale copies) — `object`
   embeds of `https://wails.io/img/sponsors.svg` and
   `https://wails.io/img/contributors.svg`, so they always show the latest
   deployed images.

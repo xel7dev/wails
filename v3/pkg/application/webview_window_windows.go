@@ -14,17 +14,17 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/wailsapp/wails/v3/internal/assetserver"
-	"github.com/wailsapp/wails/v3/internal/assetserver/webview"
-	"github.com/wailsapp/wails/v3/internal/capabilities"
-	"github.com/wailsapp/wails/v3/internal/debounce"
-	"github.com/wailsapp/wails/v3/internal/runtime"
-	"github.com/wailsapp/wails/v3/internal/sliceutil"
-	"github.com/wailsapp/wails/v3/internal/webview2/webviewloader"
+	"github.com/xel7dev/wails/v3/internal/assetserver"
+	"github.com/xel7dev/wails/v3/internal/assetserver/webview"
+	"github.com/xel7dev/wails/v3/internal/capabilities"
+	"github.com/xel7dev/wails/v3/internal/debounce"
+	"github.com/xel7dev/wails/v3/internal/runtime"
+	"github.com/xel7dev/wails/v3/internal/sliceutil"
+	"github.com/xel7dev/wails/v3/internal/webview2/webviewloader"
 
-	"github.com/wailsapp/wails/v3/internal/webview2/pkg/edge"
-	"github.com/wailsapp/wails/v3/pkg/events"
-	"github.com/wailsapp/wails/v3/pkg/w32"
+	"github.com/xel7dev/wails/v3/internal/webview2/pkg/edge"
+	"github.com/xel7dev/wails/v3/pkg/events"
+	"github.com/xel7dev/wails/v3/pkg/w32"
 )
 
 var edgeMap = map[string]uintptr{

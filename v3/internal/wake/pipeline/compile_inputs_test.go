@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/internal/wake/cache"
+	"github.com/xel7dev/wails/v3/internal/wake/cache"
 )
 
 func TestExecutableInputsFollowImportsAndEmbeddedFiles(t *testing.T) {

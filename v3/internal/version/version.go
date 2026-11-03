@@ -4,7 +4,7 @@ import (
 	_ "embed"
 	"strings"
 
-	"github.com/wailsapp/wails/v3/internal/debug"
+	"github.com/xel7dev/wails/v3/internal/debug"
 )
 
 //go:embed version.txt

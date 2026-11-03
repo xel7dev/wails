@@ -4,7 +4,6 @@
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 2.x.x   | :white_check_mark: |
 | 3.0.x   | :white_check_mark: |
 | 3.0.0-beta.x | :x:           |
 | 3.0.0-alpha.x | :x:          |
@@ -13,7 +12,7 @@
 
 We welcome reports affecting:
 
-- Wails v2 and v3 source code;
+- Wails v3 source code;
 - official Wails CLI binaries and downloads;
 - the official `@wailsio/runtime` npm package;
 - Wails documentation and websites; and
@@ -25,7 +24,7 @@ to the relevant application or service owner.
 
 ## Reporting a vulnerability
 
-Use [GitHub Private Vulnerability Reporting](https://github.com/wailsapp/wails/security/advisories/new)
+Use [GitHub Private Vulnerability Reporting](https://github.com/xel7dev/wails/security/advisories/new)
 to report a potential vulnerability. Do not open a public issue or disclose
 vulnerability details publicly before we have agreed on a disclosure plan.
 

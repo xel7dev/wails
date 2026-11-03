@@ -8,7 +8,7 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/internal/wake/pipeline"
+	"github.com/xel7dev/wails/v3/internal/wake/pipeline"
 )
 
 func TestManifestExplicitCGoBuildsWithNativeCompiler(t *testing.T) {

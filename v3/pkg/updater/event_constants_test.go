@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/pkg/updater"
+	"github.com/xel7dev/wails/v3/pkg/updater"
 )
 
 // TestEventConstants_MatchRuntimeTS guards against drift between the

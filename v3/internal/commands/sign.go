@@ -11,11 +11,11 @@ import (
 	"time"
 
 	"github.com/pterm/pterm"
-	"github.com/wailsapp/wails/v3/internal/bundlearchive"
-	"github.com/wailsapp/wails/v3/internal/defaults"
-	"github.com/wailsapp/wails/v3/internal/flags"
-	"github.com/wailsapp/wails/v3/internal/keychain"
-	"github.com/wailsapp/wails/v3/internal/packagesign"
+	"github.com/xel7dev/wails/v3/internal/bundlearchive"
+	"github.com/xel7dev/wails/v3/internal/defaults"
+	"github.com/xel7dev/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/v3/internal/keychain"
+	"github.com/xel7dev/wails/v3/internal/packagesign"
 )
 
 // resolveSigningDefaults fills in any signing options not supplied via flags from

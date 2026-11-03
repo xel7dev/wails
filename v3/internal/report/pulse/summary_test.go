@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wailsapp/wails/v3/internal/report"
-	"github.com/wailsapp/wails/v3/internal/report/pulse/ansi"
+	"github.com/xel7dev/wails/v3/internal/report"
+	"github.com/xel7dev/wails/v3/internal/report/pulse/ansi"
 )
 
 func TestUnknownExitCodeShowsUnderlyingError(t *testing.T) {

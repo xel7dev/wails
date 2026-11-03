@@ -1,8 +1,8 @@
 package application
 
 import (
-	"github.com/wailsapp/wails/v3/internal/browser"
-	"github.com/wailsapp/wails/v3/pkg/errs"
+	"github.com/xel7dev/wails/v3/internal/browser"
+	"github.com/xel7dev/wails/v3/pkg/errs"
 )
 
 const (

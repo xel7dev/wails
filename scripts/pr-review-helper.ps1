@@ -6,7 +6,7 @@ $GITHUB_USERNAME = "your-username"
 
 # Get open PRs that are ready for review
 Write-Host "Fetching PRs ready for review..."
-gh pr list --repo wailsapp/wails --json number,title,author,labels,reviewDecision,additions,deletions,baseRefName,headRefName --limit 10 | Out-File -Encoding utf8 -FilePath "prs_temp.json"
+gh pr list --repo xel7dev/wails --json number,title,author,labels,reviewDecision,additions,deletions,baseRefName,headRefName --limit 10 | Out-File -Encoding utf8 -FilePath "prs_temp.json"
 $prs = Get-Content -Raw -Path "prs_temp.json" | ConvertFrom-Json
 
 # Process each PR
@@ -55,10 +55,10 @@ foreach ($pr in $prs) {
         
         switch ($action) {
             "v" {
-                gh pr view $number --repo wailsapp/wails --web
+                gh pr view $number --repo xel7dev/wails --web
             }
             "d" {
-                gh pr diff $number --repo wailsapp/wails --web
+                gh pr diff $number --repo xel7dev/wails --web
             }
             "c" {
                 # Generate review checklist
@@ -85,19 +85,11 @@ foreach ($pr in $prs) {
 ### Version Specific:
 "@
 
-                if ($baseRef -eq "master") {
-                    $checklist += @"
-
-- [ ] Appropriate for v2 maintenance
-- [ ] No features that should be v3-only
-"@
-                } elseif ($baseRef -eq "v3-alpha") {
-                    $checklist += @"
+                $checklist += @"
 
 - [ ] Appropriate for v3 development
 - [ ] Aligns with v3 roadmap
 "@
-                }
 
                 # Write to clipboard
                 $checklist | Set-Clipboard
@@ -106,18 +98,18 @@ foreach ($pr in $prs) {
             "a" {
                 $comment = Read-Host "Approval comment (blank for none)"
                 if ($comment) {
-                    gh pr review $number --repo wailsapp/wails --approve --body $comment
+                    gh pr review $number --repo xel7dev/wails --approve --body $comment
                 } else {
-                    gh pr review $number --repo wailsapp/wails --approve
+                    gh pr review $number --repo xel7dev/wails --approve
                 }
             }
             "r" {
                 $comment = Read-Host "Feedback for changes requested"
-                gh pr review $number --repo wailsapp/wails --request-changes --body $comment
+                gh pr review $number --repo xel7dev/wails --request-changes --body $comment
             }
             "m" {
                 $comment = Read-Host "Comment text"
-                gh pr comment $number --repo wailsapp/wails --body $comment
+                gh pr comment $number --repo xel7dev/wails --body $comment
             }
             "l" {
                 $labels = Read-Host "Labels to add (comma-separated)"
@@ -125,7 +117,7 @@ foreach ($pr in $prs) {
                 foreach ($label in $labelArray) {
                     $labelTrimmed = $label.Trim()
                     if ($labelTrimmed) {
-                        gh pr edit $number --repo wailsapp/wails --add-label $labelTrimmed
+                        gh pr edit $number --repo xel7dev/wails --add-label $labelTrimmed
                     }
                 }
             }

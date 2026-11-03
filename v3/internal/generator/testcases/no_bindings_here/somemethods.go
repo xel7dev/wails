@@ -1,6 +1,6 @@
 package nobindingshere
 
-import "github.com/wailsapp/wails/v3/internal/generator/testcases/no_bindings_here/other"
+import "github.com/xel7dev/wails/v3/internal/generator/testcases/no_bindings_here/other"
 
 // SomeMethods exports some methods.
 type SomeMethods struct {

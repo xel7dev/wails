@@ -9,7 +9,7 @@ import (
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/x/ansi"
-	doctorng "github.com/wailsapp/wails/v3/pkg/doctor-ng"
+	doctorng "github.com/xel7dev/wails/v3/pkg/doctor-ng"
 )
 
 func TestLoadingFrames(t *testing.T) {

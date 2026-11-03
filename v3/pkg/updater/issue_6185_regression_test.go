@@ -11,7 +11,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wailsapp/wails/v3/pkg/updater"
+	"github.com/xel7dev/wails/v3/pkg/updater"
 )
 
 // workflowReproHost is a minimal in-memory Host. It never opens a window.

@@ -8,10 +8,10 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/internal/defaults"
-	"github.com/wailsapp/wails/v3/internal/signingconfig"
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
-	"github.com/wailsapp/wails/v3/internal/wake/pipeline"
+	"github.com/xel7dev/wails/v3/internal/defaults"
+	"github.com/xel7dev/wails/v3/internal/signingconfig"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/wake/pipeline"
 )
 
 func TestGlobalSigningDefaultsSignOwnedFixtureOutsideProject(t *testing.T) {

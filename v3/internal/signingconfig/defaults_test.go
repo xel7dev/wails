@@ -8,8 +8,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/internal/defaults"
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/defaults"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
 	"gopkg.in/yaml.v3"
 )
 

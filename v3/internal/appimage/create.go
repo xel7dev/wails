@@ -15,7 +15,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/wailsapp/wails/v3/internal/stagefile"
+	"github.com/xel7dev/wails/v3/internal/stagefile"
 )
 
 type Binary struct{ Name, Path string }

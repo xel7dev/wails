@@ -4,7 +4,7 @@ import (
 	"context"
 	"image/color"
 
-	"github.com/wailsapp/wails/v3/pkg/application"
+	"github.com/xel7dev/wails/v3/pkg/application"
 )
 
 type platformDock interface {
@@ -39,7 +39,7 @@ type BadgeOptions struct {
 
 // ServiceName returns the name of the service.
 func (d *DockService) ServiceName() string {
-	return "github.com/wailsapp/wails/v3/pkg/services/dock"
+	return "github.com/xel7dev/wails/v3/pkg/services/dock"
 }
 
 // ServiceStartup is called when the service is loaded.

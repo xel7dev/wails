@@ -7,7 +7,7 @@ import (
 	"os"
 	"sync"
 
-	"github.com/wailsapp/wails/v3/internal/operatingsystem"
+	"github.com/xel7dev/wails/v3/internal/operatingsystem"
 )
 
 func init() {

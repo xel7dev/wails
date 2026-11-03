@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/wailsapp/wails/v3/pkg/application/internal/mainthreadharness"
+	"github.com/xel7dev/wails/v3/pkg/application/internal/mainthreadharness"
 )
 
 const (

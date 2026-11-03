@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/internal/iconfile"
+	"github.com/xel7dev/wails/v3/internal/iconfile"
 )
 
 func TestGenerateSysoWithGeneratedIcon(t *testing.T) {

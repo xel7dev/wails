@@ -10,7 +10,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/wailsapp/wails/v3/internal/report"
+	"github.com/xel7dev/wails/v3/internal/report"
 )
 
 // Diagnostic retains the cause and launch/build identity for CLI diagnostics.

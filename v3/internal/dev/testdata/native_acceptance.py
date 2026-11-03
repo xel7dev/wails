@@ -15,7 +15,7 @@ base.mkdir(parents=True, exist_ok=True)
 root = Path(tempfile.mkdtemp(prefix='app-', dir=base))
 shutil.copytree(Path(__file__).parent / 'app', root, dirs_exist_ok=True)
 repo = options.repo.resolve()
-(root / 'go.mod').write_text('module devacceptance\n\ngo 1.26.2\n\nrequire github.com/wailsapp/wails/v3 v3.0.0\nreplace github.com/wailsapp/wails/v3 => ' + json.dumps(str(repo)) + '\n')
+(root / 'go.mod').write_text('module devacceptance\n\ngo 1.26.2\n\nrequire github.com/xel7dev/wails/v3 v3.0.0\nreplace github.com/xel7dev/wails/v3 => ' + json.dumps(str(repo)) + '\n')
 package = json.loads((root / 'frontend/package.json').read_text())
 package['dependencies'] = {'@wailsio/runtime': 'file:' + str(repo / 'internal/runtime/desktop/@wailsio/runtime')}
 (root / 'frontend/package.json').write_text(json.dumps(package))

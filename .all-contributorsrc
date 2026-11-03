@@ -1,6 +1,6 @@
 {
   "files": [
-    "website/src/pages/credits.mdx"
+    "docs/mpress/content/credits.md"
   ],
   "imageSize": 75,
   "commit": false,
@@ -1863,7 +1863,7 @@
   ],
   "contributorsPerLine": 8,
   "projectName": "wails",
-  "projectOwner": "wailsapp",
+  "projectOwner": "xel7dev",
   "repoType": "github",
   "repoHost": "https://github.com",
   "skipCi": true,

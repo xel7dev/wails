@@ -2,9 +2,9 @@ package main
 
 import (
 	"github.com/leaanthony/clir"
-	"github.com/wailsapp/wails/v3/internal/commands"
-	"github.com/wailsapp/wails/v3/internal/features"
-	"github.com/wailsapp/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/v3/internal/commands"
+	"github.com/xel7dev/wails/v3/internal/features"
+	"github.com/xel7dev/wails/v3/internal/flags"
 )
 
 func addBuildFlags(command *clir.Command, options *flags.Build) {

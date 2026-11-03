@@ -2,16 +2,14 @@
 
 ## Repository intent and layout
 
-This repository contains multiple generations of Wails and the supporting project sites:
+This repository contains the Wails v3 codebase and its supporting project site:
 
-- [`v2/`](v2/AGENTS.md) is the maintained Wails v2 codebase and release line.
 - [`v3/`](v3/AGENTS.md) is the Wails v3 codebase, CLI, runtime, platform integrations, examples, and tests.
 - [`docs/`](docs/AGENTS.md) is the current M-Press documentation source for Wails v3.
-- [`website/`](website/AGENTS.md) is the Docusaurus website, including the v2 documentation and versioned historical documentation.
 - [`scripts/`](scripts/AGENTS.md) and [`tools/`](tools/AGENTS.md) contain repository automation and supporting utilities.
 - [`assets/`](assets/AGENTS.md) contains shared artwork and other repository-wide static assets.
 
-Work in the smallest owning directory. Keep v2 and v3 code, documentation, and release assumptions separate unless a task explicitly spans both versions. The root Taskfile delegates to these areas; check the task file in the owning directory for its available commands.
+Work in the smallest owning directory. The root Taskfile delegates to these areas; check the task file in the owning directory for its available commands.
 
 The root is the source of repository-wide policy. A deeper `AGENTS.md` may add constraints for its subtree but does not override these instructions. Preserve existing project conventions and avoid unrelated changes.
 
@@ -26,9 +24,9 @@ For Wails release planning and issue/PR triage:
 
 ## Working boundaries
 
-- Keep changes within the requested product/version scope. Do not backport or forward-port between v2 and v3 by assumption; identify compatibility and release intent first.
+- Keep changes within the requested product/version scope.
 - Treat generated files according to the owning project's build workflow. When a workflow requires generated artifacts to be committed, update all coupled outputs together.
-- Do not edit generated website output or dependency caches as source content. Edit the source and regenerate only when the task requires it.
+- Do not edit generated documentation output or dependency caches as source content. Edit the source and regenerate only when the task requires it.
 - Store AI-generated planning documents in `history/`, not at the repository root.
 - Do not push unless the user gives explicit manual confirmation.
 - Use the `taliesin-ai` identity for commits. Before committing, run `coderabbit --plain` as required by this repository's contribution policy.
@@ -40,7 +38,6 @@ For Wails release planning and issue/PR triage:
 - `v3/scripts/generate-release-changelog.py` writes ignored release-local notes and a provenance receipt. It reads GitHub metadata only; it does not use external reviewers or models. Nightlies start at the nearest reachable v3 release tag; stable releases start at the nearest reachable stable v3 tag. Bootstrap requires an explicit `--since` ancestor.
 - Release tooling consumes those notes for the GitHub release and the versioned section of `docs/mpress/content/changelog.md`. Keep the published release history intact. Weekly synchronization inserts only the tagged release section and preserves newer entries.
 - Changelog automation maintenance and explicitly requested release-note corrections are exceptions to generated-file ownership: change the owning generator/workflow and coupled output together and run the release/changelog tests.
-- v2 retains its separate contributor workflow in `website/src/pages/changelog.mdx`.
 
 ## Wails MCP tools for agents
 

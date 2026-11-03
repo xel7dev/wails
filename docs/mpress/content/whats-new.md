@@ -26,7 +26,7 @@ import (
    "embed"
    "log"
    
-   "github.com/wailsapp/wails/v3/pkg/application"
+   "github.com/xel7dev/wails/v3/pkg/application"
 )
 
 //go:embed assets/*
@@ -89,8 +89,8 @@ import (
     "log"
     "runtime"
 
-    "github.com/wailsapp/wails/v3/pkg/application"
-    "github.com/wailsapp/wails/v3/pkg/icons"
+    "github.com/xel7dev/wails/v3/pkg/application"
+    "github.com/xel7dev/wails/v3/pkg/icons"
 )
 
 func main() {
@@ -233,8 +233,8 @@ import (
     "log"
     "time"
 
-    "github.com/wailsapp/wails/v3/pkg/application"
-    "github.com/wailsapp/wails/v3/pkg/events"
+    "github.com/xel7dev/wails/v3/pkg/application"
+    "github.com/xel7dev/wails/v3/pkg/events"
 )
 
 //go:embed assets

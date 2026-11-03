@@ -7,9 +7,9 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/wailsapp/wails/v3/internal/features"
-	"github.com/wailsapp/wails/v3/internal/wake/buildinfo"
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/features"
+	"github.com/xel7dev/wails/v3/internal/wake/buildinfo"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
 )
 
 type WakeSetupConfig struct {

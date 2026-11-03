@@ -3,8 +3,8 @@ package commands
 import (
 	"fmt"
 
-	"github.com/wailsapp/wails/v3/internal/flags"
-	"github.com/wailsapp/wails/v3/internal/universalbinary"
+	"github.com/xel7dev/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/v3/internal/universalbinary"
 )
 
 func ToolLipo(options *flags.Lipo) error {

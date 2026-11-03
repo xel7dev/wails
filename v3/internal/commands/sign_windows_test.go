@@ -5,7 +5,7 @@ package commands
 import (
 	"fmt"
 	"github.com/stretchr/testify/require"
-	"github.com/wailsapp/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/v3/internal/flags"
 	"os"
 	"path/filepath"
 	"testing"

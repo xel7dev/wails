@@ -49,7 +49,7 @@ There is no label automation in this repository's workflows. Issues and PRs are 
 2. v3 development (110 min)
 
 **Thursday (120 min):**
-1. v2 maintenance (90 min)
+1. v3 maintenance (90 min)
 2. Documentation updates (30 min)
 
 **Friday (120 min):**
@@ -87,7 +87,7 @@ This automated issue management system will:
 1. **Save Time**: Reduce manual triage of most common issues
 2. **Improve Consistency**: Apply the same categorization rules every time
 3. **Increase Visibility**: Clear categorization helps community members find issues
-4. **Focus Development**: Clearer separation of v2 and v3 work
+4. **Focus Development**: Clearer separation of maintenance and feature work
 5. **Reduce Backlog**: Better management of stale issues
 6. **Streamline Reviews**: Faster PR processing with guided workflows
 

@@ -1,6 +1,6 @@
 package other
 
-import "github.com/wailsapp/wails/v3/pkg/application"
+import "github.com/xel7dev/wails/v3/pkg/application"
 
 // OtherService is a struct
 // that does things

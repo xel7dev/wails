@@ -11,9 +11,9 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/internal/appimage"
-	"github.com/wailsapp/wails/v3/internal/wake/manifest"
-	"github.com/wailsapp/wails/v3/internal/wake/pipeline"
+	"github.com/xel7dev/wails/v3/internal/appimage"
+	"github.com/xel7dev/wails/v3/internal/wake/manifest"
+	"github.com/xel7dev/wails/v3/internal/wake/pipeline"
 )
 
 func fixtureELF(arch string, image bool) []byte {

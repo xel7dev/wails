@@ -8,7 +8,7 @@ import "runtime"
 // Role is a type to identify menu roles
 type Role uint
 
-// These constants need to be kept in sync with `v2/internal/frontend/desktop/darwin/Role.h`
+// Keep these constants stable because platform menu implementations persist their numeric values.
 const (
 	NoRole       Role = iota
 	AppMenu      Role = iota

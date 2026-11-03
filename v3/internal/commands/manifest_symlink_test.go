@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/wailsapp/wails/v3/internal/flags"
+	"github.com/xel7dev/wails/v3/internal/flags"
 )
 
 func TestBuildDoesNotRunTaskfileForDanglingManifest(t *testing.T) {

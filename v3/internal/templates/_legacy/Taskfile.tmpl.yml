@@ -3,7 +3,7 @@ version: '3'
 vars:
   APP_NAME: "{{.BinaryName}}"
   BIN_DIR: "bin"
-  PACKAGE_MANAGER: '{{.Opn}}.PACKAGE_MANAGER | default "npm"{{.Cls}}'
+  PACKAGE_MANAGER: '{{.Opn}}.PACKAGE_MANAGER | default "bun"{{.Cls}}'
   VITE_PORT: '{{.Opn}}.WAILS_VITE_PORT | default 9245{{.Cls}}'
   # Target OS for build/package/run. Defaults to the host OS, and is overridden
   # by `wails3 build GOOS=...` (or the GOOS env var) for cross-compilation. The

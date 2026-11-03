@@ -2,7 +2,7 @@
 name: "Vanilla + Vite (JavaScript)"
 shortname: vanilla-js
 author: Lea Anthony
-description: "Vanilla + JavaScript + Vite"
+description: "Minimal Vanilla + JavaScript + Vite project managed by Bun"
 helpurl: https://wails.io
 version: v0.0.1
 wailsVersion: 3

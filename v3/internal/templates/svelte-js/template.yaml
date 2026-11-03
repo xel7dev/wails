@@ -2,7 +2,7 @@
 name: "Svelte + Vite (JavaScript)"
 shortname: svelte-js
 author: Lea Anthony
-description: "Svelte + JavaScript + Vite"
+description: "Minimal Svelte + JavaScript + Vite project managed by Bun"
 helpurl: https://wails.io
 version: v0.0.1
 wailsVersion: 3

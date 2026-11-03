@@ -229,9 +229,9 @@ func TestGenerateTemplate_CreatesExpectedFiles(t *testing.T) {
 		"NEXTSTEPS.md",
 		"main.go.tmpl",
 		"go.mod.tmpl",
-		"greetservice.go",
 		"gitignore.tmpl",
 		filepath.Join("frontend", "index.html"),
+		filepath.Join("frontend", "bunfig.toml"),
 	}
 	for _, f := range mustExist {
 		path := filepath.Join(outDir, f)
@@ -243,6 +243,58 @@ func TestGenerateTemplate_CreatesExpectedFiles(t *testing.T) {
 		if _, err := os.Stat(filepath.Join(outDir, filename)); !os.IsNotExist(err) {
 			t.Errorf("generated reusable template must not contain %s", filename)
 		}
+	}
+	requireNoFile(t, filepath.Join(outDir, "greetservice.go"))
+}
+
+func requireNoFile(t *testing.T, path string) {
+	t.Helper()
+	if _, err := os.Stat(path); !os.IsNotExist(err) {
+		t.Errorf("expected %s not to exist", path)
+	}
+}
+
+func TestBuiltInTemplatesAreMinimalBunViteProjects(t *testing.T) {
+	for _, template := range GetDefaultTemplates() {
+		packageJSON := filepath.ToSlash(filepath.Join(template.Name, "frontend", "package.json.tmpl"))
+		data, err := templates.ReadFile(packageJSON)
+		if err != nil {
+			t.Errorf("%s: read package.json: %v", template.Name, err)
+			continue
+		}
+		content := string(data)
+		if !strings.Contains(content, `"dev": "bunx --bun vite"`) {
+			t.Errorf("%s must run Vite with Bun", packageJSON)
+		}
+	}
+
+	forbiddenExtensions := map[string]bool{
+		".css": true, ".jpg": true, ".png": true, ".svg": true, ".ttf": true,
+	}
+	forbiddenContent := []string{"GreetService", "Listening for Time", "Puppertino"}
+	err := fs.WalkDir(templates, ".", func(path string, entry fs.DirEntry, err error) error {
+		if err != nil || entry.IsDir() {
+			return err
+		}
+		if filepath.Ext(path) == ".go" {
+			return nil
+		}
+		if forbiddenExtensions[strings.ToLower(filepath.Ext(path))] {
+			t.Errorf("demo asset remains in embedded templates: %s", path)
+		}
+		data, readErr := templates.ReadFile(path)
+		if readErr != nil {
+			return readErr
+		}
+		for _, value := range forbiddenContent {
+			if strings.Contains(string(data), value) {
+				t.Errorf("demo content %q remains in %s", value, path)
+			}
+		}
+		return nil
+	})
+	if err != nil {
+		t.Fatal(err)
 	}
 }
 

@@ -56,6 +56,10 @@ func TestInitBuiltInTemplatesCreateOnlyWailsYAML(t *testing.T) {
 			assert.Equal(t, "YAML_Only", loaded.Config.Project.Name)
 			assert.Equal(t, "bin", loaded.Config.Build.OutputDirectory)
 			assert.Equal(t, "frontend/dist", loaded.Config.Frontend.OutputDirectory)
+			assert.Equal(t, "bun", loaded.Config.Frontend.PackageManager)
+			assert.Equal(t, []string{"bun", "install"}, loaded.Config.Frontend.Install)
+			assert.Equal(t, []string{"bun", "run", "build"}, loaded.Config.Frontend.Build)
+			assert.Equal(t, []string{"bun", "run", "dev"}, loaded.Config.Frontend.Dev)
 			_, err = pipeline.PlanBuild(loaded.Config, pipeline.Request{Verb: "build", TargetOS: "linux", TargetArch: "amd64"})
 			require.NoError(t, err)
 

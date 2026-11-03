@@ -2,7 +2,7 @@
 name: "Vanilla + Vite (TypeScript)"
 shortname: vanilla
 author: Lea Anthony
-description: "Vanilla + TypeScript + Vite — the default template"
+description: "Minimal Vanilla + TypeScript + Vite project managed by Bun — the default template"
 helpurl: https://wails.io
 version: v0.0.1
 wailsVersion: 3

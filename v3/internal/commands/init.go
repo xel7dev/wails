@@ -266,13 +266,6 @@ func initWithWizard(options *flags.Init, runWizard func(*flags.Init) (*setupwiza
 		return err
 	}
 
-	// Rename frontend/npmrc to frontend/.npmrc. Dotfiles can't be embedded, so
-	// it ships without the leading dot. Optional, so failure is non-fatal.
-	npmrcSrc := filepath.Join(options.ProjectDir, "frontend", "npmrc")
-	if _, statErr := os.Stat(npmrcSrc); statErr == nil {
-		_ = os.Rename(npmrcSrc, filepath.Join(options.ProjectDir, "frontend", ".npmrc"))
-	}
-
 	// With the experiment disabled, retain legacy Taskfiles and build assets.
 	// Experimental built-in templates omit build configuration so the manifest
 	// schema writer remains the single source of the generated YAML shape. An

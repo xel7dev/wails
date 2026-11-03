@@ -478,7 +478,7 @@
         },
         "build": {
           "default": [
-            "npm",
+            "bun",
             "run",
             "build"
           ],
@@ -490,7 +490,7 @@
         },
         "dev": {
           "default": [
-            "npm",
+            "bun",
             "run",
             "dev"
           ],
@@ -520,7 +520,7 @@
         },
         "install": {
           "default": [
-            "npm",
+            "bun",
             "install"
           ],
           "description": "Frontend dependency installation command and arguments.",

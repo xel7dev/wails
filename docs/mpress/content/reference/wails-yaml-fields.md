@@ -99,12 +99,12 @@ Fields are listed using schema paths. Named maps use placeholders such as `targe
 | `frontend.bindings.output` | `string` | no | `bindings` | `"bindings"` |  | Project-relative output directory. |
 | `frontend.bindings.time_type` | `string` | no | `string` | `"string"` |  | TypeScript representation of Go time values. |
 | `frontend.bindings.typescript` | `boolean` | no | `true` | `true` |  | Generate TypeScript bindings. |
-| `frontend.build` | `list(string)` | no | `["npm","run","build"]` | `["npm","run","build"]` |  | Frontend production build command and arguments. |
-| `frontend.dev` | `list(string)` | no | `["npm","run","dev"]` | `["npm","run","dev"]` |  | Frontend development-server command and arguments. |
+| `frontend.build` | `list(string)` | no | `["bun","run","build"]` | `["bun","run","build"]` |  | Frontend production build command and arguments. |
+| `frontend.dev` | `list(string)` | no | `["bun","run","dev"]` | `["bun","run","dev"]` |  | Frontend development-server command and arguments. |
 | `frontend.directory` | `string` | no | `frontend` | `"frontend"` |  | Project-relative frontend source directory. |
 | `frontend.disabled` | `boolean` | no | `false` | `false` |  | Disable frontend dependency installation, binding generation and frontend building for Go-only projects. |
 | `frontend.environment` | `map(string)` | no | `{}` | `{RELEASE: "true"}` |  | Environment variables added to this operation. |
-| `frontend.install` | `list(string)` | no | `["npm","install"]` | `["npm","install"]` |  | Frontend dependency installation command and arguments. |
+| `frontend.install` | `list(string)` | no | `["bun","install"]` | `["bun","install"]` |  | Frontend dependency installation command and arguments. |
 | `frontend.output` | `string` | no | `dist` | `"dist"` |  | Project-relative output directory. |
 | `hooks` | `map(object)` | no |  | `{}` |  | Named build lifecycle hooks. |
 | `hooks["phase"].cache` | `boolean` | no | `false` | `false` |  | Allow this hook to use the artifact cache; complete inputs and outputs are required. |

@@ -2,7 +2,7 @@
 name: "Vue + Vite (JavaScript)"
 shortname: vue-js
 author: Lea Anthony
-description: "Vue + JavaScript + Vite"
+description: "Minimal Vue + JavaScript + Vite project managed by Bun"
 helpurl: https://wails.io
 version: v0.0.1
 wailsVersion: 3

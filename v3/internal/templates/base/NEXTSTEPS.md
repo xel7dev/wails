@@ -13,7 +13,6 @@ how to customise it, and how to publish it so others can use it.
 ├── NEXTSTEPS.md           # This file — delete it before publishing
 ├── README.md              # Shown to users after they create a project
 ├── main.go.tmpl           # Application entry point (template variables expanded at init time)
-├── greetservice.go        # Example Go service bound to the frontend
 ├── go.mod.tmpl            # Go module file
 ├── go.sum.tmpl            # Go module checksums
 ├── gitignore.tmpl         # Becomes .gitignore in the generated project
@@ -53,9 +52,9 @@ The following variables are available inside `.tmpl` files:
 1. **Edit `template.yaml`** — update the `name`, `shortname`, `author`, `description`,
    and `helpurl` fields. The `wailsVersion` field must remain `3`.
 
-2. **Replace `frontend/`** — drop in your framework of choice (Vite, React, Vue, Svelte,
-   etc.). The frontend directory is copied verbatim; add `.tmpl` to any file you want
-   to have template variables expanded.
+2. **Replace `frontend/`** — the generated skeleton uses Vite with Bun. Add your
+   framework and application code here. The frontend directory is copied verbatim;
+   add `.tmpl` to any file you want to have template variables expanded.
 
 3. **Modify `main.go.tmpl`** — adjust the application setup, window options, and
    bound services to match your template's needs.

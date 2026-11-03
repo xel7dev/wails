@@ -8,6 +8,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	rdebug "runtime/debug"
 	"strings"
 
 	"github.com/xel7dev/wails/v3/internal/buildinfo"
@@ -138,6 +139,20 @@ func RuntimeVersionFor(wailsVersion string) string {
 		return "latest"
 	}
 	return v
+}
+
+// wailsModuleVersion returns the module version the CLI was built from when
+// the go command knows about it. Binaries installed with
+// `go install ...@version` carry the exact module version in their build
+// info, which generated projects can resolve; the embedded version string is
+// only a fallback for local builds without a published module version.
+func wailsModuleVersion() string {
+	if info, ok := rdebug.ReadBuildInfo(); ok {
+		if v := info.Main.Version; v != "" && v != "(devel)" {
+			return v
+		}
+	}
+	return version.String()
 }
 
 type FileAssociation struct {
@@ -390,7 +405,7 @@ func Install(options *flags.Init) error {
 		LocalModulePath: localModulePath,
 		UseTypescript:   UseTypescript,
 		UseInterfaces:   options.UseInterfaces,
-		WailsVersion:    version.String(),
+		WailsVersion:    wailsModuleVersion(),
 		RuntimeVersion:  RuntimeVersionFor(version.String()),
 		Opn:             "{{",
 		Cls:             "}}",

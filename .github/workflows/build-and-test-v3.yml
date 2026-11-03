@@ -78,7 +78,7 @@ jobs:
             core.setOutput('full', !maintainer);
             core.info(maintainer ? 'Maintainer PR: quick CI' : 'Third-party PR: full CI');
 
-      - name: Check for changes under v3/
+      - name: Check for changes
         id: diff
         # The checked-out PR merge commit has the base branch as its first
         # parent, so this lists exactly what the PR changes. The diff runs
@@ -92,7 +92,7 @@ jobs:
             exit 0
           fi
           files="$(git diff --name-only HEAD^1 HEAD)"
-          if grep -qE '^(v3/|\.github/workflows/(build-and-test|cross-compile-test|gtk3-menu-test|msix-smoke)-v3\.yml$|\.github/scripts/prune-runner-apt-sources\.sh$)' <<< "$files"; then
+          if grep -qE '^(|\.github/workflows/(build-and-test|cross-compile-test|gtk3-menu-test|msix-smoke)-v3\.yml$|\.github/scripts/prune-runner-apt-sources\.sh$)' <<< "$files"; then
             echo "v3=true" >> "$GITHUB_OUTPUT"
           else
             echo "v3=false" >> "$GITHUB_OUTPUT"
@@ -128,38 +128,35 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-npm-runtime-${{ hashFiles('v3/internal/runtime/desktop/@wailsio/runtime/package-lock.json') }}
+          key: ${{ runner.os }}-npm-runtime-${{ hashFiles('internal/runtime/desktop/@wailsio/runtime/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-npm-runtime-
 
       - name: Install dependencies
-        working-directory: v3/internal/runtime/desktop/@wailsio/runtime
+        working-directory: internal/runtime/desktop/@wailsio/runtime
         run: |
           npm ci
           npx --yes esbuild@latest --version
 
       - name: Clean build artifacts
-        working-directory: v3/internal/runtime/desktop/@wailsio/runtime
+        working-directory: internal/runtime/desktop/@wailsio/runtime
         run: npm run clean
 
       - name: Type-check runtime
-        working-directory: v3
         run: task runtime:check
 
       - name: Test runtime
-        working-directory: v3
         run: task runtime:test
 
       - name: Check that the bundled runtime builds
-        working-directory: v3
         run: task runtime:build
 
       - name: Check that the npm package builds
-        working-directory: v3/internal/runtime/desktop/@wailsio/runtime
+        working-directory: internal/runtime/desktop/@wailsio/runtime
         run: npm run build
 
       - name: Pack runtime for template tests
-        working-directory: v3/internal/runtime/desktop/@wailsio/runtime
+        working-directory: internal/runtime/desktop/@wailsio/runtime
         run: npm pack
 
       - name: Store runtime build artifacts
@@ -167,15 +164,15 @@ jobs:
         with:
           name: runtime-build-artifacts
           path: |
-            v3/internal/runtime/desktop/@wailsio/runtime/dist/
-            v3/internal/runtime/desktop/@wailsio/runtime/types/
-            v3/internal/runtime/desktop/@wailsio/runtime/tsconfig.tsbuildinfo
+            internal/runtime/desktop/@wailsio/runtime/dist/
+            internal/runtime/desktop/@wailsio/runtime/types/
+            internal/runtime/desktop/@wailsio/runtime/tsconfig.tsbuildinfo
 
       - name: Store runtime package
         uses: actions/upload-artifact@v4
         with:
           name: runtime-package
-          path: v3/internal/runtime/desktop/@wailsio/runtime/*.tgz
+          path: internal/runtime/desktop/@wailsio/runtime/*.tgz
 
   test_go:
     name: Run Go Tests v3
@@ -216,7 +213,7 @@ jobs:
           go-version: ${{ matrix.go-version }}
           cache: true
           cache-dependency-path: |
-            v3/go.sum
+            go.sum
 
       - name: Install Task
         uses: arduino/setup-task@v2
@@ -228,11 +225,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: runtime-build-artifacts
-          path: v3/internal/runtime/desktop/@wailsio/runtime/
+          path: internal/runtime/desktop/@wailsio/runtime/
 
       - name: Build Examples (GTK4 default)
         if: needs.changes.outputs.full == 'true'
-        working-directory: v3
         run: |
           echo "Starting example compilation tests (GTK4 default)..."
           task test:examples
@@ -240,7 +236,6 @@ jobs:
 
       - name: Build Examples (GTK3 legacy)
         if: needs.changes.outputs.full == 'true' && matrix.os == 'ubuntu-latest' && matrix.go-version == '1.27'
-        working-directory: v3
         run: |
           echo "Starting example compilation tests (GTK3 legacy)..."
           BUILD_TAGS=gtk3 task test:examples
@@ -250,30 +245,25 @@ jobs:
         if: matrix.os == 'macos-latest'
         env:
           CGO_LDFLAGS: -framework UniformTypeIdentifiers -mmacosx-version-min=10.13
-        working-directory: v3
         run: go test -v -timeout 10m ./...
 
       - name: Run tests (windows)
         if: matrix.os == 'windows-latest'
-        working-directory: v3
         run: go test -v -timeout 10m ./...
 
       - name: Run tests (ubuntu) - GTK4 default
         if: matrix.os == 'ubuntu-latest'
-        working-directory: v3
         # Skip service tests that hang in CI due to GTK4 display requirements
         run: dbus-run-session -- xvfb-run --auto-servernum --server-args="-screen 0 1024x768x24" go test -v -timeout 10m -skip "TestService" ./...
 
       - name: Run tests (ubuntu) - GTK3 legacy
         if: needs.changes.outputs.full == 'true' && matrix.os == 'ubuntu-latest' && matrix.go-version == '1.27'
-        working-directory: v3
         # Service lifecycle tests require a stable live GTK window/display and
         # are already covered by the platform-specific test suites.
         run: dbus-run-session -- xvfb-run --auto-servernum --server-args="-screen 0 1024x768x24" go test -tags gtk3 -v -timeout 10m -skip "TestService" ./...
 
       - name: Build server mode for every target
         if: needs.changes.outputs.full == 'true' && matrix.os == 'ubuntu-latest' && matrix.go-version == '1.27'
-        working-directory: v3
         env:
           CGO_ENABLED: "0"
         # Server mode is pure Go on every platform, so it cross-compiles here
@@ -287,11 +277,9 @@ jobs:
 
       - name: Run tests (ubuntu) - server mode
         if: needs.changes.outputs.full == 'true' && matrix.os == 'ubuntu-latest' && matrix.go-version == '1.27'
-        working-directory: v3
         run: go test -tags server -v -timeout 10m ./pkg/application
 
       - name: Typecheck binding generator output
-        working-directory: v3
         run: task generator:test:check
 
   cleanup:
@@ -363,7 +351,7 @@ jobs:
           go-version: ${{ matrix.go-version }}
           cache: true
           cache-dependency-path: |
-            v3/go.sum
+            go.sum
 
       - name: Install Task
         uses: arduino/setup-task@v2
@@ -372,7 +360,6 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Wails3 CLI
-        working-directory: v3
         run: |
           task install
           wails doctor
@@ -448,11 +435,10 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: '1.27'
-          cache-dependency-path: v3/go.sum
+          cache-dependency-path: go.sum
       # The variants run sequentially in one job: each takes about a minute,
       # so separate jobs spent most of their time on setup and runner queueing.
       - name: Test native bridges, binary isolation, and application package
-        working-directory: v3
         run: |
           failed=()
           for tags in "" private_mac_apis production production,private_mac_apis production,devtools production,devtools,private_mac_apis; do

@@ -22,5 +22,5 @@ Read the [repository-wide agent instructions](../AGENTS.md) first. This file sco
 
 ## Out of scope
 
-- Framework implementation changes; make those in `v3/` and update docs as needed.
+- Framework implementation changes; make those in the repository root and update docs as needed.
 - Editing generated site output, deployment infrastructure, or release artifacts by hand.

@@ -23,4 +23,4 @@ jobs:
           REPOSITORY: ${{ github.repository }}
         run: |
           gh issue close "$ISSUE_NUMBER" --repo "$REPOSITORY" --comment \
-            'Thanks for the suggestion. Wails uses a WEP (Wails Enhancement Proposal) pull request for proposed functionality and changes to public behaviour, rather than feature-request issues. Please follow https://github.com/wailsapp/wails/blob/master/v3/wep/README.md to open a draft WEP PR. You are welcome to discuss the idea informally first in GitHub Discussions.'
+            'Thanks for the suggestion. Wails uses a WEP (Wails Enhancement Proposal) pull request for proposed functionality and changes to public behaviour, rather than feature-request issues. Please follow https://github.com/wailsapp/wails/blob/master/wep/README.md to open a draft WEP PR. You are welcome to discuss the idea informally first in GitHub Discussions.'

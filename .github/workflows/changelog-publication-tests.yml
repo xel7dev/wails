@@ -9,9 +9,9 @@ on:
         type: string
   pull_request:
     paths:
-      - 'v3/scripts/*changelog*.py'
-      - 'v3/tasks/release/**'
-      - 'v3/UNRELEASED_CHANGELOG.md'
+      - 'scripts/*changelog*.py'
+      - 'tasks/release/**'
+      - 'UNRELEASED_CHANGELOG.md'
       - '.github/workflows/**'
       - '.github/scripts/test_release_ci.py'
 
@@ -28,12 +28,12 @@ jobs:
           persist-credentials: false
       - name: Reject the retired shared changelog file
         run: |
-          if git ls-files --error-unmatch v3/UNRELEASED_CHANGELOG.md >/dev/null 2>&1; then
-            echo '::error::DO NOT recreate v3/UNRELEASED_CHANGELOG.md. Release notes come from merged PRs.'
+          if git ls-files --error-unmatch UNRELEASED_CHANGELOG.md >/dev/null 2>&1; then
+            echo '::error::DO NOT recreate UNRELEASED_CHANGELOG.md. Release notes come from merged PRs.'
             exit 1
           fi
       - name: Test release-note generation and archive synchronization
-        run: python3 -m unittest discover -s v3/scripts -p 'test_*changelog*.py'
+        run: python3 -m unittest discover -s scripts -p 'test_*changelog*.py'
       - name: Install workflow test dependency
         run: |
           python3 -m venv "$RUNNER_TEMP/ci-test-venv"

@@ -188,7 +188,7 @@ jobs:
       with:
         go-version: '1.27'
         cache: true
-        cache-dependency-path: 'v3/go.sum'
+        cache-dependency-path: 'go.sum'
 
     - name: Install Task
       uses: arduino/setup-task@v2
@@ -207,9 +207,8 @@ jobs:
     - name: Release gate (weekly)
       # Runs from the tested snapshot. Fails without tagging when a blocker exists. Nightlies
       # never run the gate. Needs WAILS_REPO_TOKEN with the scopes listed in
-      # v3/tasks/releasegate/main.go; the gate FAILS CLOSED without them.
+      # tasks/releasegate/main.go; the gate FAILS CLOSED without them.
       if: env.CHANNEL == 'weekly' && inputs.release_version == ''
-      working-directory: v3
       env:
         GH_TOKEN: ${{ secrets.WAILS_REPO_TOKEN }}
         REPO: ${{ github.repository }}
@@ -248,15 +247,15 @@ jobs:
         TESTED_SHA: ${{ needs.cadence.outputs.sha }}
         RELEASE_VERSION: ${{ inputs.release_version }}
       run: |
-        python3 v3/scripts/generate-release-changelog.py generate --target "$TESTED_SHA" --channel "$CHANNEL" --version "$RELEASE_VERSION"
+        python3 scripts/generate-release-changelog.py generate --target "$TESTED_SHA" --channel "$CHANNEL" --version "$RELEASE_VERSION"
 
     - name: Preserve generated release notes and provenance
       uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
       with:
         name: release-notes-${{ needs.cadence.outputs.sha }}
         path: |
-          v3/release_changelog.md
-          v3/release_changelog.json
+          release_changelog.md
+          release_changelog.json
         if-no-files-found: error
 
     - name: Check for unreleased changelog content
@@ -265,7 +264,7 @@ jobs:
         echo "🔍 Checking generated release notes for content..."
         
         # Run the release script in check mode to see if there's content
-        cd v3/tasks/release
+        cd tasks/release
         
         # Use the release script itself to check for content. The script uses
         # exit status 1 for the expected "no content" result, so preserve that
@@ -358,7 +357,7 @@ jobs:
         RELEASE_VERSION: ${{ inputs.release_version }}
         TESTED_SHA: ${{ needs.cadence.outputs.sha }}
       run: |
-        cd v3/tasks/release
+        cd tasks/release
         ARGS=(--channel "$CHANNEL" --branch "$RELEASE_REF" --target "$TESTED_SHA")
         if [ "$CHANNEL" == weekly ] && [ "$RELEASE_REF" == master ]; then
           # Weekly releases retain the existing tag-only publication policy.
@@ -390,7 +389,7 @@ jobs:
         PUSH_TOKEN: ${{ secrets.WAILS_REPO_TOKEN || github.token }}
       run: |
         set -euo pipefail
-        PKG=v3/internal/runtime/desktop/@wailsio/runtime
+        PKG=internal/runtime/desktop/@wailsio/runtime
         for attempt in 1 2 3 4 5; do
           git fetch origin master
           git checkout -B sync-master origin/master
@@ -398,10 +397,10 @@ jobs:
             # Copy only the version fields: a weekly is cut from a tested
             # commit, so checking out whole files from the tag would revert
             # dependency and lockfile updates merged to master since then.
-            git show "$TAG:v3/internal/version/version.txt" > v3/internal/version/version.txt
-            (cd v3/tasks/release && go run release.go --sync-runtime-version "$TAG")
-            python3 v3/scripts/generate-release-changelog.py sync --tag "$TAG"
-            git add v3/internal/version/version.txt "$PKG/package.json" "$PKG/package-lock.json" docs/mpress/content/changelog.md
+            git show "$TAG:internal/version/version.txt" > internal/version/version.txt
+            (cd tasks/release && go run release.go --sync-runtime-version "$TAG")
+            python3 scripts/generate-release-changelog.py sync --tag "$TAG"
+            git add internal/version/version.txt "$PKG/package.json" "$PKG/package-lock.json" docs/mpress/content/changelog.md
             git commit -m "chore(v3): sync version to ${TAG}"
           else
             git cherry-pick -x "${TAG}^{commit}"

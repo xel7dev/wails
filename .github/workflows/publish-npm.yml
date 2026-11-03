@@ -2,13 +2,13 @@ on:
   push:
     branches: ['master']
     paths:
-      - 'v3/internal/runtime/desktop/@wailsio/runtime/**'
+      - 'internal/runtime/desktop/@wailsio/runtime/**'
       # Self-heal: if bundle bytes ever change on master without a matching
       # source change, this rebuild overwrites them with source-derived output.
-      - 'v3/internal/assetserver/bundledassets/**'
+      - 'internal/assetserver/bundledassets/**'
       # The runtime version is derived from this file, so a release that moves
       # it must trigger a publish.
-      - 'v3/internal/version/version.txt'
+      - 'internal/version/version.txt'
       - '.github/workflows/publish-npm.yml'
     # Publishing is driven by the release tag so the package is built from
     # exactly the released commit (a weekly is cut from an older green SHA, not
@@ -57,8 +57,8 @@ jobs:
         uses: step-security/changed-files@3dbe17c78367e7d60f00d78ae6781a35be47b4a1 # v45.0.1
         with:
           files: |
-            v3/internal/runtime/desktop/@wailsio/runtime/package.json
-            v3/internal/runtime/desktop/@wailsio/runtime/package-lock.json
+            internal/runtime/desktop/@wailsio/runtime/package.json
+            internal/runtime/desktop/@wailsio/runtime/package-lock.json
 
       - name: Detect committed source changes
         if: >-
@@ -67,14 +67,14 @@ jobs:
         uses: step-security/changed-files@3dbe17c78367e7d60f00d78ae6781a35be47b4a1 # v45.0.1
         with:
           files: |
-            v3/internal/runtime/Taskfile.yaml
-            v3/internal/runtime/desktop/@wailsio/compiled/main.js
-            v3/internal/runtime/desktop/@wailsio/runtime/tsconfig.json
-            v3/internal/runtime/desktop/@wailsio/runtime/src/**
-            v3/internal/assetserver/bundledassets/**
-            v3/internal/version/version.txt
-            v3/pkg/events/events.txt
-            v3/tasks/events/**
+            internal/runtime/Taskfile.yaml
+            internal/runtime/desktop/@wailsio/compiled/main.js
+            internal/runtime/desktop/@wailsio/runtime/tsconfig.json
+            internal/runtime/desktop/@wailsio/runtime/src/**
+            internal/assetserver/bundledassets/**
+            internal/version/version.txt
+            pkg/events/events.txt
+            tasks/events/**
 
   rebuild_and_publish:
     name: Rebuild and publish
@@ -113,7 +113,7 @@ jobs:
         with:
           go-version: '1.27'
           cache: true
-          cache-dependency-path: 'v3/go.sum'
+          cache-dependency-path: 'go.sum'
 
       - name: Use Node.js 22
         uses: actions/setup-node@v4
@@ -127,21 +127,20 @@ jobs:
           npm --version
 
       - name: Install dependencies
-        working-directory: v3/internal/runtime/desktop/@wailsio/runtime
+        working-directory: internal/runtime/desktop/@wailsio/runtime
         run: |
           npm ci
           npx --yes esbuild@latest --version
 
       - name: Clean build artifacts
-        working-directory: v3/internal/runtime/desktop/@wailsio/runtime
+        working-directory: internal/runtime/desktop/@wailsio/runtime
         run: npm run clean
 
       - name: Build bundled runtime
-        working-directory: v3
         run: task runtime:build
 
       - name: Test+Build npm package
-        working-directory: v3/internal/runtime/desktop/@wailsio/runtime
+        working-directory: internal/runtime/desktop/@wailsio/runtime
         run: |
           npm test
           npm run build
@@ -151,7 +150,6 @@ jobs:
         # outputs — both the npm package payload (dist/, gitignored, what gets
         # published) and the tracked bundled runtime that is committed back to
         # master below. A missing/empty file here means a silent build failure.
-        working-directory: v3
         run: |
           set -euo pipefail
           required=(
@@ -161,7 +159,7 @@ jobs:
           )
           for f in "${required[@]}"; do
             if [ ! -s "$f" ]; then
-              echo "::error::expected generated artifact missing or empty: v3/$f"
+              echo "::error::expected generated artifact missing or empty: $f"
               exit 1
             fi
           done
@@ -169,7 +167,7 @@ jobs:
 
       - name: Set version from the CLI version file
         id: bump-version
-        # The npm package version is taken from v3/internal/version/version.txt,
+        # The npm package version is taken from internal/version/version.txt,
         # the same file go:embed puts into the CLI, so the runtime and the CLI
         # always report the same version.
         #
@@ -181,13 +179,13 @@ jobs:
         # that the mismatch was expected.
         run: |
           set -euo pipefail
-          VERSION="$(tr -d '[:space:]' < v3/internal/version/version.txt)"
+          VERSION="$(tr -d '[:space:]' < internal/version/version.txt)"
           VERSION="${VERSION#v}"
           if [[ -z "$VERSION" ]]; then
-            echo "::error::v3/internal/version/version.txt is empty"
+            echo "::error::internal/version/version.txt is empty"
             exit 1
           fi
-          cd v3/internal/runtime/desktop/@wailsio/runtime
+          cd internal/runtime/desktop/@wailsio/runtime
           npm --no-git-tag-version --allow-same-version version "$VERSION"
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "Runtime version set to $VERSION (from version.txt)"
@@ -220,7 +218,7 @@ jobs:
           if [ -n "$OVERRIDE" ]; then
             TAG="$OVERRIDE"
           else
-            TAG="$(cd v3/tasks/release && GOWORK=off go run release.go --print-policy "v${VERSION}" | sed -n 's/^npm_tag=//p')"
+            TAG="$(cd tasks/release && GOWORK=off go run release.go --print-policy "v${VERSION}" | sed -n 's/^npm_tag=//p')"
           fi
           [ -n "$TAG" ] || { echo "::error::could not resolve npm dist-tag"; exit 1; }
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
@@ -231,7 +229,7 @@ jobs:
         if: github.ref_type != 'tag' && (inputs.ref == '' || inputs.ref == 'master')
         # Commit ALL regenerated tracked files back to master, not just the
         # version bump: the bundled runtime (internal/assetserver/bundledassets),
-        # generated events (v3/pkg/events/events.go) and TypeDoc output all come
+        # generated events (pkg/events/events.go) and TypeDoc output all come
         # from `task runtime:build` and must stay in sync with the published
         # package. dist/ is gitignored, so `git add -A` will not commit it.
         run: |
@@ -274,7 +272,7 @@ jobs:
         # Branch pushes only regenerate and commit bundles; the publish itself
         # happens from the release tag (or a manual dispatch).
         if: steps.already-published.outputs.published != 'true' && (github.ref_type == 'tag' || github.event_name == 'workflow_dispatch')
-        working-directory: v3/internal/runtime/desktop/@wailsio/runtime
+        working-directory: internal/runtime/desktop/@wailsio/runtime
         # Dist-tag comes from the release policy (see the Resolve step). npm >= 11
         # requires an explicit --tag to publish a prerelease as latest, which is
         # still how pre-GA (-beta.N) versions are published.

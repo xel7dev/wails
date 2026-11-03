@@ -1,6 +1,6 @@
 name: Verify Runtime Assets
 
-# The bundled runtime (v3/internal/assetserver/bundledassets) is go:embed'ed
+# The bundled runtime (internal/assetserver/bundledassets) is go:embed'ed
 # into every Wails v3 application, and minified JS cannot be reviewed by eye.
 # This check treats those files as an internal build product: any PR that
 # touches them, or the source they are built from, must contain exactly the
@@ -49,8 +49,8 @@ jobs:
           fi
           # HEAD is the PR merge commit; HEAD^1 is the base branch tip.
           if git diff --name-only HEAD^1 HEAD -- \
-              'v3/internal/assetserver/bundledassets' \
-              'v3/internal/runtime' | grep -q .; then
+              'internal/assetserver/bundledassets' \
+              'internal/runtime' | grep -q .; then
             echo "relevant=true" >> "$GITHUB_OUTPUT"
           else
             echo "relevant=false" >> "$GITHUB_OUTPUT"
@@ -72,21 +72,20 @@ jobs:
 
       - name: Install runtime dependencies (lockfile-exact)
         if: steps.changed.outputs.relevant == 'true'
-        working-directory: v3/internal/runtime/desktop/@wailsio/runtime
+        working-directory: internal/runtime/desktop/@wailsio/runtime
         run: npm ci
 
       - name: Rebuild bundled runtime from source
         if: steps.changed.outputs.relevant == 'true'
-        working-directory: v3
         run: task runtime:build:assets
 
       - name: Verify committed bundles match the rebuild
         if: steps.changed.outputs.relevant == 'true'
         run: |
-          if ! git diff --exit-code -- v3/internal/assetserver/bundledassets; then
+          if ! git diff --exit-code -- internal/assetserver/bundledassets; then
             echo "::error::Committed bundled runtime does not match a clean rebuild of this PR's source."
-            echo "::error::Never hand-edit v3/internal/assetserver/bundledassets. To regenerate:"
-            echo "::error::  cd v3/internal/runtime/desktop/@wailsio/runtime && npm ci"
+            echo "::error::Never hand-edit internal/assetserver/bundledassets. To regenerate:"
+            echo "::error::  cd internal/runtime/desktop/@wailsio/runtime && npm ci"
             echo "::error::  cd ../../../.. && task runtime:build:assets   # from the v3 directory"
             echo "::error::then commit the result."
             exit 1

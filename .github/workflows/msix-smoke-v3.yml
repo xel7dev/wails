@@ -26,11 +26,11 @@ jobs:
           ref: ${{ inputs.ref || github.sha }}
       - uses: actions/setup-go@v5
         with:
-          go-version-file: v3/go.mod
-          cache-dependency-path: v3/go.sum
+          go-version-file: go.mod
+          cache-dependency-path: go.sum
       - uses: actions/setup-node@v4
         with:
           node-version: 22
       - name: Initialize, build and validate MSIX package
         shell: pwsh
-        run: ./v3/scripts/test-msix.ps1 -Arch '${{ matrix.arch }}' -WorkDir '${{ runner.temp }}/msix smoke'
+        run: ./scripts/test-msix.ps1 -Arch '${{ matrix.arch }}' -WorkDir '${{ runner.temp }}/msix smoke'

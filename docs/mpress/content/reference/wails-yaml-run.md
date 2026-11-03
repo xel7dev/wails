@@ -1,6 +1,6 @@
 ---
 title: YAML run configuration
-description: Local run defaults, platform overrides and launch behaviour for wails3 run.
+description: Local run defaults, platform overrides and launch behaviour for wails run.
 ---
 
 ## Availability
@@ -8,7 +8,7 @@ description: Local run defaults, platform overrides and launch behaviour for wai
 This reference describes the experimental run extension. It is not a guarantee
 of availability in a released CLI.
 
-`wails3 run` builds and launches the application using local manifest defaults.
+`wails run` builds and launches the application using local manifest defaults.
 Manifest-driven execution requires the
 [`WAILS_EXP_USE_WAKE=1` opt-in](/experimental/yaml-builds#enable-yaml-builds).
 When no manifest is found, the command runs `go run .` in the current directory,
@@ -22,7 +22,7 @@ verified on the appropriate host before a release claims those platforms ready.
 
 ## Command contract
 
-`wails3 run` discovers the nearest `wails.yaml`, resolves configuration for one
+`wails run` discovers the nearest `wails.yaml`, resolves configuration for one
 target, builds through the existing cached pipeline and launches the result.
 Discovery searches from the working directory upwards, checking for a manifest
 before stopping at a `go.mod` boundary. The manifest directory is the project
@@ -33,21 +33,21 @@ require explicit selection. Cross-compilation does not imply that a desktop
 executable can run on the host; incompatible desktop targets fail before building.
 This includes executables built with `CGO_ENABLED=0`: a successful Go-only
 cross-build does not supply an emulator or change the local launch contract.
-Use [`wails3 build` for cross-compilation](/experimental/yaml-builds/#cross-compile-desktop-applications)
+Use [`wails build` for cross-compilation](/experimental/yaml-builds/#cross-compile-desktop-applications)
 and run or install the resulting files on their target system.
 Use `--target android/arm64 --device <adb-serial>` or `--target android/arm64 --emulator <avd-name>` for Android.
 The selected architecture must match the device or emulator. Use `--target ios/arm64 --device <udid>` for an iOS simulator, adding `--destination device` for a physical device. iOS planning and execution require macOS and Xcode.
 
 With YAML, the build uses embedded assets and the production build path, which supplies
-the `production` tag automatically. `wails3 dev` continues to own live reload;
-`dev.tags` does not contribute to `wails3 run`.
+the `production` tag automatically. `wails dev` continues to own live reload;
+`dev.tags` does not contribute to `wails run`.
 
 ```shell
-wails3 run
-wails3 run --tags extra_tag
-wails3 run -- --example-mode other
-wails3 run --plan
-wails3 run --skip-build
+wails run
+wails run --tags extra_tag
+wails run -- --example-mode other
+wails run --plan
+wails run --skip-build
 ```
 
 `--plan` resolves and displays the selected target, effective build tags,
@@ -193,7 +193,7 @@ not printed. The fallback plan displays the Go command and working directory.
 
 ## Development application arguments
 
-With an active YAML project, `wails3 dev` accepts application arguments independently
+With an active YAML project, `wails dev` accepts application arguments independently
 of production `run` defaults. `dev.args` supplies shared defaults; a nested `dev`
 mapping in `targets["<os>"]` or `targets["<os>/<arch>"]` replaces them for that
 target. Architecture settings take precedence over OS-wide settings regardless
@@ -213,11 +213,11 @@ targets:
 by the application from the manifest directory.
 
 ```shell
-wails3 dev
-wails3 dev -- --config-path "profile with spaces.yaml"
-wails3 dev --appargs='--config-path "profile with spaces.yaml"'
-wails3 dev --
-wails3 dev --plan
+wails dev
+wails dev -- --config-path "profile with spaces.yaml"
+wails dev --appargs='--config-path "profile with spaces.yaml"'
+wails dev --
+wails dev --plan
 ```
 
 Arguments after `--` replace configured arguments, including when the list is
@@ -233,7 +233,7 @@ already separate values and undergo no additional tokenisation. This is the
 preferred form for Windows paths, for example in PowerShell:
 
 ```powershell
-wails3 dev -- --config-path 'C:\Users\Example User\testing.yaml'
+wails dev -- --config-path 'C:\Users\Example User\testing.yaml'
 ```
 
 The session preserves the resolved argument vector through source rebuilds.

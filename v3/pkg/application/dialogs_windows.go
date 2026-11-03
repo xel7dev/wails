@@ -66,7 +66,7 @@ func (m *windowsDialog) show() {
 		//
 		button, err = w32.MessageBoxWithIcon(parentWindow, message, title, 3, messageDialogUserIconFlags(flags))
 		if err != nil {
-			// Dev binaries (`go run`, `wails3 dev`) have no embedded icon
+			// Dev binaries (`go run`, `wails dev`) have no embedded icon
 			// resource, which makes MessageBoxIndirect fail outright — the
 			// dialog never appeared and the app aborted via fatal error
 			// (#4233). Fall back to a standard dialog instead.

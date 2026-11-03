@@ -3,7 +3,7 @@
 Wails v3.0.0 is the stable release for desktop applications on Windows, macOS and Linux.
 
 ```sh
-go install github.com/xel7dev/wails/v3/cmd/wails3@master
+go install github.com/xel7dev/wails/v3/cmd/wails@master
 ```
 
 Android and iOS support remains experimental and is outside the stable desktop compatibility contract.

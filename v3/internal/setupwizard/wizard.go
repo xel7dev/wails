@@ -251,7 +251,7 @@ type Wizard struct {
 	notarizeCancelGen uint64
 
 	// Init-mode state. When initData is non-nil the wizard runs as the project
-	// "init" wizard (wails3 init -ui) instead of the global setup wizard.
+	// "init" wizard (wails init -ui) instead of the global setup wizard.
 	initData   *InitData
 	initResult *InitData
 }
@@ -1459,7 +1459,7 @@ type notarizeCreateRequest struct {
 // own rather than running it against the wizard's own stdin. notarytool needs to
 // prompt for the app-specific password on a terminal, and the user is looking at
 // a browser: spawning the window puts that prompt in front of them instead of
-// asking them to go and find the terminal `wails3 setup` was started from. The
+// asking them to go and find the terminal `wails setup` was started from. The
 // browser polls /api/signing/notarize/status while the window is open.
 func (w *Wizard) handleNotarizeCreate(rw http.ResponseWriter, r *http.Request) {
 	rw.Header().Set("Content-Type", "application/json")
@@ -1712,7 +1712,7 @@ func (w *Wizard) handleGPGCreate(rw http.ResponseWriter, r *http.Request) {
 	}
 
 	// Export the key to an armoured file. The build pipeline signs DEB/RPM
-	// packages with a key *file path* (the Taskfile's PGP_KEY var → `wails3 tool
+	// packages with a key *file path* (the Taskfile's PGP_KEY var → `wails tool
 	// sign --pgp-key`), not a keyring ID — so generating the key alone wouldn't
 	// be usable by a build. Export it and record the path alongside the ID.
 	keyPath := ""

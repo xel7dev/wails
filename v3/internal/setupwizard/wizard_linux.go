@@ -303,7 +303,7 @@ func checkDocker() DependencyStatus {
 		dep.Installed = true
 		dep.Status = "installed"
 		dep.ImageBuilt = false
-		dep.Message = "Run 'wails3 task setup:docker' to build cross-compilation image"
+		dep.Message = "Run 'wails task setup:docker' to build cross-compilation image"
 	} else {
 		dep.Installed = true
 		dep.Status = "installed"

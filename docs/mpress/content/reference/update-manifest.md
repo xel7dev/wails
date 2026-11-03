@@ -141,29 +141,29 @@ manifest.Artifacts[i].Signature = base64.StdEncoding.EncodeToString(sig)
 
 In practice you rarely write that code: the CLI does it for you.
 
-## Publishing with the wails3 CLI
+## Publishing with the wails CLI
 
-The `wails3 updater` command group covers the whole publishing pipeline. A release is three commands:
+The `wails updater` command group covers the whole publishing pipeline. A release is three commands:
 
 ```bash
 # Once per application: create the signing keypair.
-wails3 updater genkey
+wails updater genkey
 # updater.key      keep secret (CI secret store), signs every release
 # updater.key.pub  embed in the app and pass as updater.Config.PublicKey
 
 # Per release: digest, sign and describe every artifact in one manifest.
-wails3 updater manifest -version 2.1.0 -channel stable \
+wails updater manifest -version 2.1.0 -channel stable \
     -key updater.key -notes-file notes.md \
     -url-prefix "https://cdn.example.com/myapp/2.1.0" \
     bin/updates/
 
 # Before uploading: re-verify the files exactly as a shipped app would.
-wails3 updater verify -manifest manifest.json -publickey updater.key.pub
+wails updater verify -manifest manifest.json -publickey updater.key.pub
 ```
 
 `manifest` accepts files or directories (key material, `.json`, checksum and notes sidecars are skipped automatically), streams each artifact through SHA-512, signs the digest with Ed25519ph when `-key` is given, and infers `platform` and `arch` from conventional filenames such as `MyApp-2.1.0-darwin-arm64.zip` (common aliases like `macOS`, `win64`, `x86_64` and `aarch64` are understood; a warning is printed for anything it cannot infer, which then matches every platform). Omit `-url-prefix` to emit relative URLs and upload the manifest next to the artifacts.
 
-`verify` exits non-zero on any mismatch, making it a natural CI gate between building and publishing. For servers that assemble manifests themselves, `wails3 updater sign -key updater.key <files...>` prints each file's `digest`/`signature` fields as JSON ready to merge into your own document.
+`verify` exits non-zero on any mismatch, making it a natural CI gate between building and publishing. For servers that assemble manifests themselves, `wails updater sign -key updater.key <files...>` prints each file's `digest`/`signature` fields as JSON ready to merge into your own document.
 
 ## Authentication
 

@@ -61,7 +61,7 @@ func checkPlatformDependencies(result map[string]string, ok *bool) {
 
 	result["*NSIS"] = string(nsisVersion)
 
-	// iOS toolchain (optional - only needed for `wails3 task ios:*`)
+	// iOS toolchain (optional - only needed for `wails task ios:*`)
 	xcodeVersion := "Not installed. iOS builds need full Xcode (App Store), not just the CLI tools."
 	if output, err := exec.Command("xcodebuild", "-version").Output(); err == nil {
 		xcodeVersion = strings.ReplaceAll(strings.TrimSpace(string(output)), "\n", ", ")

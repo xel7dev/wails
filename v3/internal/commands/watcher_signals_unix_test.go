@@ -31,7 +31,7 @@ func TestWatcherStopsProcessesOnSIGHUP(t *testing.T) {
 		RootPath: dir,
 		LogLevel: "error",
 		ExecStruct: []process.Execute{{
-			// Like `wails3 task run` starting the app: the primary spawns a child.
+			// Like `wails task run` starting the app: the primary spawns a child.
 			Cmd:        `echo $$ > "$PID_FILE"; sleep 300 & echo $! > "$CHILD_FILE"; wait`,
 			Env:        map[string]string{"PID_FILE": pidFile, "CHILD_FILE": childFile},
 			Type:       process.Primary,

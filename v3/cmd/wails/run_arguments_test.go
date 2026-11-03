@@ -11,15 +11,15 @@ import (
 )
 
 func TestRunSeparatesApplicationFlagsBeforeCLIParsing(t *testing.T) {
-	cli, app := detachApplicationArguments([]string{"wails3", "run", "--tags", "devtools", "--", "--help", "space value", "--"})
-	require.Equal(t, []string{"wails3", "run", "--tags", "devtools"}, cli)
+	cli, app := detachApplicationArguments([]string{"wails", "run", "--tags", "devtools", "--", "--help", "space value", "--"})
+	require.Equal(t, []string{"wails", "run", "--tags", "devtools"}, cli)
 	require.Equal(t, []string{"--help", "space value", "--"}, app)
-	_, app = detachApplicationArguments([]string{"wails3", "run", "--"})
+	_, app = detachApplicationArguments([]string{"wails", "run", "--"})
 	require.NotNil(t, app)
 	require.Empty(t, app)
-	_, app = detachApplicationArguments([]string{"wails3", "run"})
+	_, app = detachApplicationArguments([]string{"wails", "run"})
 	require.Nil(t, app)
-	cli, app = detachApplicationArguments([]string{"wails3", "build", "--", "--help"})
+	cli, app = detachApplicationArguments([]string{"wails", "build", "--", "--help"})
 	require.Len(t, cli, 4)
 	require.Nil(t, app)
 }
@@ -32,7 +32,7 @@ func TestRunCLIProcess(t *testing.T) {
 	}
 	for i, arg := range os.Args {
 		if arg == "--" {
-			os.Args = append([]string{"wails3"}, os.Args[i+1:]...)
+			os.Args = append([]string{"wails"}, os.Args[i+1:]...)
 			break
 		}
 	}

@@ -87,7 +87,7 @@ test('preview sends current metadata and only final creation submits choices', a
     calls.push(url);
     assert.equal(options.method, 'POST');
     const sent = JSON.parse(options.body);
-    if (url.endsWith('/requirements')) { assert.deepEqual(sent, selected); return { body: { requirements: [], errors: [], warnings: [], command: 'wails3 build setup' } }; }
+    if (url.endsWith('/requirements')) { assert.deepEqual(sent, selected); return { body: { requirements: [], errors: [], warnings: [], command: 'wails build setup' } }; }
     assert.equal(url, '/api/init/create');
     assert.deepEqual(sent.wake, selected);
     return { body: { success: true } };

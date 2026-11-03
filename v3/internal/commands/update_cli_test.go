@@ -54,7 +54,7 @@ func TestUpdateCLIInstall(t *testing.T) {
 			if err != nil {
 				t.Fatal(err)
 			}
-			want := "install github.com/xel7dev/wails/v3/cmd/wails3@" + tc.target + "\n"
+			want := "install github.com/xel7dev/wails/v3/cmd/wails@" + tc.target + "\n"
 			if string(data) != want {
 				t.Errorf("installer invocations=%q, want exactly %q", strings.TrimSpace(string(data)), strings.TrimSpace(want))
 			}

@@ -106,7 +106,7 @@ jobs:
             type=gha,mode=max
             type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache,mode=max
 
-  # Test cross-compilation using wails3 task system (3 parallel jobs)
+  # Test cross-compilation using wails task system (3 parallel jobs)
   # Runs on Linux/amd64 runner - tests actual cross-compilation only:
   # - darwin: cross-platform (arm64)
   # - windows: cross-platform (arm64)
@@ -167,10 +167,10 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libgtk-4-dev libwebkitgtk-6.0-dev libgtk-3-dev libwebkit2gtk-4.1-dev libwayland-dev
 
-      - name: Install wails3 CLI
+      - name: Install wails CLI
         run: |
           cd v3
-          go install ./cmd/wails3
+          go install ./cmd/wails
 
       - name: Set up QEMU
         if: matrix.os == 'linux'
@@ -198,13 +198,13 @@ jobs:
             docker tag "$IMAGE" wails-cross
           fi
 
-      - name: Generate wails3 test project
+      - name: Generate wails test project
         run: |
           cd /tmp
-          wails3 init -n test-wails-app -t vanilla
+          wails init -n test-wails-app -t vanilla
           cd test-wails-app
 
-          # Update replace directive to use absolute path (wails3 init adds relative path)
+          # Update replace directive to use absolute path (wails init adds relative path)
           sed -i 's|replace github.com/xel7dev/wails/v3 => .*|replace github.com/xel7dev/wails/v3 => ${{ github.workspace }}/v3|' go.mod
 
       - name: Cross-compile ${{ matrix.os }}/${{ matrix.arch }} via task
@@ -212,9 +212,9 @@ jobs:
           cd /tmp/test-wails-app
           # For Linux, always use docker build to test the Docker image
           if [ "${{ matrix.os }}" = "linux" ]; then
-            wails3 task linux:build:docker ARCH=${{ matrix.arch }}
+            wails task linux:build:docker ARCH=${{ matrix.arch }}
           else
-            wails3 task ${{ matrix.os }}:build ARCH=${{ matrix.arch }}
+            wails task ${{ matrix.os }}:build ARCH=${{ matrix.arch }}
           fi
 
       - name: Verify binary

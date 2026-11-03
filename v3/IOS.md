@@ -30,14 +30,14 @@ by `//go:build ios`.
 | Window geometry (SetSize/SetPosition/Minimize/...) | Intentional no-ops (apps are fullscreen) |
 | Menus, system tray | Intentional no-ops |
 | Multiple windows | ⚠️ Only the first window is displayed |
-| Simulator builds | ✅ `wails3 task ios:run` / `ios:package` |
+| Simulator builds | ✅ `wails task ios:run` / `ios:package` |
 | Device builds | ✅ `ios:package IOS_PLATFORM=device` (manual signing) or the generated Xcode project (automatic signing) |
 | App Store submission pipeline | ⚠️ Use the generated Xcode project (`ios:xcode`) for archive/upload |
 
 ## Requirements
 
 - macOS with **full Xcode** installed (the CLI tools alone are not enough);
-  `wails3 doctor` reports the iOS SDKs it can see
+  `wails doctor` reports the iOS SDKs it can see
 - Go 1.24+, npm
 
 ## Quickstart (Simulator)
@@ -45,27 +45,27 @@ by `//go:build ios`.
 From a Wails v3 project:
 
 ```bash
-wails3 task ios:run
+wails task ios:run
 ```
 
 This generates the Go build overlay and Xcode scaffolding (`build/ios/`),
 builds the Go code as a C archive (`GOOS=ios`), links it with the UIKit
 bootstrap, bundles, ad-hoc signs, boots a simulator if needed, and launches
-the app. Use `wails3 task ios:logs:dev` to stream its logs. In debug builds
+the app. Use `wails task ios:logs:dev` to stream its logs. In debug builds
 the webview is inspectable from Safari's Develop menu.
 
-`wails3 task ios:package` produces a production `.app`
+`wails task ios:package` produces a production `.app`
 (`-tags production,ios`, stripped, framework diagnostics compiled out);
 `ios:deploy-simulator` installs and launches it.
 
 ## Device builds
 
 ```bash
-wails3 task ios:package IOS_PLATFORM=device \
+wails task ios:package IOS_PLATFORM=device \
     CODESIGN_IDENTITY="Apple Development: You (TEAMID)" \
     PROVISIONING_PROFILE=path/to/profile.mobileprovision
-wails3 task ios:deploy-device [DEVICE_ID=<udid>]      # xcrun devicectl
-wails3 task ios:package:ipa IOS_PLATFORM=device ...   # distribution .ipa
+wails task ios:deploy-device [DEVICE_ID=<udid>]      # xcrun devicectl
+wails task ios:package:ipa IOS_PLATFORM=device ...   # distribution .ipa
 ```
 
 - `IOS_PLATFORM=device` switches to the `iphoneos` SDK and the
@@ -73,7 +73,7 @@ wails3 task ios:package:ipa IOS_PLATFORM=device ...   # distribution .ipa
 - Entitlements: `build/ios/entitlements.plist` is applied to device builds
   only (`get-task-allow` by default; add capability keys as needed).
 - For **automatically managed** signing, provisioning and App Store
-  archives, open the generated project instead: `wails3 task ios:xcode`.
+  archives, open the generated project instead: `wails task ios:xcode`.
 
 ## Configuration
 

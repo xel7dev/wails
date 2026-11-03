@@ -92,7 +92,7 @@ func MCP(options *MCPOptions) error {
 		return server.runHTTP(serverCtx, token, options.Port)
 	}
 	protocolServer := server.protocolServer()
-	fmt.Fprintf(os.Stderr, "wails3 MCP server ready over stdio; root=%s token=%s\n", root, token)
+	fmt.Fprintf(os.Stderr, "wails MCP server ready over stdio; root=%s token=%s\n", root, token)
 	err = protocolServer.Run(serverCtx, &mcp.StdioTransport{})
 	if err == nil {
 		return nil
@@ -113,7 +113,7 @@ func terminalMCPMode() bool {
 }
 
 func (s *mcpServer) protocolServer() *mcp.Server {
-	impl := &mcp.Implementation{Name: "wails3-project", Version: BuildSettings["vcs.revision"]}
+	impl := &mcp.Implementation{Name: "wails-project", Version: BuildSettings["vcs.revision"]}
 	if impl.Version == "" {
 		impl.Version = "development"
 	}
@@ -156,7 +156,7 @@ func (s *mcpServer) runHTTP(ctx context.Context, token string, port int) error {
 		<-ctx.Done()
 		_ = httpServer.Shutdown(context.Background())
 	}()
-	fmt.Fprintf(os.Stderr, "wails3 MCP server ready over Streamable HTTP\nendpoint=http://%s/mcp\nroot=%s\nbearer-token=%s\n", listener.Addr().String(), s.root, token)
+	fmt.Fprintf(os.Stderr, "wails MCP server ready over Streamable HTTP\nendpoint=http://%s/mcp\nroot=%s\nbearer-token=%s\n", listener.Addr().String(), s.root, token)
 	err = httpServer.Serve(listener)
 	if errors.Is(err, http.ErrServerClosed) {
 		return nil

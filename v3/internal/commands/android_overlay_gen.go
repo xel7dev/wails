@@ -43,7 +43,7 @@ func AndroidOverlayGen(options *AndroidOverlayGenOptions) error {
 	}
 
 	// Source the canonical main_android.go from the build assets embedded in
-	// wails3 (NOT the wails source tree — a normal user project has no such
+	// wails (NOT the wails source tree — a normal user project has no such
 	// tree, so this must come from the embedded FS).
 	content, err := buildAssets.ReadFile("build_assets/android/main_android.go")
 	if err != nil {

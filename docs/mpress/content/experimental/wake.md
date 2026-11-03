@@ -55,8 +55,8 @@ stable `v3.0.0` CLI does not add the Wake project creation screens described her
 following commands pin the preview from [PR #6531](https://github.com/wailsapp/wails/pull/6531):
 
 ```sh
-go install github.com/xel7dev/wails/v3/cmd/wails3@master
-wails3 version
+go install github.com/xel7dev/wails/v3/cmd/wails@master
+wails version
 ```
 
 Make sure the Go executable directory is on `PATH`; the
@@ -88,12 +88,12 @@ Wake: setting it to `false` or an empty string does not disable it. The old
 Run the project creation wizard:
 
 ```sh
-wails3 init -ui
+wails init -ui
 ```
 
 The browser opens a project wizard. With Wake enabled, it collects the source
 and build choices in one flow. Nothing is created until the final **Create
-Project** button. `wails3 setup` is a separate wizard for global preferences,
+Project** button. `wails setup` is a separate wizard for global preferences,
 tools and signing credentials; it does not configure this project's Wake profile.
 
 | Screen | Choose for this tutorial | What happens next |
@@ -155,7 +155,7 @@ outputs such as DMG, MSIX, NSIS, DEB or AppImage where supported.
 
 Signing is optional for this first local build. A successful unsigned build
 does not mean the application is ready for public distribution. For a signed
-project, configure reusable credentials with `wails3 setup` before creation, or
+project, configure reusable credentials with `wails setup` before creation, or
 configure signing in `wails.yaml` afterwards. The creation wizard uses your
 configured credentials; it does not change your global signing preferences.
 
@@ -181,7 +181,7 @@ Resolve rows marked **Not ready**, **Needs configuration** or **Update needed**
 before trying the local build. Use the displayed instructions where available,
 or the [platform installation guide](/getting-started/installation/), then click
 **Recheck requirements**. If an installation changed the terminal's `PATH`,
-restart `wails3 init -ui` from an updated terminal and repeat your selections.
+restart `wails init -ui` from an updated terminal and repeat your selections.
 
 The wizard can create a valid project even when this computer lacks tools or
 signing credentials. That is useful for CI configuration, but for this tutorial
@@ -212,17 +212,17 @@ You should now have `main.go`, a Go module, a `frontend` directory and a native
 migrate this new project. A community template can have custom legacy tasks
 and may instead require the migration review described below.
 
-The completion screen shows `wails3 build setup` and `wails3 dev`. The profile
-name matters: `wails3 build setup` uses the selections you just saved. Plain
-`wails3 build` does not automatically select the `setup` profile. The profile
-name does not mean you need to run `wails3 setup`.
+The completion screen shows `wails build setup` and `wails dev`. The profile
+name matters: `wails build setup` uses the selections you just saved. Plain
+`wails build` does not automatically select the `setup` profile. The profile
+name does not mean you need to run `wails setup`.
 
 ## Build and run your first application
 
 Run the command shown by the wizard:
 
 ```sh
-wails3 build setup
+wails build setup
 ```
 
 The first build installs frontend dependencies, generates bindings and compiles
@@ -233,7 +233,7 @@ directory is `bin`; a macOS GUI is assembled into an `.app` bundle.
 Start development mode on your own computer:
 
 ```sh
-wails3 dev
+wails dev
 ```
 
 You should see the starter application window. Enter your name and try its
@@ -244,7 +244,7 @@ to exercise a Go rebuild. Press **Ctrl+C** in the terminal when finished.
 Development is a local host workflow. A release profile can contain several
 cross-build targets without changing which machine can run the development
 window. To build and launch a production application locally, use
-`wails3 run`; see the [run reference](/reference/wails-yaml-run/).
+`wails run`; see the [run reference](/reference/wails-yaml-run/).
 
 You now have a source project, a reviewed build profile and a working local
 development loop. Commit the source and `wails.yaml` to version control.
@@ -259,11 +259,11 @@ Generated `.wails/` working files are not your configuration source.
 | Sign a release | Portable exported-key signing for Windows, macOS and DEB/RPM/Arch; native identity stores remain available. | Each identity, format and host has limits. AppImage and Void have no built-in signing flow. |
 | Notarise a macOS app | Team API-key submission and ticket stapling, or a macOS keychain profile. | A suitable Developer ID signature and timestamp are still required. Go-generated test signatures passing native checks is not proof of Apple accepting your release. |
 | Build several programs | A GUI, CLI or server primary program plus named companion programs. | Declare companion packages and kinds in YAML. The wizard does not generate their source. |
-| Package files built elsewhere | `wails3 build setup --skip-build`. | Supply matching executable names and architectures in `build.output`. This flag is a one-time command choice, not a permanent profile setting. |
+| Package files built elsewhere | `wails build setup --skip-build`. | Supply matching executable names and architectures in `build.output`. This flag is a one-time command choice, not a permanent profile setting. |
 | Add release automation | Named profiles, bounded lifecycle hooks, caching and parallel package work. | Use literal YAML and declared project-owned scripts. Arbitrary Taskfile behaviour is not a Wake extension mechanism. |
 
 Edit `profiles.setup`, other named profiles and advanced settings in
-`wails.yaml`. Use `wails3 setup` to change shared preferences and credentials.
+`wails.yaml`. Use `wails setup` to change shared preferences and credentials.
 Use the
 [YAML build guide](/experimental/yaml-builds/) for complete examples and package
 requirements. GUI applications still need the destination's system libraries;
@@ -297,18 +297,18 @@ Enable Wake and use the preview CLI from the start of this page. From the
 existing project root, run:
 
 ```sh
-wails3 migrate --dry-run
+wails migrate --dry-run
 ```
 
 Read the reported supported settings and blockers. The analyser reads legacy
 declarations; it does not execute their commands. Dry-run does not create an
-active manifest. For machine-readable diagnostics, use `wails3 migrate --json`;
+active manifest. For machine-readable diagnostics, use `wails migrate --json`;
 use `--dry-run --json` if you also want to avoid writing a draft.
 
 ### 2. Create and review the inactive proposal
 
 ```sh
-wails3 migrate
+wails migrate
 ```
 
 This creates **`wails.migrated.yaml`**, not `wails.yaml`. Inspect it alongside
@@ -332,8 +332,8 @@ project cannot be represented yet, keep its legacy build and report the gap.
 After reviewing the draft and resolving blockers, run:
 
 ```sh
-wails3 migrate --activate --dry-run
-wails3 migrate --activate
+wails migrate --activate --dry-run
+wails migrate --activate
 ```
 
 The first command checks activation without publishing it. The second rechecks
@@ -351,18 +351,18 @@ before activation; the migrator will not overwrite or rename it for you.
 ### 4. Verify the migrated application
 
 ```sh
-wails3 config check
-wails3 build
-wails3 dev
+wails config check
+wails build
+wails dev
 ```
 
 Compare the application and package contents with the previous build, including
 your custom release behaviour. Run your project tests. Check each migrated
-profile explicitly, for example `wails3 config check release` and
-`wails3 build release` when the draft contains a `release` profile.
+profile explicitly, for example `wails config check release` and
+`wails build release` when the draft contains a `release` profile.
 
-Edit the migrated profiles directly in `wails.yaml`. `wails3 init -ui` creates
-new projects; `wails3 setup` manages global preferences. Neither is an editor
+Edit the migrated profiles directly in `wails.yaml`. `wails init -ui` creates
+new projects; `wails setup` manages global preferences. Neither is an editor
 for an existing project's release profile.
 
 ### If you need to stop the experiment
@@ -381,15 +381,15 @@ recovery much easier.
 
 | Symptom | First check |
 | --- | --- |
-| Project creation skips Application, Targets, Packages and Tools | Set `WAILS_EXP_USE_WAKE` in the launching terminal and check which `wails3` executable is on `PATH`. Global `wails3 setup` always keeps its preferences flow. |
+| Project creation skips Application, Targets, Packages and Tools | Set `WAILS_EXP_USE_WAKE` in the launching terminal and check which `wails` executable is on `PATH`. Global `wails setup` always keeps its preferences flow. |
 | A community template needs migration | Review its legacy configuration with the migration commands before activation. |
 | A saved build reports missing tools | Creating a project records intent. Install the reported host requirements before building; creation does not install every selected tool. |
 | A cross-built executable will not start here | Run it on the selected operating system and architecture; use the host target for local development. |
 | Prebuilt mode cannot find a binary | Check the [prebuilt filenames and paths](/experimental/yaml-builds/#use-prebuilt-desktop-executables), including multi-target subdirectories. |
-| A manifest change fails | Run `wails3 config check` for the relevant profile and follow the field diagnostic. Wake does not fall back to Taskfiles. |
+| A manifest change fails | Run `wails config check` for the relevant profile and follow the field diagnostic. Wake does not fall back to Taskfiles. |
 
-Inspect a build before running it with `wails3 build setup --plan --json`.
-`wails3 config check` validates the configuration, and `wails3 eject` writes an
+Inspect a build before running it with `wails build setup --plan --json`.
+`wails config check` validates the configuration, and `wails eject` writes an
 inactive `wails.ejected.yaml` snapshot without changing the active manifest.
 Review command output before sharing it: project paths and credential
 locations can identify your local environment.
@@ -399,5 +399,5 @@ or [file a reproducible bug](https://github.com/wailsapp/wails/issues).
 Include your CLI and framework revisions, host OS/architecture, selected target,
 the exact command, whether you selected Pure Go, and the relevant diagnostic.
 Say whether the failure was in compilation, packaging, signing or running the
-application. Include a minimal manifest with secrets removed and `wails3 doctor`
+application. Include a minimal manifest with secrets removed and `wails doctor`
 output where useful.

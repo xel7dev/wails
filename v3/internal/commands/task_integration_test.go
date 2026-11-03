@@ -244,7 +244,7 @@ func TestBackwardCompatibility(t *testing.T) {
 	}{
 		{
 			name:         "Legacy os.Args parsing",
-			osArgs:       []string{"wails3", "task", "build", "PLATFORM=windows"},
+			osArgs:       []string{"wails", "task", "build", "PLATFORM=windows"},
 			expectedTask: "build",
 			expectedVars: map[string]string{
 				"PLATFORM": "windows",
@@ -252,7 +252,7 @@ func TestBackwardCompatibility(t *testing.T) {
 		},
 		{
 			name:         "Legacy with flags before task",
-			osArgs:       []string{"wails3", "task", "--verbose", "test", "ENV=prod"},
+			osArgs:       []string{"wails", "task", "--verbose", "test", "ENV=prod"},
 			expectedTask: "test",
 			expectedVars: map[string]string{
 				"ENV": "prod",

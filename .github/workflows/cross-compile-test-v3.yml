@@ -70,14 +70,14 @@ jobs:
       - name: Install Wails3 CLI
         working-directory: v3
         run: |
-          go install ./cmd/wails3
-          wails3 version
+          go install ./cmd/wails
+          wails version
 
       - name: Create test project
         run: |
           mkdir -p test-cross-compile
           cd test-cross-compile
-          wails3 init -n crosstest -t vanilla
+          wails init -n crosstest -t vanilla
 
       - name: Setup Docker cross-compile image
         working-directory: test-cross-compile/crosstest

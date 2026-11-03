@@ -51,7 +51,7 @@ type wakeRequirementsResponse struct {
 }
 
 func wakeSetupCommand(c WakeSetupConfig) string {
-	command := "wails3 build setup"
+	command := "wails build setup"
 	if c.Prebuilt {
 		command += " --skip-build"
 	}
@@ -61,7 +61,7 @@ func wakeSetupCommand(c WakeSetupConfig) string {
 func (w *Wizard) handleWakeSetup(rw http.ResponseWriter, r *http.Request) {
 	rw.Header().Set("Content-Type", "application/json")
 	if r.Method != http.MethodGet {
-		http.Error(rw, "Project build choices are saved by wails3 init -ui", http.StatusForbidden)
+		http.Error(rw, "Project build choices are saved by wails init -ui", http.StatusForbidden)
 		return
 	}
 	if w.initData == nil || !features.WakeEnabled() {
@@ -91,7 +91,7 @@ func (w *Wizard) decodeWakeSetup(rw http.ResponseWriter, r *http.Request, config
 		return false
 	}
 	if w.initData == nil || !features.WakeEnabled() {
-		http.Error(rw, "Wake project choices require wails3 init -ui with WAILS_EXP_USE_WAKE", http.StatusForbidden)
+		http.Error(rw, "Wake project choices require wails init -ui with WAILS_EXP_USE_WAKE", http.StatusForbidden)
 		return false
 	}
 	if !w.isWizardOrigin(r) {

@@ -43,7 +43,7 @@ func Get(key string) (string, error) {
 	value, err := credentialstore.Get(ServiceName, key)
 	if err != nil {
 		if err == credentialstore.ErrNotFound {
-			return "", fmt.Errorf("credential %q not found in keychain (set with: wails3 setup signing, or set env var %s)", key, envKey)
+			return "", fmt.Errorf("credential %q not found in keychain (set with: wails setup signing, or set env var %s)", key, envKey)
 		}
 		return "", fmt.Errorf("failed to retrieve credential from keychain: %w", err)
 	}

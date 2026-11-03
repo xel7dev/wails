@@ -2261,7 +2261,7 @@ export default function App() {
     }
     return 'dark';
   });
-  // Init mode (wails3 init -ui): undefined = still detecting, null = setup mode.
+  // Init mode (wails init -ui): undefined = still detecting, null = setup mode.
   const [initData, setInitData] = useState<InitData | null | undefined>(undefined);
   const [initDetectError, setInitDetectError] = useState(false);
 
@@ -2595,7 +2595,7 @@ export default function App() {
   }
   // Still detecting which mode we're in — avoid flashing the setup flow.
   if (initData === undefined) return null;
-  // Project init wizard (wails3 init -ui).
+  // Project init wizard (wails init -ui).
   if (initData && initData.mode === 'init') {
     return <InitFlow data={initData} theme={theme} toggleTheme={toggleTheme} />;
   }

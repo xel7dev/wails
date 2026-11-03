@@ -16,7 +16,7 @@ Wails ships experiments in the open. An experiment is an idea we think is promis
 
 That means a few things are true of everything in this section:
 
-- **It's opt-in.** Experiments never change the default behaviour of `wails3`. You turn them on deliberately (usually with an environment variable or a build flag), and with them off, nothing about your existing workflow changes.
+- **It's opt-in.** Experiments never change the default behaviour of `wails`. You turn them on deliberately (usually with an environment variable or a build flag), and with them off, nothing about your existing workflow changes.
 - **It might not survive.** Some experiments graduate into stable features. Others get reworked beyond recognition, or dropped. We'd rather try things in public and learn fast than ship only what we're already certain about.
 - **The API isn't frozen.** Names, flags, defaults and behaviour can shift between releases while an experiment is finding its shape. Release notes will call out the changes, but don't expect the stability guarantees that stable features carry.
 
@@ -67,7 +67,7 @@ Windows already builds without cgo and is unaffected.
 Use a CLI and framework version that both include this experiment. Updating only the CLI does not add the backend to an older framework dependency in your application's `go.mod`. To try the development version, run these commands from your application directory:
 
 ```sh
-go install github.com/xel7dev/wails/v3/cmd/wails3@master
+go install github.com/xel7dev/wails/v3/cmd/wails@master
 go get github.com/xel7dev/wails/v3@master
 ```
 
@@ -84,16 +84,16 @@ Pick one of these ways to select the backend.
 In a project generated with this version of the CLI, `build`, `package` and `dev` use the experimental backend when `WAILS_PUREGO` is enabled. In a POSIX shell:
 
 ```sh
-WAILS_PUREGO=1 wails3 dev
-WAILS_PUREGO=1 wails3 build
-WAILS_PUREGO=1 wails3 package
+WAILS_PUREGO=1 wails dev
+WAILS_PUREGO=1 wails build
+WAILS_PUREGO=1 wails package
 ```
 
 In PowerShell:
 
 ```powershell
 $env:WAILS_PUREGO = "1"
-wails3 build
+wails build
 ```
 
 The CLI recognises `1`, `true`, `on` and `yes`, ignoring case and surrounding whitespace. An empty value does not enable this experiment.
@@ -101,14 +101,14 @@ The CLI recognises `1`, `true`, `on` and `yes`, ignoring case and surrounding wh
 Or pass the tag to a single build or packaging command:
 
 ```sh
-wails3 build -tags purego
-wails3 package -tags purego
+wails build -tags purego
+wails package -tags purego
 ```
 
 With the tag set, the updated stock Taskfiles build with `CGO_ENABLED=0` using the host's Go toolchain. For example, build a Linux ARM64 executable from macOS or Windows:
 
 ```sh
-wails3 build -tags purego GOOS=linux ARCH=arm64
+wails build -tags purego GOOS=linux ARCH=arm64
 ```
 
 Older projects keep their existing Taskfiles. Compare custom build tasks with the updated templates, or use plain Go to test the backend without changing those tasks. The environment variable selects the tag in Wails CLI commands; plain `go build` needs the tag explicitly.
@@ -174,4 +174,4 @@ Found something else? Please tell us.
 
 ### Feedback
 
-Tell us how it went in the **CGO-free builds** thread under [Experiments](https://github.com/wailsapp/wails/discussions/categories/experiments): your OS and version, how you built, and what worked or didn't. A failing case with the output of `wails3 doctor` is the most useful report we can get.
+Tell us how it went in the **CGO-free builds** thread under [Experiments](https://github.com/wailsapp/wails/discussions/categories/experiments): your OS and version, how you built, and what worked or didn't. A failing case with the output of `wails doctor` is the most useful report we can get.

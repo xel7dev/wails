@@ -93,10 +93,10 @@ top of whatever your template provides, so place only files that are not auto-ge
 3. Users can now create projects from your template:
    ```sh
    # Latest commit on the default branch
-   wails3 init -n myapp -t https://github.com/yourname/your-template
+   wails init -n myapp -t https://github.com/yourname/your-template
 
    # Pinned to a specific release tag
-   wails3 init -n myapp -t https://github.com/yourname/your-template@v1.0.0
+   wails init -n myapp -t https://github.com/yourname/your-template@v1.0.0
    ```
 
 ---

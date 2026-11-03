@@ -31,12 +31,12 @@ hooks. Android debug launches forward Go stdout/stderr into the attached logcat.
 
 ```sh
 export WAILS_EXP_USE_WAKE=1
-wails3 dev
-wails3 dev --verbose
-wails3 dev --target ios/arm64 --device SIMULATOR_UDID
-wails3 dev --target ios/arm64 --destination device --device DEVICE_ID --host MAC_LAN_IP
-wails3 dev --target android/arm64 --emulator AVD_NAME
-wails3 dev --target android/arm64 --device ADB_SERIAL
+wails dev
+wails dev --verbose
+wails dev --target ios/arm64 --device SIMULATOR_UDID
+wails dev --target ios/arm64 --destination device --device DEVICE_ID --host MAC_LAN_IP
+wails dev --target android/arm64 --emulator AVD_NAME
+wails dev --target android/arm64 --device ADB_SERIAL
 ```
 
 An iOS simulator must already be booted when `--device` is omitted. An explicitly
@@ -71,8 +71,8 @@ never silently disables certificate validation.
 Fast regression suites run with:
 
 ```sh
-go test -race ./internal/dev ./internal/devruntime ./internal/report ./internal/commands ./cmd/wails3 ./internal/wake/...
-go vet ./internal/dev ./internal/devruntime ./internal/report ./internal/commands ./cmd/wails3 ./internal/wake/...
+go test -race ./internal/dev ./internal/devruntime ./internal/report ./internal/commands ./cmd/wails ./internal/wake/...
+go vet ./internal/dev ./internal/devruntime ./internal/report ./internal/commands ./cmd/wails ./internal/wake/...
 ```
 
 The existing commands lifecycle/adapter/process suites exercise failed builds,
@@ -84,10 +84,10 @@ The mobile plan tests check development-only outputs and network configuration.
 runtime from this checkout. First build the CLI and runtime package:
 
 ```sh
-go build -o /tmp/wails3-dev ./cmd/wails3
+go build -o /tmp/wails-dev ./cmd/wails
 npm --prefix internal/runtime/desktop/@wailsio/runtime ci
 npm --prefix internal/runtime/desktop/@wailsio/runtime run build:code
-python3 internal/dev/testdata/native_acceptance.py --cli /tmp/wails3-dev --output /tmp/wails-dev-acceptance -- --port 9351
+python3 internal/dev/testdata/native_acceptance.py --cli /tmp/wails-dev --output /tmp/wails-dev-acceptance -- --port 9351
 ```
 
 On headless Linux, run the last command through `xvfb-run -a dbus-run-session --`.

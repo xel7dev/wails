@@ -127,7 +127,7 @@ func main() {
 	task.Action(func() error {
 		return commands.RunTask(&taskFlags, task.OtherArgs())
 	})
-	task.LongDescription("\nUsage: wails3 task [taskname] [flags]\n\nTasks are defined in the `Taskfile.yaml` file. See https://taskfile.dev for more information.")
+	task.LongDescription("\nUsage: wails task [taskname] [flags]\n\nTasks are defined in the `Taskfile.yaml` file. See https://taskfile.dev for more information.")
 
 	generate := app.NewSubCommand("generate", "Generation tools")
 	generate.NewSubCommandFunction("build-assets", "Generate build assets", commands.GenerateBuildAssets)
@@ -147,7 +147,7 @@ func main() {
 	bindgen.Action(func() error {
 		return commands.GenerateBindings(&bindgenFlags, bindgen.OtherArgs())
 	})
-	bindgen.LongDescription("\nUsage: wails3 generate bindings [flags] [patterns...]\n\nPatterns match packages to scan for bound types.\nPattern format is analogous to that of the Go build tool,\ne.g. './...' matches packages in the current directory and all descendants.\nIf no pattern is given, the tool will fall back to the current directory.")
+	bindgen.LongDescription("\nUsage: wails generate bindings [flags] [patterns...]\n\nPatterns match packages to scan for bound types.\nPattern format is analogous to that of the Go build tool,\ne.g. './...' matches packages in the current directory and all descendants.\nIf no pattern is given, the tool will fall back to the current directory.")
 	generate.NewSubCommandFunction("constants", "Generate JS constants from Go", commands.GenerateConstants)
 	generate.NewSubCommandFunction(".desktop", "Generate .desktop file", commands.GenerateDotDesktop)
 	generate.NewSubCommandFunction("appimage", "Generate Linux AppImage", commands.GenerateAppImage)
@@ -168,8 +168,8 @@ func main() {
 	tool.NewSubCommandFunction("capabilities", "Check system build capabilities (GTK4/GTK3 availability)", commands.ToolCapabilities)
 	tool.NewSubCommandFunction("docker-mounts", "Generate Docker volume mount flags for cross-compilation", commands.ToolDockerMounts)
 	tool.NewSubCommandFunction("prepare-macos-output", "Keep macOS app bundles signable in file-provider-backed projects", commands.ToolPrepareMacOSOutput)
-	tool.NewSubCommandFunction("has", "Check if a tool is available in PATH (e.g. wails3 tool has git, wails3 tool has gcc|clang)", commands.ToolHas)
-	tool.NewSubCommandFunction("has-cc", "Deprecated: use 'wails3 tool has gcc|clang' instead", commands.ToolHasCC)
+	tool.NewSubCommandFunction("has", "Check if a tool is available in PATH (e.g. wails tool has git, wails tool has gcc|clang)", commands.ToolHas)
+	tool.NewSubCommandFunction("has-cc", "Deprecated: use 'wails tool has gcc|clang' instead", commands.ToolHasCC)
 
 	// Low-level sign tool (used by Taskfiles)
 	toolSign := tool.NewSubCommand("sign", "Sign a binary or package directly")
@@ -220,14 +220,14 @@ func main() {
 	updaterSign.Action(func() error {
 		return commands.UpdaterSign(&updaterSignFlags, updaterSign.OtherArgs())
 	})
-	updaterSign.LongDescription("\nUsage: wails3 updater sign -key <private key> <files...>")
+	updaterSign.LongDescription("\nUsage: wails updater sign -key <private key> <files...>")
 	updaterManifest := updaterCmd.NewSubCommand("manifest", "Generate an update manifest for artifact files")
 	var updaterManifestFlags commands.UpdaterManifestOptions
 	updaterManifest.AddFlags(&updaterManifestFlags)
 	updaterManifest.Action(func() error {
 		return commands.UpdaterManifest(&updaterManifestFlags, updaterManifest.OtherArgs())
 	})
-	updaterManifest.LongDescription("\nUsage: wails3 updater manifest -version <version> [flags] <files or directories...>\n\nDigests every artifact, signs it when -key is given, infers platform/arch\nfrom the filenames and writes a Wails Update Manifest ready to upload\nalongside the artifacts.")
+	updaterManifest.LongDescription("\nUsage: wails updater manifest -version <version> [flags] <files or directories...>\n\nDigests every artifact, signs it when -key is given, infers platform/arch\nfrom the filenames and writes a Wails Update Manifest ready to upload\nalongside the artifacts.")
 	updaterCmd.NewSubCommandFunction("verify", "Verify a manifest against the artifact files and public key", commands.UpdaterVerify)
 
 	// iOS tools
@@ -271,7 +271,7 @@ func main() {
 
 func printFooter() {
 	if !commands.DisableFooter {
-		docsLink := term.Hyperlink("https://v3.wails.io/getting-started/your-first-app/", "wails3 docs")
+		docsLink := term.Hyperlink("https://v3.wails.io/getting-started/your-first-app/", "wails docs")
 
 		pterm.Println(pterm.LightGreen("\nNeed documentation? Run: ") + pterm.LightBlue(docsLink))
 		// Check if we're in a teminal
@@ -283,7 +283,7 @@ func printFooter() {
 			},
 		}
 
-		linkText := term.Hyperlink("https://github.com/sponsors/leaanthony", "wails3 sponsor")
+		linkText := term.Hyperlink("https://github.com/sponsors/leaanthony", "wails sponsor")
 		printer.Println("If Wails is useful to you or your company, please consider sponsoring the project: " + pterm.LightBlue(linkText))
 	}
 }

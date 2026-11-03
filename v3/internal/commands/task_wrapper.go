@@ -34,7 +34,7 @@ var validPlatforms = map[string]bool{
 // customisations in the root Taskfile are honoured for both native and
 // cross-compilation builds. Only `build` and `package` go through this wrapper:
 // the root Taskfile also defines a `run` dispatch task, but `run` is invoked by
-// `wails3 dev` directly rather than through here. Verbs without a root task
+// `wails dev` directly rather than through here. Verbs without a root task
 // (e.g. `sign`, which only exists per-platform) always target the
 // platform-specific task directly.
 var rootDispatchTasks = map[string]bool{
@@ -48,7 +48,7 @@ const (
 	// mcpBuildTag is the Go build tag that compiles in the MCP service.
 	mcpBuildTag = "mcp"
 	// puregoEnvVar selects the experimental CGO-free macOS and Linux backend
-	// when set to a truthy value, so stock Taskfiles and `wails3 dev` use it
+	// when set to a truthy value, so stock Taskfiles and `wails dev` use it
 	// without edits.
 	puregoEnvVar = "WAILS_PUREGO"
 	// puregoBuildTag is the Go build tag that selects that backend.
@@ -167,7 +167,7 @@ func Package(options *flags.Package, otherArgs []string) error {
 
 func packageWithOperations(options *flags.Package, otherArgs []string, operations manifestCommandOperations) error {
 	if features.WakeEnabled() {
-		term.Warning("wails3 package is deprecated; use wails3 build with a profile or --formats")
+		term.Warning("wails package is deprecated; use wails build with a profile or --formats")
 	}
 	active, err := operations.active()
 	if err != nil {
@@ -202,7 +202,7 @@ func SignWrapper(options *flags.SignWrapper, otherArgs []string) error {
 
 func signWithOperations(options *flags.SignWrapper, otherArgs []string, operations manifestCommandOperations) error {
 	if features.WakeEnabled() {
-		term.Warning("wails3 sign is deprecated; select signing in a profile and use wails3 build")
+		term.Warning("wails sign is deprecated; select signing in a profile and use wails build")
 	}
 	active, err := operations.active()
 	if err != nil {
@@ -312,12 +312,12 @@ func splitComma(value string) []string {
 }
 
 func wrapTask(action string, otherArgs []string) error {
-	// Match the banner other wails3 commands print; the footer is restored by
+	// Match the banner other wails commands print; the footer is restored by
 	// leaving DisableFooter at its default so printFooter runs on exit.
 	term.Header(title(action))
 
 	// Create a per-invocation warnings file so subprocess commands (e.g.
-	// wails3 tool has-cc) can append deprecation notices that we collect
+	// wails tool has-cc) can append deprecation notices that we collect
 	// and print after the task finishes.
 	if f, err := os.CreateTemp("", "wails-build-warnings-*"); err == nil {
 		f.Close()
@@ -373,7 +373,7 @@ func wrapTask(action string, otherArgs []string) error {
 		taskName = action
 	}
 
-	newArgs := []string{"wails3", "task", taskName}
+	newArgs := []string{"wails", "task", taskName}
 	newArgs = append(newArgs, remainingArgs...)
 	os.Args = newArgs
 	return runTaskFunc(&RunTaskOptions{Name: taskName}, remainingArgs)

@@ -160,7 +160,7 @@ func notarizeFieldClean(s string) (string, bool) {
 func notarizeScript(args []string, statusPath string) string {
 	var b strings.Builder
 	b.WriteString("#!/bin/sh\n")
-	b.WriteString("# Created by `wails3 setup` to store your Apple notarization credentials.\n")
+	b.WriteString("# Created by `wails setup` to store your Apple notarization credentials.\n")
 	b.WriteString("# It is removed automatically once the setup wizard has read the result.\n\n")
 	b.WriteString("printf '\\n  Wails · macOS notarization setup\\n'\n")
 	b.WriteString("printf '  ================================\\n\\n'\n")

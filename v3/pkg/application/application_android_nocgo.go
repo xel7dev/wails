@@ -3,7 +3,7 @@
 package application
 
 // This file keeps GOOS=android builds compiling without cgo (used by
-// tooling such as `wails3 generate bindings`). A real Android app is always
+// tooling such as `wails generate bindings`). A real Android app is always
 // built with CGO_ENABLED=1 — see application_android.go for the JNI bridge.
 
 import (

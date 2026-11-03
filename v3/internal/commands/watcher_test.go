@@ -63,7 +63,7 @@ func TestFrontendReadiness(t *testing.T) {
 		{"HTTPS default port", "https://localhost", "localhost:443"},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
-			config := engine.Config{ExecStruct: []process.Execute{{Cmd: "wails3 task common:dev:frontend", Type: process.Background}}}
+			config := engine.Config{ExecStruct: []process.Execute{{Cmd: "wails task common:dev:frontend", Type: process.Background}}}
 			require.NoError(t, applyFrontendReadiness(&config, tc.frontendURL))
 			require.NotNil(t, config.ExecStruct[0].Readiness)
 			// TCP, not HTTP: the HTTP probe sends no Accept header and Vite answers 404 (#6209).
@@ -75,11 +75,11 @@ func TestFrontendReadiness(t *testing.T) {
 	t.Run("preserve custom configuration", func(t *testing.T) {
 		explicit := &process.Readiness{TCP: "custom:8000", Timeout: "2m"}
 		config := engine.Config{ExecStruct: []process.Execute{
-			{Cmd: "wails3 task common:dev:frontend", Type: process.Background, Readiness: explicit},
+			{Cmd: "wails task common:dev:frontend", Type: process.Background, Readiness: explicit},
 			{Cmd: "npm run dev", Type: process.Background},
-			{Command: []string{"wails3", "task", "common:dev:frontend"}, Type: process.Background},
-			{Cmd: "wails3 task common:dev:frontend && echo ready", Type: process.Background},
-			{Cmd: "wails3 task common:dev:frontend", Type: process.Primary},
+			{Command: []string{"wails", "task", "common:dev:frontend"}, Type: process.Background},
+			{Cmd: "wails task common:dev:frontend && echo ready", Type: process.Background},
+			{Cmd: "wails task common:dev:frontend", Type: process.Primary},
 		}}
 		require.NoError(t, applyFrontendReadiness(&config, "http://localhost:9245"))
 		require.NoError(t, applyFrontendReadiness(&config, "custom frontend URL"))
@@ -89,13 +89,13 @@ func TestFrontendReadiness(t *testing.T) {
 		}
 	})
 	t.Run("no frontend", func(t *testing.T) {
-		config := engine.Config{ExecStruct: []process.Execute{{Cmd: "wails3 task common:dev:frontend", Type: process.Background}}}
+		config := engine.Config{ExecStruct: []process.Execute{{Cmd: "wails task common:dev:frontend", Type: process.Background}}}
 		require.NoError(t, applyFrontendReadiness(&config, ""))
 		assert.Nil(t, config.ExecStruct[0].Readiness)
 	})
 	t.Run("invalid URL", func(t *testing.T) {
 		for _, target := range []string{"not-a-url", "file:///tmp/frontend", "http://localhost:bad", "http://localhost/#fragment"} {
-			config := engine.Config{ExecStruct: []process.Execute{{Cmd: "wails3 task common:dev:frontend", Type: process.Background}}}
+			config := engine.Config{ExecStruct: []process.Execute{{Cmd: "wails task common:dev:frontend", Type: process.Background}}}
 			assert.Error(t, applyFrontendReadiness(&config, target))
 		}
 	})

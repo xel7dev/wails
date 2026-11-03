@@ -119,28 +119,28 @@ sourcePath: "index.md"
 
 @terminal{frame="macos" prompt="none"}
 # 1. Install the Wails CLI
-go install github.com/xel7dev/wails/v3/cmd/wails3@master
+go install github.com/xel7dev/wails/v3/cmd/wails@master
 
 # 2. Run the setup wizard (experimental)
-wails3 setup
+wails setup
 @end
 
 Then you're ready for your first project:
 
 @terminal{frame="macos" prompt="none"}
-wails3 init -n myapp -t vanilla
-cd myapp && wails3 dev
+wails init -n myapp -t vanilla
+cd myapp && wails dev
 @end
 
 **Your application is now running** with hot reload and type-safe Go-to-JS bindings.
 
-Having issues with `wails3 setup`? See the [manual installation guide](/quick-start/installation/).
+Having issues with `wails setup`? See the [manual installation guide](/quick-start/installation/).
 
 ## Your desktop app is already a mobile app
 
 @terminal{frame="macos" prompt="none"}
-wails3 task ios:run      # run your existing app on iOS Simulator
-wails3 task android:run  # run your existing app on Android Emulator
+wails task ios:run      # run your existing app on iOS Simulator
+wails task android:run  # run your existing app on Android Emulator
 @end
 
 **Zero changes to your Go code.** The same `main.go`, the same services, the same frontend — Wails compiles it for iOS and Android automatically. Platform-specific features (haptics, native dialogs, safe areas) are there when you want them, but you don't need them to ship.

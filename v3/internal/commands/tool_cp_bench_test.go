@@ -20,7 +20,7 @@ func BenchmarkCp(b *testing.B) {
 				if err := os.WriteFile(source, content, 0600); err != nil {
 					b.Fatal(err)
 				}
-				os.Args = []string{"wails3", "tool", "cp", source}
+				os.Args = []string{"wails", "tool", "cp", source}
 				for i := range destinations {
 					os.Args = append(os.Args, filepath.Join(root, fmt.Sprintf("target-%d", i)))
 				}

@@ -33,14 +33,14 @@ toolchain) and loaded by a small Java host (`MainActivity` + `WailsBridge`).
 | Window geometry (SetSize/SetPosition/Minimize/...) | Intentional no-ops (apps are fullscreen) |
 | Menus, system tray | Intentional no-ops |
 | Multiple windows | ⚠️ Only the first window is displayed |
-| Emulator + device builds | ✅ emulator: `wails3 task android:run` / `android:deploy-emulator`; physical device: `android:run:device` / `android:deploy-device` |
+| Emulator + device builds | ✅ emulator: `wails task android:run` / `android:deploy-emulator`; physical device: `android:run:device` / `android:deploy-device` |
 | Release signing | ✅ Debug keystore by default; real keystore via env vars |
 | Play Store submission pipeline | ⚠️ Sign a release APK/AAB with your own keystore (see below) |
 
 ## Requirements
 
 - The **Android SDK** with platform-tools, an SDK platform (API 36),
-  build-tools and the **NDK** (r29/29.0.x). `wails3 doctor` reports what it
+  build-tools and the **NDK** (r29/29.0.x). `wails doctor` reports what it
   can see.
 - A **JDK** (e.g. OpenJDK 21) for Gradle. Set `JAVA_HOME` if `java` is not on
   your `PATH`.
@@ -70,18 +70,18 @@ avdmanager create avd --name wails \
 From a Wails v3 project:
 
 ```bash
-wails3 task android:run
+wails task android:run
 ```
 
 This boots an emulator if none is running, generates the TypeScript bindings,
 builds the frontend, compiles the Go code to `libwails.so` for the host
 architecture (the emulator's ABI), assembles a debug APK with Gradle, then
-installs and launches it. Stream logs with `wails3 task android:logs`. In
+installs and launches it. Stream logs with `wails task android:logs`. In
 debug builds the WebView is inspectable from Chrome at `chrome://inspect`.
 
-`wails3 task android:package` produces a production release APK
+`wails task android:package` produces a production release APK
 (`-tags production,android`, stripped, framework diagnostics compiled out).
-`wails3 task android:run` and `wails3 task android:deploy-emulator` are
+`wails task android:run` and `wails task android:deploy-emulator` are
 emulator-oriented tasks; they use `ensure-emulator` and do not select a
 physical device.
 
@@ -89,40 +89,40 @@ physical device.
 
 ```bash
 # Debug build/install in the Android Emulator
-wails3 task android:run
+wails task android:run
 
 # Debug build/install on the first connected physical Android device (arm64)
-wails3 task android:run:device
+wails task android:run:device
 
 # Production release APK (signed with the debug keystore by default)
-wails3 task android:package
+wails task android:package
 
 # Production release APK installed and launched on the first connected
 # physical Android device (arm64)
-wails3 task android:deploy-device
+wails task android:deploy-device
 
 # Target a specific physical device serial
-DEVICE_ID=<serial> wails3 task android:run:device
-DEVICE_ID=<serial> wails3 task android:deploy-device
+DEVICE_ID=<serial> wails task android:run:device
+DEVICE_ID=<serial> wails task android:deploy-device
 
 # Production release APK signed with your own keystore
 ANDROID_KEYSTORE_FILE=/path/to/release.jks \
 ANDROID_KEYSTORE_PASSWORD=... \
 ANDROID_KEY_ALIAS=... \
 ANDROID_KEY_PASSWORD=... \
-  wails3 task android:package
+  wails task android:package
 ```
 
-- `wails3 task android:package:fat` builds both `arm64-v8a` and `x86_64`
+- `wails task android:package:fat` builds both `arm64-v8a` and `x86_64`
   into one APK (useful for distributing a single artifact that runs on
   devices and emulators).
-- `wails3 task android:run:device` builds a debug APK for `arm64`, selects the
+- `wails task android:run:device` builds a debug APK for `arm64`, selects the
   first connected non-emulator device from `adb devices`, installs it with that
   device serial, and launches `com.wails.app.MainActivity`.
-- `wails3 task android:deploy-device` does the same for a production APK.
+- `wails task android:deploy-device` does the same for a production APK.
   If no physical device is connected, pass `DEVICE_ID=<serial>` to either task;
   find serials with `adb devices`.
-- `wails3 task android:deploy-emulator` installs and launches a production APK
+- `wails task android:deploy-emulator` installs and launches a production APK
   in the Android Emulator after ensuring an emulator is running.
 - Without keystore env vars, release builds are signed with the Android
   **debug** keystore so they install for testing. **Play Store uploads
@@ -215,7 +215,7 @@ context. The `mobile` example forwards these to its frontend as `sys:*` events.
   analogue of `ios`/`darwin`.
 - A real app is always built with `CGO_ENABLED=1` and the NDK (the JNI
   bridge needs cgo). The non-cgo path exists only so tooling such as
-  `wails3 generate bindings` can load the package.
+  `wails generate bindings` can load the package.
 - Design the frontend responsively; the WebView fills the display and the
   `Screens` work area excludes the status and navigation bars.
 

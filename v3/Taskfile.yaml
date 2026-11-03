@@ -37,7 +37,7 @@ tasks:
       frontend, replacing the published npm version.
 
       A generated app imports @wailsio/runtime from npm, not from the
-      /wails/runtime.js the asset server serves. Under `wails3 dev` Vite
+      /wails/runtime.js the asset server serves. Under `wails dev` Vite
       resolves it from node_modules, so an app will not see client-side runtime
       changes made in this checkout until they are published — or until this
       task points it at the working tree.
@@ -67,7 +67,7 @@ tasks:
           echo "Installed @wailsio/runtime from $PKG"
 
   install:
-    dir: cmd/wails3
+    dir: cmd/wails
     silent: true
     cmds:
       - go install
@@ -84,7 +84,7 @@ tasks:
       - go get -u github.com/go-task/task/v3
 
   reinstall-cli:
-    dir: cmd/wails3
+    dir: cmd/wails
     internal: true
     silent: true
     cmds:
@@ -317,12 +317,12 @@ tasks:
       - echo "Testing template generation (core templates)..."
       - task: install
       - echo "Testing vanilla template generation..."
-      - rm -rf ./test-template-vanilla && wails3 init -n test-template-vanilla -t vanilla
+      - rm -rf ./test-template-vanilla && wails init -n test-template-vanilla -t vanilla
       - mkdir -p ./test-template-vanilla/frontend/dist && touch ./test-template-vanilla/frontend/dist/.keep
       - cd ./test-template-vanilla && go mod tidy && go build
       - rm -rf ./test-template-vanilla
       - echo "Testing react template generation..."
-      - rm -rf ./test-template-react && wails3 init -n test-template-react -t react
+      - rm -rf ./test-template-react && wails init -n test-template-react -t react
       - mkdir -p ./test-template-react/frontend/dist && touch ./test-template-react/frontend/dist/.keep
       - cd ./test-template-react && go mod tidy && go build
       - rm -rf ./test-template-react

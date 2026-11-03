@@ -208,7 +208,7 @@ func WriteDocument(root string, doc Document) error {
 }
 
 // WriteMigrationDraft writes the inactive result of legacy analysis. Only
-// `wails3 migrate --activate` may rename this file into the opt-in manifest.
+// `wails migrate --activate` may rename this file into the opt-in manifest.
 func WriteMigrationDraft(root string, doc Document) error {
 	return WriteMigrationDraftAt(root, MigratedFilename, doc, nil)
 }
@@ -263,7 +263,7 @@ func Eject(root, profile, cliVersion string, force bool) error {
 
 func ejectWithWriters(root, profile, cliVersion string, force bool, encode func(Config, string) ([]byte, error), exclusive, replace func(string, []byte, os.FileMode) error) error {
 	if profile != "" {
-		return fmt.Errorf("wails3 eject does not accept profiles; it writes the complete resolved manifest")
+		return fmt.Errorf("wails eject does not accept profiles; it writes the complete resolved manifest")
 	}
 	loaded, err := Load(root, "")
 	if err != nil {

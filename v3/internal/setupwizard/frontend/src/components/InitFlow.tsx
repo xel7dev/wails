@@ -324,7 +324,7 @@ export default function InitFlow({ data, theme, toggleTheme }: { data: InitData;
                   <p className="text-gray-500 dark:text-gray-400 text-center max-w-sm">
                     Return to the terminal to check the creation result for <code className="font-mono">{form.projectName}</code> using the <code className="font-mono">{resolveTemplate(framework, preferTS)}</code> template. The project will be created at <code className="font-mono break-all">{form.baseDir}/{form.projectName}</code>. You can close this window.
                   </p>
-                  {wakeEnabled && <div className="mt-4 text-sm text-gray-600 dark:text-gray-300"><p>After the terminal confirms successful creation:</p><pre className="mt-2 rounded-lg bg-gray-100 dark:bg-gray-950 p-3">cd {form.projectName}{'\n'}wails3 build setup{'\n'}wails3 dev</pre></div>}
+                  {wakeEnabled && <div className="mt-4 text-sm text-gray-600 dark:text-gray-300"><p>After the terminal confirms successful creation:</p><pre className="mt-2 rounded-lg bg-gray-100 dark:bg-gray-950 p-3">cd {form.projectName}{'\n'}wails build setup{'\n'}wails dev</pre></div>}
                 </motion.main>
               )}
             </AnimatePresence>

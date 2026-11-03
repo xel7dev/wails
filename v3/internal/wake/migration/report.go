@@ -1,4 +1,4 @@
-// Package migration owns the ephemeral analysis types printed by `wails3
+// Package migration owns the ephemeral analysis types printed by `wails
 // migrate`. Migration has no durable state: routing depends only on wails.yaml.
 package migration
 

@@ -22,14 +22,14 @@ body:
 
         Bug reports that do not follow these steps will likely be closed, so please help us to help you.
 
-        Report the exact tagged release from `wails3 version`. Source
+        Report the exact tagged release from `wails version`. Source
         checkouts should be reproduced against a released version before filing
         a beta bug report.
   - type: input
     id: exact-version
     attributes:
       label: Exact Wails version
-      description: Run `wails3 version`, then paste the full output.
+      description: Run `wails version`, then paste the full output.
       placeholder: v3.0.0
     validations:
       required: true
@@ -96,7 +96,7 @@ body:
     id: systemdetails
     attributes:
       label: System Details
-      description: Please add the output of `wails3 doctor`.
+      description: Please add the output of `wails doctor`.
       render: shell
     validations:
       required: true

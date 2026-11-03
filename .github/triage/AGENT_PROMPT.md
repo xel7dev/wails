@@ -73,7 +73,7 @@ functionality or changed public behaviour, and otherwise use `needs-triage`.
 ## Bug reports
 
 A good report has the Wails version, platform and OS version, reproduction steps,
-expected and actual behaviour, and `wails3 doctor` output. If something is missing,
+expected and actual behaviour, and `wails doctor` output. If something is missing,
 apply `awaiting feedback` and ask for exactly those items once. Do not ask twice.
 Mark `Unconfirmed` until a maintainer or a second reporter reproduces it. If the
 reporter is on a beta or old release, ask them to try the latest release (or the

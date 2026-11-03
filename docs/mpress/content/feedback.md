@@ -12,7 +12,7 @@ We welcome (and encourage) your feedback! Please search for existing issues or d
 If you find a bug, please [open an issue](https://github.com/wailsapp/wails/issues/new/choose) on GitHub using the bug report template.
 
 - Clearly describe the bug with a simple, reproducible example. If the docs are unclear about what *should* happen, include that in the report.
-- Include the output of `wails3 doctor` in your report.
+- Include the output of `wails doctor` in your report.
 - If the bug is behavior that does not align with current documentation, please also do the following:
   - Update an existing example in the `v3/examples` directory, or create a new example that clearly demonstrates the issue.
   - Open a [PR](https://github.com/wailsapp/wails/pulls) referencing the issue.

@@ -2,7 +2,7 @@
   "version": 3,
   "scenario": "badge-noop-linux-amd64",
   "command": [
-    "wails3",
+    "wails",
     "build"
   ],
   "samples": [

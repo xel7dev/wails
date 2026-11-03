@@ -38,7 +38,7 @@ func IOSOverlayGen(options *IOSOverlayGenOptions) error { // options currently u
 		return err
 	}
 
-	// Source the canonical main_ios.go from the build assets embedded in wails3.
+	// Source the canonical main_ios.go from the build assets embedded in wails.
 	// Reading from the wails source tree (repoRoot) only works when building
 	// inside the wails repo itself; a normal user project has no such tree, so
 	// this must come from the embedded FS.

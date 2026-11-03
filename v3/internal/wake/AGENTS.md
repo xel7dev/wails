@@ -11,7 +11,7 @@ reverse conversion or fallback from an active manifest to Taskfiles.
 
 `WAILS_EXP_USE_WAKE` is a presence-based opt-in (empty and false still enable
 it). `WAILS_USE_WAKE` is retired and ignored. Unmigrated projects and explicit
-`wails3 task` commands use the separate embedded Task runtime.
+`wails task` commands use the separate embedded Task runtime.
 
 ## Architecture
 
@@ -68,7 +68,7 @@ exit path.
 
 ### Migration cutover
 
-`wails3 migrate` classifies Taskfiles against current embedded ASTs and known
+`wails migrate` classifies Taskfiles against current embedded ASTs and known
 historical fingerprints, computes reachability from Wails entry points, and
 prints an ephemeral analysis. It exclusively creates inactive
 `wails.migrated.yaml`; reruns never replace a reviewed draft. `--activate`
@@ -107,7 +107,7 @@ command (`$ …`) and its output live; `Debug` adds resolver internals
 project, target, package and artifact collection nodes.
 
 **Producer feedback (cross-process):** the executor sets `WAKE_REPORT=1` for
-child processes. `wails3 generate bindings` (a subprocess) detects it and routes
+child processes. `wails generate bindings` (a subprocess) detects it and routes
 its `config.Logger` through `commands.wakeLogger`, emitting wire events on stdout
 instead of drawing its own spinner. The parent's `captureWriter` decodes those
 events and forwards them to the live step as `StepInfo` sub-lines. In-process
@@ -115,15 +115,15 @@ producers can instead use `report.Active()`.
 
 **Failures:** a failed command's captured output, command string and exit code
 are rendered in a bordered panel; the native command adapter wraps the error as
-`errReported` and `cmd/wails3/main.go` skips re-printing it (no double output).
+`errReported` and `cmd/wails/main.go` skips re-printing it (no double output).
 
 ## Testing
 
 ```bash
 go test ./internal/wake/...
-go test ./internal/commands ./cmd/wails3
-go test -race ./internal/wake/... ./internal/commands ./cmd/wails3
-go vet ./internal/wake/... ./internal/commands ./cmd/wails3
+go test ./internal/commands ./cmd/wails
+go test -race ./internal/wake/... ./internal/commands ./cmd/wails
+go vet ./internal/wake/... ./internal/commands ./cmd/wails
 ```
 
 All packages have tests. Run from `wails-v3/v3/` directory.

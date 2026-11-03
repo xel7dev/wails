@@ -23,9 +23,9 @@ type HasOptions struct {
 // HasCCOptions holds options for the deprecated has-cc command.
 type HasCCOptions struct{}
 
-// ToolHasCC is a deprecated alias for `wails3 tool has gcc|clang`.
+// ToolHasCC is a deprecated alias for `wails tool has gcc|clang`.
 func ToolHasCC(_ *HasCCOptions) error {
-	buildwarnings.Add("tool has-cc", "wails3 tool has-cc is deprecated; update your Taskfile to use: wails3 tool has gcc|clang")
+	buildwarnings.Add("tool has-cc", "wails tool has-cc is deprecated; update your Taskfile to use: wails tool has gcc|clang")
 	return ToolHas(&HasOptions{Tool: "gcc|clang"})
 }
 
@@ -34,7 +34,7 @@ func ToolHasCC(_ *HasCCOptions) error {
 func ToolHas(opts *HasOptions) error {
 	DisableFooter = true
 	if opts == nil || strings.TrimSpace(opts.Tool) == "" {
-		return fmt.Errorf("missing argument: specify a tool name (e.g. wails3 tool has gcc|clang)")
+		return fmt.Errorf("missing argument: specify a tool name (e.g. wails tool has gcc|clang)")
 	}
 	for _, name := range strings.Split(opts.Tool, "|") {
 		if _, err := exec.LookPath(strings.TrimSpace(name)); err == nil {

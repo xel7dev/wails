@@ -43,8 +43,8 @@ From `v3/`, with the GTK/WebKit runtime libraries installed:
 ```bash
 CGO_ENABLED=0 go test -tags purego ./internal/assetserver/webview ./pkg/application ./internal/puregogen
 CGO_ENABLED=0 go test -tags purego,gtk3 ./internal/assetserver/webview ./pkg/application
-CGO_ENABLED=0 GOARCH=arm64 go build -tags purego ./cmd/wails3 ./pkg/application
-CGO_ENABLED=0 GOARCH=arm64 go build -tags purego,gtk3 ./cmd/wails3 ./pkg/application
+CGO_ENABLED=0 GOARCH=arm64 go build -tags purego ./cmd/wails ./pkg/application
+CGO_ENABLED=0 GOARCH=arm64 go build -tags purego,gtk3 ./cmd/wails ./pkg/application
 CGO_ENABLED=0 go build -tags purego -o /tmp/wails-parity ./tests/purego
 xvfb-run -a dbus-run-session -- /tmp/wails-parity
 ```

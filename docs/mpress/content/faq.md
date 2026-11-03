@@ -22,7 +22,7 @@ Wails is a framework for building desktop applications with Go and web technolog
 
 You can also serve your application as a regular web app using the [server build](/guides/server-build/).
 
-Run `wails3 doctor` at any time to check your system and get platform-specific installation instructions.
+Run `wails doctor` at any time to check your system and get platform-specific installation instructions.
 
 ### What do I need to get started?
 
@@ -30,7 +30,7 @@ Run `wails3 doctor` at any time to check your system and get platform-specific i
 - Node.js and npm (for the frontend build)
 - Platform toolchain: WebView2 on Windows (preinstalled on 10/11), Xcode Command Line Tools on macOS, `gcc` plus GTK/WebKit development packages on Linux
 
-`wails3 doctor` checks all of this for you and tells you exactly what is missing. See [Installation](/quick-start/installation/) for the full walkthrough.
+`wails doctor` checks all of this for you and tells you exactly what is missing. See [Installation](/quick-start/installation/) for the full walkthrough.
 
 ### Is Wails v3 production-ready?
 
@@ -66,7 +66,7 @@ import { GreetService } from "./bindings/changeme";
 const message = await GreetService.Greet("World");
 ```
 
-Bindings are regenerated automatically during `wails3 dev`, or on demand with `wails3 generate bindings`. See [Services](/features/bindings/services/).
+Bindings are regenerated automatically during `wails dev`, or on demand with `wails generate bindings`. See [Services](/features/bindings/services/).
 
 ### Can I use TypeScript?
 
@@ -92,14 +92,14 @@ Event names must match exactly. See the [Events Reference](/guides/events-refere
 
 ### How do I debug my application?
 
-Run `wails3 dev` and right-click in the window to open the browser dev tools, exactly as you would on the web. The dev server also supports hot reload of your frontend. See [Debugging](/guides/dev/debugging/).
+Run `wails dev` and right-click in the window to open the browser dev tools, exactly as you would on the web. The dev server also supports hot reload of your frontend. See [Debugging](/guides/dev/debugging/).
 
 ## Building & Distribution
 
 ### How do I build for production?
 
 ```bash
-wails3 build
+wails build
 ```
 
 Your binary lands in `bin/`. Production builds already apply the sensible defaults (build tags, `-trimpath`, stripped symbols), so no extra flags are needed for a lean binary.
@@ -110,10 +110,10 @@ Within limits. Pure Go cross-compilation does not apply because each platform us
 
 ```bash
 # Different architecture, same OS
-wails3 build GOOS=windows GOARCH=arm64
+wails build GOOS=windows GOARCH=arm64
 
 # macOS universal binary
-wails3 task darwin:build:universal
+wails task darwin:build:universal
 ```
 
 Building for Linux from another OS uses a Docker-based toolchain. See [Cross-Platform Builds](/guides/build/cross-platform/) for the full matrix.
@@ -121,7 +121,7 @@ Building for Linux from another OS uses a Docker-based toolchain. See [Cross-Pla
 ### How do I create an installer or package?
 
 ```bash
-wails3 package
+wails package
 ```
 
 This produces the platform-native format, and the [Installers guide](/guides/installers/) covers NSIS on Windows, `.app` bundles and DMGs on macOS, and Linux packages.
@@ -176,7 +176,7 @@ Yes. Wails v3 includes a built-in self-updater (`app.Updater`) with pluggable pr
 ### Something is not working. Where do I start?
 
 ```bash
-wails3 doctor
+wails doctor
 ```
 
 It verifies your toolchain, lists missing dependencies with install commands, and prints the version information you should include in any bug report.
@@ -187,16 +187,16 @@ The usual fixes, in order:
 
 1. `go mod tidy`
 2. `cd frontend && npm install` (a missing `node_modules` is the most common cause)
-3. Update the CLI: `go install github.com/xel7dev/wails/v3/cmd/wails3@master`
-4. On Linux, check `wails3 doctor` for missing GTK/WebKit packages
+3. Update the CLI: `go install github.com/xel7dev/wails/v3/cmd/wails@master`
+4. On Linux, check `wails doctor` for missing GTK/WebKit packages
 
 ### My bindings are missing or stale
 
 ```bash
-wails3 generate bindings
+wails generate bindings
 ```
 
-Bindings regenerate automatically in dev mode; if you added a new service or changed method signatures outside of `wails3 dev`, regenerate them manually.
+Bindings regenerate automatically in dev mode; if you added a new service or changed method signatures outside of `wails dev`, regenerate them manually.
 
 ### Events are not firing
 
@@ -204,7 +204,7 @@ Event names must match exactly between `app.Event.Emit("name", ...)` in Go and `
 
 ### I found a bug
 
-Please [open an issue](https://github.com/wailsapp/wails/issues) and include your `wails3 doctor` output. The [feedback guide](/feedback/) explains what makes a report easy to act on.
+Please [open an issue](https://github.com/wailsapp/wails/issues) and include your `wails doctor` output. The [feedback guide](/feedback/) explains what makes a report easy to act on.
 
 ## Migrating existing projects
 

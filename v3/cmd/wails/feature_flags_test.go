@@ -12,7 +12,7 @@ import (
 )
 
 func TestExperimentalCLICompatibility(t *testing.T) {
-	binary := filepath.Join(t.TempDir(), "wails3")
+	binary := filepath.Join(t.TempDir(), "wails")
 	if runtime.GOOS == "windows" {
 		binary += ".exe"
 	}

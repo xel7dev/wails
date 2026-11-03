@@ -3,7 +3,7 @@
 ## Development
 
 ```sh
-wails3 dev
+wails dev
 ```
 
 The frontend is built with Vite and managed by Bun. Its source is in `frontend/`.
@@ -11,7 +11,7 @@ The frontend is built with Vite and managed by Bun. Its source is in `frontend/`
 ## Build
 
 ```sh
-wails3 build
+wails build
 ```
 
 See the [Wails documentation](https://wails.io) for configuration and APIs.

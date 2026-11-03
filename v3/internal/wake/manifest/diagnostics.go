@@ -92,7 +92,7 @@ func formatValidationDiagnostic(output *strings.Builder, validation *ValidationE
 
 func validationSuggestion(validation *ValidationError) string {
 	if strings.Contains(validation.Detail, "unsupported field") {
-		return "remove the unsupported field or compare this section with `wails3 eject` output"
+		return "remove the unsupported field or compare this section with `wails eject` output"
 	}
 	switch validation.Field {
 	case "frontend.install":

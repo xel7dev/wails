@@ -280,7 +280,7 @@ func initWithWizard(options *flags.Init, runWizard func(*flags.Init) (*setupwiza
 		if err := setupwizard.ApplyWakeInit(options.ProjectDir, *wakeConfig); err != nil {
 			return err
 		}
-		fmt.Println("Build profile saved. Run: wails3 build setup")
+		fmt.Println("Build profile saved. Run: wails build setup")
 	}
 
 	// Initialize git repository if URL is provided
@@ -332,7 +332,7 @@ func initialiseTemplateBuildManifest(options *flags.Init) error {
 			return err
 		}
 		if !options.Quiet {
-			term.Warningf("The template contains Taskfile customisations, so legacy builds remain active. Review %s and rerun `wails3 migrate` for current diagnostics.\n", manifest.MigratedFilename)
+			term.Warningf("The template contains Taskfile customisations, so legacy builds remain active. Review %s and rerun `wails migrate` for current diagnostics.\n", manifest.MigratedFilename)
 		}
 		return nil
 	}

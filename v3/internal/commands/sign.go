@@ -20,7 +20,7 @@ import (
 
 // resolveSigningDefaults fills in any signing options not supplied via flags from
 // the global config (~/.config/wails/defaults.yaml). This makes the signing
-// configuration written by `wails3 setup` take effect at sign time for every
+// configuration written by `wails setup` take effect at sign time for every
 // platform — flags (and therefore project Taskfile vars) still win when present.
 func resolveSigningDefaults(options *flags.Sign) {
 	explicitAppleIdentity := options.Identity != ""
@@ -91,7 +91,7 @@ func Sign(options *flags.Sign) error {
 	}
 
 	// Backfill any unset options from the global signing config so the values
-	// configured via `wails3 setup` are honored across all platforms.
+	// configured via `wails setup` are honored across all platforms.
 	resolveSigningDefaults(options)
 
 	// Determine what type of signing to do based on file extension and flags
@@ -135,7 +135,7 @@ func signMacOSDiskImage(options *flags.Sign) error {
 		return signPortableApple(context.Background(), options)
 	}
 	if options.Identity == "" {
-		return fmt.Errorf("--identity is required for macOS disk image signing (set via `wails3 setup` or --identity flag)")
+		return fmt.Errorf("--identity is required for macOS disk image signing (set via `wails setup` or --identity flag)")
 	}
 	args := []string{"--force", "--sign", options.Identity, options.Input}
 	cmd := exec.Command("codesign", args...)
@@ -156,7 +156,7 @@ func notarizeMacOSDiskImage(ctx context.Context, options *flags.Sign) error {
 		return notarizeMacOSWithAPI(ctx, options)
 	}
 	if options.KeychainProfile == "" {
-		return fmt.Errorf("--keychain-profile is required for notarization (set via `wails3 setup` or --keychain-profile flag)")
+		return fmt.Errorf("--keychain-profile is required for notarization (set via `wails setup` or --keychain-profile flag)")
 	}
 	if err := submitNotarizationProfile(ctx, options.Input, options.KeychainProfile); err != nil {
 		return err
@@ -174,7 +174,7 @@ func signMacOSApp(options *flags.Sign) error {
 		return signPortableApple(context.Background(), options)
 	}
 	if options.Identity == "" {
-		return fmt.Errorf("--identity is required for macOS signing (set via `wails3 setup` or --identity flag)")
+		return fmt.Errorf("--identity is required for macOS signing (set via `wails setup` or --identity flag)")
 	}
 
 	if options.Verbose {
@@ -237,7 +237,7 @@ func signMacOSBinary(options *flags.Sign) error {
 		return signPortableApple(context.Background(), options)
 	}
 	if options.Identity == "" {
-		return fmt.Errorf("--identity is required for macOS signing (set via `wails3 setup` or --identity flag)")
+		return fmt.Errorf("--identity is required for macOS signing (set via `wails setup` or --identity flag)")
 	}
 
 	if options.Verbose {
@@ -276,7 +276,7 @@ func notarizeMacOSApp(ctx context.Context, options *flags.Sign) error {
 		return notarizeMacOSWithAPI(ctx, options)
 	}
 	if options.KeychainProfile == "" {
-		return fmt.Errorf("--keychain-profile is required for notarization (set via `wails3 setup` or --keychain-profile flag)")
+		return fmt.Errorf("--keychain-profile is required for notarization (set via `wails setup` or --keychain-profile flag)")
 	}
 
 	if options.Verbose {
@@ -318,7 +318,7 @@ func signDEB(options *flags.Sign) error {
 		return signExportedPackage(options, "deb", key)
 	}
 	if options.PGPKey == "" {
-		return fmt.Errorf("no PGP signing key found for DEB signing — configure linux.signing in wails.yaml, pass --pgp-key, or run `wails3 setup` / `wails3 setup signing`")
+		return fmt.Errorf("no PGP signing key found for DEB signing — configure linux.signing in wails.yaml, pass --pgp-key, or run `wails setup` / `wails setup signing`")
 	}
 
 	// Get password from keychain if not provided
@@ -381,7 +381,7 @@ func signRPM(options *flags.Sign) error {
 		return signExportedPackage(options, "rpm", key)
 	}
 	if options.PGPKey == "" {
-		return fmt.Errorf("no PGP signing key found for RPM signing — configure linux.signing in wails.yaml, pass --pgp-key, or run `wails3 setup` / `wails3 setup signing`")
+		return fmt.Errorf("no PGP signing key found for RPM signing — configure linux.signing in wails.yaml, pass --pgp-key, or run `wails setup` / `wails setup signing`")
 	}
 
 	// Get password from keychain if not provided

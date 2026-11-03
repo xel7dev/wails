@@ -4,7 +4,7 @@ Read the [repository-wide agent instructions](../AGENTS.md) first. This file sco
 
 ## Intent
 
-`v3/` is the Wails v3 Go module. It contains the public application APIs, `wails3` CLI, platform implementations, generators, frontend runtime sources and bundles, templates, examples, tests, and v3-specific release tooling. Its module is defined by `v3/go.mod`.
+`v3/` is the Wails v3 Go module. It contains the public application APIs, `wails` CLI, platform implementations, generators, frontend runtime sources and bundles, templates, examples, tests, and v3-specific release tooling. Its module is defined by `v3/go.mod`.
 
 ## How to work here
 
@@ -22,7 +22,7 @@ Read the [repository-wide agent instructions](../AGENTS.md) first. This file sco
 - Triage the actual issue or PR content. Do not infer priority or release placement from absent labels.
 - Use GitHub issues and PRs as the authoritative tracker; do not create local task lists.
 - Do not recreate `UNRELEASED_CHANGELOG.md` or edit the published v3 changelog in ordinary PRs. Release notes are generated from merged PRs in the tested commit range; provide the user-visible impact in the PR title or a `## Release notes` description section. See the root changelog ownership policy for maintenance exceptions.
-- For agent-assisted builds and app testing, follow the root Wails MCP guidance: `wails3 mcp` manages project jobs; the separate `mcp`-tagged application server controls a running app.
+- For agent-assisted builds and app testing, follow the root Wails MCP guidance: `wails mcp` manages project jobs; the separate `mcp`-tagged application server controls a running app.
 
 ## In scope
 

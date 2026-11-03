@@ -34,7 +34,7 @@ func TestCpMultipleDestinations(t *testing.T) {
 			if mode == "directories" {
 				destinations = []string{first, second, copies[2]}
 			}
-			os.Args = append([]string{"wails3", "tool", "cp", source, source}, destinations...)
+			os.Args = append([]string{"wails", "tool", "cp", source, source}, destinations...)
 			if err := Cp(&CpOptions{}); err != nil {
 				t.Fatal(err)
 			}
@@ -52,8 +52,8 @@ func TestCpRequiresSourceAndDestination(t *testing.T) {
 	previousArgs, previousFooter := os.Args, DisableFooter
 	t.Cleanup(func() { os.Args, DisableFooter = previousArgs, previousFooter })
 	for _, args := range [][]string{
-		{"wails3", "tool", "cp"},
-		{"wails3", "tool", "cp", "source"},
+		{"wails", "tool", "cp"},
+		{"wails", "tool", "cp", "source"},
 	} {
 		os.Args = args
 		if err := Cp(&CpOptions{}); err == nil {
@@ -85,7 +85,7 @@ func TestCpSourcePermissions(t *testing.T) {
 				t.Fatal(err)
 			}
 			for path, want := range map[string]os.FileMode{created: sourceInfo.Mode().Perm(), existing: 0600} {
-				os.Args = []string{"wails3", "tool", "cp", source, path}
+				os.Args = []string{"wails", "tool", "cp", source, path}
 				if err := Cp(&CpOptions{}); err != nil {
 					t.Fatal(err)
 				}

@@ -131,4 +131,4 @@ tasks:
     summary: Generate events only (use runtime:build to rebuild everything)
     cmds:
       - task: generate:events
-      - echo "Events generated. Run 'wails3 task runtime:build' to rebuild runtime with updated documentation"
+      - echo "Events generated. Run 'wails task runtime:build' to rebuild runtime with updated documentation"

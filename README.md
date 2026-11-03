@@ -40,7 +40,7 @@
 Wails v3.0.0 是面向 Windows、macOS 和 Linux 桌面应用程序的稳定版本。 Android 和 iOS 支持仍处于实验阶段，不在稳定桌面版的兼容性保证范围内。
 
 ```sh
-go install github.com/xel7dev/wails/v3/cmd/wails3@master
+go install github.com/xel7dev/wails/v3/cmd/wails@master
 ```
 
 [wails.io](https://wails.io/)

@@ -9,35 +9,35 @@ Start here to find a command by purpose. For command-specific flags and usage ex
 
 ## Overview
 
-The Wails CLI (`wails3`) is the command-line entry point for creating, developing, building, signing, packaging, and inspecting Wails 3 applications. Most build orchestration is delegated to per-project Taskfiles (under `build/` in your project) — many `wails3` commands are thin wrappers that invoke a specific task.
+The Wails CLI (`wails`) is the command-line entry point for creating, developing, building, signing, packaging, and inspecting Wails 3 applications. Most build orchestration is delegated to per-project Taskfiles (under `build/` in your project) — many `wails` commands are thin wrappers that invoke a specific task.
 
 For the most up-to-date help on any command, run:
 
 ```bash
-wails3 --help
-wails3 <command> --help
+wails --help
+wails <command> --help
 ```
 
 ## Project lifecycle
 
 | Command | Description |
 | --- | --- |
-| `wails3 init` | Create a new project from a template. Flags: `-n` (project name), `-t` (template, default `vanilla`), `-p` (Go package name, default `main`), `-d` (project directory, default `.`), `-q` (quiet), `-l` (list templates), `-mod` (Go module path), `--git` (Git repository URL), `--skipgomodtidy`, `-s` (skip remote-template warning), `--productname`/`--productdescription`/`--productversion`/`--productcompany`/`--productcopyright`/`--productcomments`/`--productidentifier`. |
-| `wails3 dev` | Run the application in development mode with frontend hot reload. Flags: `--config` (default `./build/config.yml`), `--port` (Vite dev port), `-s` (enable HTTPS). |
-| `wails3 build` | Build the project. Thin wrapper around the Taskfile `build` task. Flags: `--tags` (forwarded as `EXTRA_TAGS=`), `--obfuscated` (build with Garble; see [Obfuscated Builds](/guides/build/obfuscation/)), `--garbleargs` (extra flags forwarded to `garble` before the `build` subcommand). |
-| `wails3 package` | Run the platform-specific `package` Taskfile task. |
-| `wails3 task [name]` | Run any Taskfile task; with no name, `--list` shows every registered task. |
-| `wails3 mcp` | Start the project MCP server. Automatically uses stdio for agent-launched processes or loopback Streamable HTTP for interactive terminal use. |
-| `wails3 doctor` | Print a diagnostic report of your environment. |
-| `wails3 doctor-ng` | Newer TUI variant of `doctor`. |
-| `wails3 version` | Print the CLI version. |
-| `wails3 releasenotes` | Print recent release notes. |
-| `wails3 docs` | Open the docs site in your browser. |
-| `wails3 sponsor` | Open the sponsor page. |
+| `wails init` | Create a new project from a template. Flags: `-n` (project name), `-t` (template, default `vanilla`), `-p` (Go package name, default `main`), `-d` (project directory, default `.`), `-q` (quiet), `-l` (list templates), `-mod` (Go module path), `--git` (Git repository URL), `--skipgomodtidy`, `-s` (skip remote-template warning), `--productname`/`--productdescription`/`--productversion`/`--productcompany`/`--productcopyright`/`--productcomments`/`--productidentifier`. |
+| `wails dev` | Run the application in development mode with frontend hot reload. Flags: `--config` (default `./build/config.yml`), `--port` (Vite dev port), `-s` (enable HTTPS). |
+| `wails build` | Build the project. Thin wrapper around the Taskfile `build` task. Flags: `--tags` (forwarded as `EXTRA_TAGS=`), `--obfuscated` (build with Garble; see [Obfuscated Builds](/guides/build/obfuscation/)), `--garbleargs` (extra flags forwarded to `garble` before the `build` subcommand). |
+| `wails package` | Run the platform-specific `package` Taskfile task. |
+| `wails task [name]` | Run any Taskfile task; with no name, `--list` shows every registered task. |
+| `wails mcp` | Start the project MCP server. Automatically uses stdio for agent-launched processes or loopback Streamable HTTP for interactive terminal use. |
+| `wails doctor` | Print a diagnostic report of your environment. |
+| `wails doctor-ng` | Newer TUI variant of `doctor`. |
+| `wails version` | Print the CLI version. |
+| `wails releasenotes` | Print recent release notes. |
+| `wails docs` | Open the docs site in your browser. |
+| `wails sponsor` | Open the sponsor page. |
 
 ## Generation
 
-`wails3 generate <subcommand>`:
+`wails generate <subcommand>`:
 
 | Subcommand | Description |
 | --- | --- |
@@ -54,27 +54,27 @@ wails3 <command> --help
 
 ## Update
 
-`wails3 update <subcommand>`:
+`wails update <subcommand>`:
 
 | Subcommand | Description |
 | --- | --- |
 | `update build-assets` | Refresh the `build/` directory from `build/config.yml` (preserves user edits where possible). |
-| `update cli` | Self-update the `wails3` binary. |
+| `update cli` | Self-update the `wails` binary. |
 
 ## Code signing & packaging
 
 | Command | Description |
 | --- | --- |
-| `wails3 signing` | Interactive wizard that configures signing for the platforms it detects in `build/`. Flags: `--platform` (repeatable; defaults to auto-detect from build directory). |
-| `wails3 entitlements` | Interactive wizard for macOS entitlements. Flag: `--output` (path; default `build/darwin/entitlements.plist`). |
-| `wails3 sign [GOOS=…]` | Wrapper that runs the platform-specific `*:sign` Taskfile task for the current OS (or the one specified via `GOOS`). |
-| `wails3 tool sign` | Low-level direct signing entry point. Flags: `--input`, `--output`, `--verbose`, `--certificate`, `--password`, `--thumbprint`, `--timestamp`, `--identity`, `--entitlements`, `--hardened-runtime`, `--notarize`, `--keychain-profile`, `--pgp-key`, `--pgp-password`, `--role`. |
+| `wails signing` | Interactive wizard that configures signing for the platforms it detects in `build/`. Flags: `--platform` (repeatable; defaults to auto-detect from build directory). |
+| `wails entitlements` | Interactive wizard for macOS entitlements. Flag: `--output` (path; default `build/darwin/entitlements.plist`). |
+| `wails sign [GOOS=…]` | Wrapper that runs the platform-specific `*:sign` Taskfile task for the current OS (or the one specified via `GOOS`). |
+| `wails tool sign` | Low-level direct signing entry point. Flags: `--input`, `--output`, `--verbose`, `--certificate`, `--password`, `--thumbprint`, `--timestamp`, `--identity`, `--entitlements`, `--hardened-runtime`, `--notarize`, `--keychain-profile`, `--pgp-key`, `--pgp-password`, `--role`. |
 
-In this release, the CLI parser exposes `signing` and `entitlements` at the top level. Check `wails3 signing --help` and `wails3 entitlements --help`; `wails3 setup signing` does not select the signing wizard. For direct credential management, use `xcrun notarytool store-credentials` or `gpg`.
+In this release, the CLI parser exposes `signing` and `entitlements` at the top level. Check `wails signing --help` and `wails entitlements --help`; `wails setup signing` does not select the signing wizard. For direct credential management, use `xcrun notarytool store-credentials` or `gpg`.
 
 ## Tools
 
-`wails3 tool <subcommand>`:
+`wails tool <subcommand>`:
 
 | Subcommand | Description |
 | --- | --- |
@@ -90,7 +90,7 @@ In this release, the CLI parser exposes `signing` and `entitlements` at the top 
 
 ## Services
 
-`wails3 service <subcommand>`:
+`wails service <subcommand>`:
 
 | Subcommand | Description |
 | --- | --- |
@@ -98,7 +98,7 @@ In this release, the CLI parser exposes `signing` and `entitlements` at the top 
 
 ## iOS
 
-`wails3 ios <subcommand>`:
+`wails ios <subcommand>`:
 
 | Subcommand | Description |
 | --- | --- |

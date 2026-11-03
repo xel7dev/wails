@@ -152,7 +152,7 @@ Wails v3 introduces a significant improvement in how bindings are generated for 
 
 Binding generation is now done using a sophisticated static analyzer that radically improves the binding generation process. It offers enhanced speed and preserves code quality by maintaining comments and parameter names.
 
-The binding generation process has been simplified, requiring only a single command: `wails3 generate bindings`.
+The binding generation process has been simplified, requiring only a single command: `wails generate bindings`.
 
 @note{type="tip" title="Bindings"}
 @details{title="Example"}

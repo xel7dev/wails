@@ -16,7 +16,7 @@ The electron alternative for Go
 export function debugLog(message: any) {
     // eslint-disable-next-line
     console.log(
-        '%c wails3 %c ' + message + ' ',
+        '%c wails %c ' + message + ' ',
         'background: #aa0000; color: #fff; border-radius: 3px 0px 0px 3px; padding: 1px; font-size: 0.7rem',
         'background: #009900; color: #fff; border-radius: 0px 3px 3px 0px; padding: 1px; font-size: 0.7rem'
     );

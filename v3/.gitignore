@@ -1,5 +1,5 @@
 examples/kitchensink/kitchensink
-cmd/wails3/wails
+cmd/wails/wails
 /examples/systray-menu/systray
 /examples/window/window
 /examples/dialogs/dialogs
@@ -8,7 +8,7 @@ cmd/wails3/wails
 /examples/clipboard/clipboard
 /examples/plain/plain
 /examples/server/server
-/cmd/wails3/ui/.task/
+/cmd/wails/ui/.task/
 # Taskfile checksum cache (any location)
 .task/
 # Gradle build problems report

@@ -83,8 +83,8 @@ jobs:
           GOOS: linux
           GOARCH: arm64
         run: |
-          go build -tags purego ./pkg/application ./cmd/wails3
-          go build -tags purego,gtk3 ./pkg/application ./cmd/wails3
+          go build -tags purego ./pkg/application ./cmd/wails
+          go build -tags purego,gtk3 ./pkg/application ./cmd/wails
           go build -tags purego,production ./tests/purego
           go build -tags purego,gtk3,production ./tests/purego
       - name: Race-check native dispatch and cancellation
@@ -101,7 +101,7 @@ jobs:
           CGO_ENABLED: '1'
         run: |
           for tags in purego purego,gtk3; do
-            dependencies=$(go list -tags "$tags" -deps -f '{{if .CgoFiles}}{{.ImportPath}}{{end}}' ./pkg/application ./cmd/wails3)
+            dependencies=$(go list -tags "$tags" -deps -f '{{if .CgoFiles}}{{.ImportPath}}{{end}}' ./pkg/application ./cmd/wails)
             dependencies=$(printf '%s\n' "$dependencies" | grep -Ev '^(runtime/cgo|github.com/ebitengine/purego/internal/cgo|net|os/user)?$' || true)
             test -z "$dependencies" || { echo "$dependencies"; exit 1; }
           done

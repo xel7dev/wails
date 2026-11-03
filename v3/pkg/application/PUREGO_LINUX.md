@@ -16,7 +16,7 @@ CGO_ENABLED=1 go build ./...                    # the cgo backend (default)
 The purego backend is experimental and opt-in, as on macOS: every purego Linux
 file carries `purego` and every cgo Linux file `!purego`, so exactly one backend
 is compiled. `CGO_ENABLED=0` without the tag fails with one error
-(`internal/buildguard`). `wails3` adds the tag when `WAILS_PUREGO=1` is set.
+(`internal/buildguard`). `wails` adds the tag when `WAILS_PUREGO=1` is set.
 Cross-compiling from any host works (`GOOS=linux GOARCH=amd64 CGO_ENABLED=0`),
 since no C toolchain or Linux sysroot is involved.
 

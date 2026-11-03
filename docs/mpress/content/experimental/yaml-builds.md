@@ -46,7 +46,7 @@ Projects that have not migrated continue through the separate embedded Task runt
 
 ## Configure a project
 
-To create and configure a project in the browser, run `wails3 init -ui` with the opt-in enabled and follow the [Wake tutorial](/experimental/wake/). Project choices live in `wails.yaml`; edit that file to change an existing project. `wails3 setup` configures shared preferences, tools and signing credentials.
+To create and configure a project in the browser, run `wails init -ui` with the opt-in enabled and follow the [Wake tutorial](/experimental/wake/). Project choices live in `wails.yaml`; edit that file to change an existing project. `wails setup` configures shared preferences, tools and signing credentials.
 
 With the opt-in enabled, add `wails.yaml` at the project root. Its presence
 selects the native build system and makes Wails ignore every Taskfile in that
@@ -81,15 +81,15 @@ profiles:
 Run the default host build or the complete named release request:
 
 ```bash
-wails3 build
-wails3 build release
+wails build
+wails build release
 ```
 
 For a one-off build, select comma-separated targets and formats without adding
 a profile:
 
 ```bash
-wails3 build --targets linux/amd64 --formats deb,rpm
+wails build --targets linux/amd64 --formats deb,rpm
 ```
 
 ## Cross-compile desktop applications
@@ -115,8 +115,8 @@ build:
 ```
 
 ```bash
-wails3 build --targets windows/amd64,windows/arm64,linux/amd64,linux/arm64,darwin/amd64,darwin/arm64
-wails3 build --targets darwin/universal --formats dmg
+wails build --targets windows/amd64,windows/arm64,linux/amd64,linux/arm64,darwin/amd64,darwin/arm64
+wails build --targets darwin/universal --formats dmg
 ```
 
 The second command combines both macOS architectures and creates an unsigned
@@ -178,8 +178,8 @@ and included in the default app bundles and installers. User-owned replacement
 package files control their own contents.
 
 ```bash
-wails3 build --binaries notes,notes-tool --jobs 4
-wails3 build --binaries notes-tool --skip-frontend --skip-bindings
+wails build --binaries notes,notes-tool --jobs 4
+wails build --binaries notes-tool --skip-frontend --skip-bindings
 ```
 
 A named profile is a complete request; use these selection overrides with an
@@ -206,8 +206,8 @@ Use `--skip-build` when another build system or CI job has already produced the
 executables:
 
 ```bash
-wails3 build --targets linux/amd64 --formats deb,rpm --skip-build
-wails3 run --skip-build -- --example-mode
+wails build --targets linux/amd64 --formats deb,rpm --skip-build
+wails run --skip-build -- --example-mode
 ```
 
 Place each executable in `build.output` (default `bin`), using
@@ -232,7 +232,7 @@ build tools are not required. Package metadata comes from the current manifest,
 including `version_file` when configured; no version is inferred from the binary.
 Use matching build and package settings, including GUI versus CLI kind.
 
-`wails3 package --skip-build` is also supported. With `wails3 run`, launch
+`wails package --skip-build` is also supported. With `wails run`, launch
 arguments and environment still apply, and the executable must run on the host.
 This mode requires an active YAML project and supports production desktop
 targets only; it does not apply to development sessions or mobile packaging.
@@ -378,7 +378,7 @@ profiles:
 ```
 
 Set the named environment variable through your local environment or CI secret
-store, then run `wails3 build release`. Omit `credential` for an unencrypted
+store, then run `wails build release`. Omit `credential` for an unencrypted
 key. The Go signer runs on every supported desktop host and does not require
 GPG. It publishes the original `.pkg.tar.zst` and a sibling `.pkg.tar.zst.sig`;
 both are recorded separately in the artifact receipt. Key contents are not
@@ -438,7 +438,7 @@ Signed outputs retain their platform extension, for example
 
 ## Development controls
 
-During `wails3 dev`, enter a command followed by Enter:
+During `wails dev`, enter a command followed by Enter:
 
 | Command | Action |
 | --- | --- |
@@ -458,8 +458,8 @@ Plan inspection resolves the same immutable graph used by execution. Text is
 for people; JSON is a versioned machine-readable contract.
 
 ```bash
-wails3 build release --plan
-wails3 build release --plan --json
+wails build release --plan
+wails build release --plan --json
 ```
 
 ## Validate configuration without building
@@ -469,8 +469,8 @@ configuration. With no profile it validates the base manifest and every named
 profile; with a profile it checks only that complete request:
 
 ```bash
-wails3 config check
-wails3 config check release
+wails config check
+wails config check release
 ```
 
 Syntax, schema, semantic, path, target, format, signing, planner and
@@ -495,9 +495,9 @@ Production Android profiles produce AABs. For local deployment, Wails builds an
 ABI-specific debug APK internally, installs it with ADB, and launches the app:
 
 ```bash
-wails3 android devices
-wails3 android run --device SERIAL
-wails3 android run --emulator AVD_NAME
+wails android devices
+wails android run --device SERIAL
+wails android run --emulator AVD_NAME
 ```
 
 Without an explicit selector, an interactive terminal offers connected devices
@@ -508,8 +508,8 @@ Attach an application-scoped log stream and monitor the target until the app
 exits or you press Ctrl+C:
 
 ```bash
-wails3 android run --emulator AVD_NAME --logs
-wails3 android run --emulator AVD_NAME --logs --stop-emulator
+wails android run --emulator AVD_NAME --logs
+wails android run --emulator AVD_NAME --logs --stop-emulator
 ```
 
 Attached runs follow an application restart and report target disconnects or
@@ -614,9 +614,9 @@ artifact identity.
 Create and review an inactive draft:
 
 ```bash
-wails3 migrate
-wails3 migrate --dry-run
-wails3 migrate --json
+wails migrate
+wails migrate --dry-run
+wails migrate --json
 ```
 
 Conservative argument-free lifecycle tasks that invoke a project-owned script
@@ -625,7 +625,7 @@ as a blocker. After reviewing
 `wails.migrated.yaml`, activate it explicitly:
 
 ```bash
-wails3 migrate --activate
+wails migrate --activate
 ```
 
 Activation creates `wails.yaml` atomically. It does not delete, rename or edit
@@ -638,15 +638,15 @@ To inspect or copy the complete resolved configuration, write an inactive
 snapshot:
 
 ```bash
-wails3 eject
+wails eject
 ```
 
 This creates `wails.ejected.yaml`. It never rewrites active configuration.
 
 ## Compatibility window
 
-`wails3 package` and `wails3 sign` are deprecated aliases for the same planner;
-new automation should use `wails3 build` with a profile or formats. Rollout is
+`wails package` and `wails sign` are deprecated aliases for the same planner;
+new automation should use `wails build` with a profile or formats. Rollout is
 release-gated: the first release makes YAML the new-project path, the following
 release warns on legacy Taskfile routing, and the next removes Taskfile
 execution together with the aliases. Each transition requires the native-host
@@ -655,5 +655,5 @@ acceptance matrix for that release to be green.
 See the generated [`wails.yaml` field reference](/reference/wails-yaml-fields/)
 for every field, type, default and applicability rule.
 
-The [`wails3 run` configuration reference](/reference/wails-yaml-run/) describes
+The [`wails run` configuration reference](/reference/wails-yaml-run/) describes
 local launch defaults, platform overrides and the no-manifest `go run .` fallback.

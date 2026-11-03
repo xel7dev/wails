@@ -25,7 +25,7 @@ type cleanOperations struct {
 
 func cleanWithOperations(args []string, operations cleanOperations) error {
 	if len(args) != 0 {
-		return fmt.Errorf("usage: wails3 clean")
+		return fmt.Errorf("usage: wails clean")
 	}
 	root, _, err := operations.discover(".")
 	if err != nil {

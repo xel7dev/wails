@@ -38,7 +38,7 @@ npm install --save @wailsio/runtime
 Some projects will not use a Javascript bundler and may prefer to use a pre-built bundled version of the runtime. This version can be generated locally using the following command:
 
 ```shell
-wails3 generate runtime
+wails generate runtime
 ```
 
 The command will output a `runtime.js` (and `runtime-debug.js`) file in the current directory. This file is an ES module that can be imported by your application scripts just like the npm package, but the API is also exported to the global window object, so for simpler applications you can use it as follows:
@@ -98,8 +98,8 @@ The argument is the generated bindings directory, relative to the Vite project. 
 
 ### Benefits
 
-- **Automatic Reloading**: Event bindings are automatically regenerated and reloaded when you run `wails3 generate bindings`
-- **Development Mode**: Works seamlessly with `wails3 dev` for instant updates
+- **Automatic Reloading**: Event bindings are automatically regenerated and reloaded when you run `wails generate bindings`
+- **Development Mode**: Works seamlessly with `wails dev` for instant updates
 - **Type Safety**: Full TypeScript support with autocomplete and type checking
 
 ### Usage with Event Registration
@@ -120,13 +120,13 @@ func init() {
 Generate bindings:
 
 ```bash
-wails3 generate bindings
+wails generate bindings
 
 # Or, to include TypeScript definitions
-wails3 generate bindings -ts
+wails generate bindings -ts
 
 # For more options, see:
-wails3 generate bindings -help
+wails generate bindings -help
 ```
 
 Use typed events in your frontend:

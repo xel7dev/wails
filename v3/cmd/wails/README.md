@@ -5,7 +5,7 @@ There are a number of commands related to tooling, such as icon generation and a
 
 ## MCP project server
 
-`wails3 mcp` starts a local Model Context Protocol server for agent-assisted project
+`wails mcp` starts a local Model Context Protocol server for agent-assisted project
 management. It is separate from the experimental MCP server compiled into a running
 Wails application: this server manages the project lifecycle, while the application
 server controls the running WebView.
@@ -23,7 +23,7 @@ and disclosed in the MCP initialize instructions (and on stderr for human operat
 
 ```bash
 cd /path/to/project-or-workspace
-wails3 mcp
+wails mcp
 ```
 
 In terminal mode, the command prints the endpoint and bearer token to stderr. In
@@ -34,8 +34,8 @@ Example agent configuration:
 ```json
 {
   "mcpServers": {
-    "wails3": {
-      "command": "wails3",
+    "wails": {
+      "command": "wails",
       "args": ["mcp"]
     }
   }
@@ -77,7 +77,7 @@ The `icon` command generates icons for your project.
 | `-macFilename`     | string | The output filename for the Mac icon bundle          | icons.icns           |
 
 ```bash
-wails3 generate icon -input myicon.png -sizes "32,64,128" -windowsFilename myicon.ico -macFilename myicon.icns       
+wails generate icon -input myicon.png -sizes "32,64,128" -windowsFilename myicon.ico -macFilename myicon.icns       
 ```
 
 This will generate icons for mac and windows and save them in the current directory as `myicon.ico`
@@ -88,7 +88,7 @@ and `myicons.icns`.
 The `syso` command generates a Windows resource file (aka `.syso`).
 
 ```bash
-wails3 generate syso <options>
+wails generate syso <options>
 ```
 
 | Flag        | Type   | Description                                | Default          |
@@ -117,14 +117,14 @@ NOTE: Whilst the tool will work for 32-bit Windows, it is not supported. Please 
 #### defaults
 
 ```bash
-wails3 generate defaults      
+wails generate defaults      
 ```
 This will generate all the default assets and resources in the current directory.
 
 #### bindings
 
 ```bash
-wails3 generate bindings
+wails generate bindings
 ```
 
 Generates bindings and models for your bound Go methods and structs.

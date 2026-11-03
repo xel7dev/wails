@@ -40,7 +40,7 @@ export default function WakeSetupChoices({ step, config, initial, update }: {
         {target.formats.length === 0 && <p className="mt-3 text-xs text-gray-500">Use the platform's default output without an additional package.</p>}
         {target.os === 'ios' && <label className="block mt-3 text-sm text-gray-700 dark:text-gray-300">Destination<select className={`${inputClass} mt-1`} value={target.destination || 'device'} onChange={(event) => update({ ...config, targets: config.targets.map((item) => targetKey(item) === targetKey(target) ? { ...item, destination: event.target.value as 'device' | 'simulator' } : item) })}><option value="device">Device</option><option value="simulator">Simulator</option></select></label>}
       </fieldset>)}
-      <Choice checked={config.sign} onChange={() => update({ ...config, sign: !config.sign })} label="Sign release outputs">Use your configured signing credentials. Manage global credentials with wails3 setup; project-specific and mobile signing can be configured in wails.yaml.</Choice>
+      <Choice checked={config.sign} onChange={() => update({ ...config, sign: !config.sign })} label="Sign release outputs">Use your configured signing credentials. Manage global credentials with wails setup; project-specific and mobile signing can be configured in wails.yaml.</Choice>
     </>;
   }
   return null;

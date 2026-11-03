@@ -25,15 +25,15 @@ The canonical workflows are:
 
 ```bash
 export WAILS_EXP_USE_WAKE=1
-wails3 build
-wails3 build release
-wails3 build --plan
-wails3 build --plan --json
-wails3 dev
+wails build
+wails build release
+wails build --plan
+wails build --plan --json
+wails dev
 ```
 
-`wails3 package` and `wails3 sign` are deprecated compatibility aliases over
-the same planner. New project documentation should use `wails3 build` with a
+`wails package` and `wails sign` are deprecated compatibility aliases over
+the same planner. New project documentation should use `wails build` with a
 profile or anonymous `--targets` and `--formats` options.
 
 The manifest is literal configuration. It has no expressions, includes,
@@ -103,7 +103,7 @@ obfuscation, signing, and notarisation policy.
 
 ## Migration and ejection
 
-`wails3 migrate` analyses root and included Taskfiles, conventional overrides,
+`wails migrate` analyses root and included Taskfiles, conventional overrides,
 `build/config.yml`, frontend metadata, lockfiles, TypeScript configuration, and
 conventional assets. It prints current diagnostics and exclusively creates an
 inactive `wails.migrated.yaml` when that path does not exist.
@@ -121,7 +121,7 @@ behaviour blocks cutover; unrelated utility tasks are reported without
 blocking. Conservative, argument-free lifecycle tasks that invoke a contained
 script file migrate to the equivalent typed hook.
 
-`wails3 eject` exclusively writes the complete resolved reference manifest to
+`wails eject` exclusively writes the complete resolved reference manifest to
 inactive `wails.ejected.yaml`. `--force` atomically replaces only that inactive
 file.
 
@@ -138,9 +138,9 @@ executor; it has been removed.
 Run from `v3/`:
 
 ```bash
-go test ./internal/wake/... ./internal/commands ./cmd/wails3
-go test -race ./internal/wake/... ./internal/commands ./cmd/wails3
-go vet ./internal/wake/... ./internal/commands ./cmd/wails3
+go test ./internal/wake/... ./internal/commands ./cmd/wails
+go test -race ./internal/wake/... ./internal/commands ./cmd/wails
+go vet ./internal/wake/... ./internal/commands ./cmd/wails
 ```
 
 Build and dev performance harnesses are

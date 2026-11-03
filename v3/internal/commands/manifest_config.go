@@ -31,7 +31,7 @@ type ejectOperations struct {
 
 func ejectWithOperations(options *EjectOptions, args []string, operations ejectOperations) error {
 	if len(args) != 0 {
-		return fmt.Errorf("usage: wails3 eject [--force]")
+		return fmt.Errorf("usage: wails eject [--force]")
 	}
 	root, err := operations.getwd()
 	if err != nil {

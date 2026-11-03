@@ -158,7 +158,7 @@ func TestWrapTask(t *testing.T) {
 			otherArgs:        []string{"CONFIG=debug"},
 			expectedTaskName: "build",
 			expectedArgs:     []string{"CONFIG=debug", "GOOS=" + currentOS, "ARCH=" + currentArch},
-			expectedOsArgs:   []string{"wails3", "task", "build", "CONFIG=debug", "GOOS=" + currentOS, "ARCH=" + currentArch},
+			expectedOsArgs:   []string{"wails", "task", "build", "CONFIG=debug", "GOOS=" + currentOS, "ARCH=" + currentArch},
 		},
 		{
 			name:             "Host package runs root package task",
@@ -166,7 +166,7 @@ func TestWrapTask(t *testing.T) {
 			otherArgs:        []string{"VERSION=1.0.0", "OUTPUT=app.pkg"},
 			expectedTaskName: "package",
 			expectedArgs:     []string{"VERSION=1.0.0", "OUTPUT=app.pkg", "GOOS=" + currentOS, "ARCH=" + currentArch},
-			expectedOsArgs:   []string{"wails3", "task", "package", "VERSION=1.0.0", "OUTPUT=app.pkg", "GOOS=" + currentOS, "ARCH=" + currentArch},
+			expectedOsArgs:   []string{"wails", "task", "package", "VERSION=1.0.0", "OUTPUT=app.pkg", "GOOS=" + currentOS, "ARCH=" + currentArch},
 		},
 		{
 			name:             "Host build without parameters runs root build task",
@@ -174,7 +174,7 @@ func TestWrapTask(t *testing.T) {
 			otherArgs:        []string{},
 			expectedTaskName: "build",
 			expectedArgs:     []string{"GOOS=" + currentOS, "ARCH=" + currentArch},
-			expectedOsArgs:   []string{"wails3", "task", "build", "GOOS=" + currentOS, "ARCH=" + currentArch},
+			expectedOsArgs:   []string{"wails", "task", "build", "GOOS=" + currentOS, "ARCH=" + currentArch},
 		},
 		{
 			// sign has no root dispatch task, so it always targets the platform.
@@ -183,7 +183,7 @@ func TestWrapTask(t *testing.T) {
 			otherArgs:        []string{"IDENTITY=Developer ID"},
 			expectedTaskName: currentOS + ":sign",
 			expectedArgs:     []string{"IDENTITY=Developer ID", "GOOS=" + currentOS, "ARCH=" + currentArch},
-			expectedOsArgs:   []string{"wails3", "task", currentOS + ":sign", "IDENTITY=Developer ID", "GOOS=" + currentOS, "ARCH=" + currentArch},
+			expectedOsArgs:   []string{"wails", "task", currentOS + ":sign", "IDENTITY=Developer ID", "GOOS=" + currentOS, "ARCH=" + currentArch},
 		},
 		{
 			// Cross-OS build still runs the root `build` task; the GOOS variable
@@ -193,7 +193,7 @@ func TestWrapTask(t *testing.T) {
 			otherArgs:        []string{"GOOS=" + foreignOS, "CONFIG=release"},
 			expectedTaskName: "build",
 			expectedArgs:     []string{"CONFIG=release", "GOOS=" + foreignOS, "ARCH=" + currentArch},
-			expectedOsArgs:   []string{"wails3", "task", "build", "CONFIG=release", "GOOS=" + foreignOS, "ARCH=" + currentArch},
+			expectedOsArgs:   []string{"wails", "task", "build", "CONFIG=release", "GOOS=" + foreignOS, "ARCH=" + currentArch},
 		},
 		{
 			// GOARCH alone (cross-arch, same OS) runs the root task; the root
@@ -203,7 +203,7 @@ func TestWrapTask(t *testing.T) {
 			otherArgs:        []string{"GOARCH=arm64"},
 			expectedTaskName: "build",
 			expectedArgs:     []string{"GOOS=" + currentOS, "ARCH=arm64"},
-			expectedOsArgs:   []string{"wails3", "task", "build", "GOOS=" + currentOS, "ARCH=arm64"},
+			expectedOsArgs:   []string{"wails", "task", "build", "GOOS=" + currentOS, "ARCH=arm64"},
 		},
 		{
 			name:             "Cross-OS GOOS and GOARCH override",
@@ -211,7 +211,7 @@ func TestWrapTask(t *testing.T) {
 			otherArgs:        []string{"GOOS=" + foreignOS, "GOARCH=386", "VERSION=2.0"},
 			expectedTaskName: "package",
 			expectedArgs:     []string{"VERSION=2.0", "GOOS=" + foreignOS, "ARCH=386"},
-			expectedOsArgs:   []string{"wails3", "task", "package", "VERSION=2.0", "GOOS=" + foreignOS, "ARCH=386"},
+			expectedOsArgs:   []string{"wails", "task", "package", "VERSION=2.0", "GOOS=" + foreignOS, "ARCH=386"},
 		},
 		{
 			name:             "Environment GOOS (cross) is used when no arg override",
@@ -220,7 +220,7 @@ func TestWrapTask(t *testing.T) {
 			envGOOS:          foreignOS,
 			expectedTaskName: "build",
 			expectedArgs:     []string{"CONFIG=debug", "GOOS=" + foreignOS, "ARCH=" + currentArch},
-			expectedOsArgs:   []string{"wails3", "task", "build", "CONFIG=debug", "GOOS=" + foreignOS, "ARCH=" + currentArch},
+			expectedOsArgs:   []string{"wails", "task", "build", "CONFIG=debug", "GOOS=" + foreignOS, "ARCH=" + currentArch},
 		},
 		{
 			// Arg GOOS takes precedence over the GOOS environment variable; the
@@ -231,7 +231,7 @@ func TestWrapTask(t *testing.T) {
 			envGOOS:          "darwin",
 			expectedTaskName: "build",
 			expectedArgs:     []string{"GOOS=" + foreignOS, "ARCH=" + currentArch},
-			expectedOsArgs:   []string{"wails3", "task", "build", "GOOS=" + foreignOS, "ARCH=" + currentArch},
+			expectedOsArgs:   []string{"wails", "task", "build", "GOOS=" + foreignOS, "ARCH=" + currentArch},
 		},
 	}
 
@@ -596,7 +596,7 @@ func TestPackageCommand(t *testing.T) {
 	})
 	err := Package(packageFlags, otherArgs)
 	assert.NoError(t, err)
-	assert.NotContains(t, output.String(), "wails3 package is deprecated")
+	assert.NotContains(t, output.String(), "wails package is deprecated")
 	assert.Equal(t, "package", capturedOptions.Name)
 	assert.Equal(t, []string{"VERSION=2.0.0", "OUTPUT=myapp.dmg", "GOOS=" + currentOS, "ARCH=" + currentArch}, capturedOtherArgs)
 }
@@ -655,7 +655,7 @@ func TestSignWrapperCommand(t *testing.T) {
 	})
 	err := SignWrapper(signFlags, otherArgs)
 	assert.NoError(t, err)
-	assert.NotContains(t, output.String(), "wails3 sign is deprecated")
+	assert.NotContains(t, output.String(), "wails sign is deprecated")
 	assert.Equal(t, currentOS+":sign", capturedOptions.Name)
 	assert.Equal(t, []string{"IDENTITY=Developer ID", "GOOS=" + currentOS, "ARCH=" + currentArch}, capturedOtherArgs)
 }

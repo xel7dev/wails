@@ -774,7 +774,7 @@ export default function SigningStep({ onNext, onSkip, onBack, canGoBack, platfor
                       rel="noopener noreferrer"
                       className="text-blue-500 hover:underline"
                     >
-                      Use <code className="font-mono">wails3 setup signing</code> ↗
+                      Use <code className="font-mono">wails setup signing</code> ↗
                     </a>
                   </p>
                 </motion.div>
@@ -1155,7 +1155,7 @@ function GPGKeySetup({ defaultName, defaultEmail, onCreated, startOpen }: {
         {done.keyPath && (
           <p className="text-xs">
             Exported to <code className="font-mono break-all">{done.keyPath}</code>. This file is now used by
-            your global signing defaults. To configure a project-specific override, run <code className="font-mono">wails3 setup signing</code> from that project.
+            your global signing defaults. To configure a project-specific override, run <code className="font-mono">wails setup signing</code> from that project.
           </p>
         )}
       </div>

@@ -375,7 +375,7 @@ jobs:
         working-directory: v3
         run: |
           task install
-          wails3 doctor
+          wails doctor
 
       - name: Download runtime package
         uses: actions/download-artifact@v4
@@ -394,12 +394,12 @@ jobs:
           fi
           mkdir -p ./test-${{ matrix.template }}
           cd ./test-${{ matrix.template }}
-          wails3 init -n ${{ matrix.template }} -t ${{ matrix.template }}
+          wails init -n ${{ matrix.template }} -t ${{ matrix.template }}
           cd ${{ matrix.template }}/frontend
           # Replace @wailsio/runtime version with local tarball
           npm pkg set dependencies.@wailsio/runtime="file://$RUNTIME_TGZ"
           cd ..
-          wails3 build
+          wails build
 
       # GTK3 legacy template builds are covered by the Go example compilation tests above.
 
